@@ -18,12 +18,23 @@ export const en: Dictionary = {
   },
   hero: {
     eyebrow: "Software engineering studio",
-    headline: "Custom software that works — day and night.",
+    headline: {
+      lead: "Custom software that works day and night — built for ",
+      rotating: [
+        "government compliance",
+        "Web3 payments",
+        "energy infrastructure",
+        "production SaaS",
+        "hospitality operations",
+      ],
+    },
     paragraph:
       "Full-stack systems, automation pipelines, and Web3 integrations, engineered for teams who need tailor-made solutions that stay reliable around the clock. Polyglot engineering — TypeScript, Python, Solidity/Soroban — proven across tax compliance, Web3 payments, and production SaaS running 24/7.",
     ctaPrimary: "See the work",
     ctaSecondary: "Talk to us",
     scrollHint: "Scroll to work",
+    pauseRotation: "Pause rotating text",
+    resumeRotation: "Resume rotating text",
     sectors: {
       government: "Government & Compliance",
       web3: "Web3 & Blockchain",

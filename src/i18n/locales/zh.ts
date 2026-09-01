@@ -18,12 +18,23 @@ export const zh: Dictionary = {
   },
   hero: {
     eyebrow: "软件工程工作室",
-    headline: "定制软件，昼夜运转。",
+    headline: {
+      lead: "定制软件，昼夜运转——",
+      rotating: [
+        "为政务合规打造",
+        "为 Web3 支付打造",
+        "为能源基础设施打造",
+        "为生产级 SaaS 打造",
+        "为酒店餐饮运营打造",
+      ],
+    },
     paragraph:
       "全栈系统、自动化流水线与 Web3 集成，专为需要全天候稳定运行的定制解决方案的团队打造。多语言工程能力——TypeScript、Python、Solidity/Soroban——已在税务合规、Web3 支付和 24/7 运行的生产级 SaaS 中得到验证。",
     ctaPrimary: "查看作品",
     ctaSecondary: "联系我们",
     scrollHint: "向下滚动查看作品",
+    pauseRotation: "暂停轮播文字",
+    resumeRotation: "继续轮播文字",
     sectors: {
       government: "政府与合规",
       web3: "Web3 与区块链",

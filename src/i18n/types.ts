@@ -28,11 +28,28 @@ export type Dictionary = {
   }
   hero: {
     eyebrow: string
-    headline: string
+    /**
+     * The static lead reads once; `rotating` is a set of self-contained
+     * phrases that crossfade in place after it, one at a time. Each entry
+     * must read naturally when appended directly after `lead` with nothing
+     * else in between — no shared template does the joining or inserts a
+     * separator, so `lead` itself must already end with whatever separates
+     * it from the rotating word in that language (a trailing space for a
+     * space-delimited script; nothing at all for a locale like Chinese that
+     * doesn't use inter-word spaces). A locale that needs different grammar
+     * (word order, case, a trailing particle) encodes that directly in its
+     * own `lead`/`rotating` strings too.
+     */
+    headline: { lead: string; rotating: string[] }
     paragraph: string
     ctaPrimary: string
     ctaSecondary: string
     scrollHint: string
+    /** Accessible label for the hero's rotating-headline pause toggle, in
+     * its "currently playing, click to pause" state (WCAG 2.2.2). */
+    pauseRotation: string
+    /** Same toggle's label in its "currently paused, click to resume" state. */
+    resumeRotation: string
     sectors: Record<SectorKey, string>
     stats: StatCopy[]
   }

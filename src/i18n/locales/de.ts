@@ -18,12 +18,23 @@ export const de: Dictionary = {
   },
   hero: {
     eyebrow: "Studio für Softwareentwicklung",
-    headline: "Individuelle Software, die funktioniert — Tag und Nacht.",
+    headline: {
+      lead: "Individuelle Software, die Tag und Nacht funktioniert — gebaut für ",
+      rotating: [
+        "Behörden-Compliance",
+        "Web3-Zahlungen",
+        "Energieinfrastruktur",
+        "Produktions-SaaS",
+        "Gastgewerbebetriebe",
+      ],
+    },
     paragraph:
       "Full-Stack-Systeme, Automatisierungs-Pipelines und Web3-Integrationen — entwickelt für Teams, die maßgeschneiderte Lösungen brauchen, die rund um die Uhr zuverlässig laufen. Polyglotte Entwicklung — TypeScript, Python, Solidity/Soroban — bewährt in Steuer-Compliance, Web3-Zahlungen und Produktions-SaaS im 24/7-Betrieb.",
     ctaPrimary: "Projekte ansehen",
     ctaSecondary: "Sprechen Sie mit uns",
     scrollHint: "Zu den Projekten scrollen",
+    pauseRotation: "Rotierenden Text pausieren",
+    resumeRotation: "Rotierenden Text fortsetzen",
     sectors: {
       government: "Behörden & Compliance",
       web3: "Web3 & Blockchain",

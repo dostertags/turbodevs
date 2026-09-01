@@ -18,12 +18,23 @@ export const fr: Dictionary = {
   },
   hero: {
     eyebrow: "Studio d'ingénierie logicielle",
-    headline: "Des logiciels sur mesure qui fonctionnent — jour et nuit.",
+    headline: {
+      lead: "Des logiciels sur mesure qui fonctionnent jour et nuit — conçus pour ",
+      rotating: [
+        "conformité gouvernementale",
+        "paiements Web3",
+        "infrastructure énergétique",
+        "SaaS en production",
+        "hôtellerie-restauration",
+      ],
+    },
     paragraph:
       "Systèmes full-stack, pipelines d'automatisation et intégrations Web3, conçus pour les équipes qui ont besoin de solutions sur mesure fiables en continu. Ingénierie polyglotte — TypeScript, Python, Solidity/Soroban — éprouvée sur la conformité fiscale, les paiements Web3 et des SaaS en production tournant 24 h/24, 7 j/7.",
     ctaPrimary: "Voir les réalisations",
     ctaSecondary: "Parlez-nous",
     scrollHint: "Défiler vers les réalisations",
+    pauseRotation: "Mettre en pause le texte rotatif",
+    resumeRotation: "Reprendre le texte rotatif",
     sectors: {
       government: "Secteur public et conformité",
       web3: "Web3 et blockchain",

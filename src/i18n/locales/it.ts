@@ -18,12 +18,23 @@ export const it: Dictionary = {
   },
   hero: {
     eyebrow: "Studio di ingegneria del software",
-    headline: "Software su misura che funziona — giorno e notte.",
+    headline: {
+      lead: "Software su misura che funziona giorno e notte — creato per ",
+      rotating: [
+        "conformità governativa",
+        "pagamenti Web3",
+        "infrastrutture energetiche",
+        "SaaS in produzione",
+        "ospitalità",
+      ],
+    },
     paragraph:
       "Sistemi full-stack, pipeline di automazione e integrazioni Web3, progettati per team che hanno bisogno di soluzioni su misura affidabili 24 ore su 24. Ingegneria poliglotta — TypeScript, Python, Solidity/Soroban — collaudata in ambito di compliance fiscale, pagamenti Web3 e SaaS in produzione attivi 24/7.",
     ctaPrimary: "Guarda i lavori",
     ctaSecondary: "Parla con noi",
     scrollHint: "Scorri per i lavori",
+    pauseRotation: "Metti in pausa il testo rotante",
+    resumeRotation: "Riprendi il testo rotante",
     sectors: {
       government: "Pubblica Amministrazione & Compliance",
       web3: "Web3 & Blockchain",

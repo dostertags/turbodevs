@@ -3,6 +3,7 @@ import { useFrame } from "@react-three/fiber"
 import * as THREE from "three"
 
 import { damp, view } from "./state"
+import { useDotTexture } from "./useDotTexture"
 
 const NODE_COUNT = 46
 // Exactly as many ivory "verified" nodes as real engagements featured on the
@@ -34,30 +35,6 @@ function seededRandom(seed: number) {
     t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296
   }
-}
-
-/**
- * A soft radial-gradient dot, drawn once to a canvas and reused as a sprite
- * texture. Cheaper and smoother than instancing real sphere geometry for
- * ~50 points, and reads as a glowing node rather than a flat circle.
- */
-function useDotTexture(hex: string) {
-  return useMemo(() => {
-    const size = 64
-    const canvas = document.createElement("canvas")
-    canvas.width = size
-    canvas.height = size
-    const ctx = canvas.getContext("2d")!
-    const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2)
-    gradient.addColorStop(0, hex)
-    gradient.addColorStop(0.4, hex)
-    gradient.addColorStop(1, "rgba(0,0,0,0)")
-    ctx.fillStyle = gradient
-    ctx.fillRect(0, 0, size, size)
-    const tex = new THREE.CanvasTexture(canvas)
-    tex.needsUpdate = true
-    return tex
-  }, [hex])
 }
 
 function buildGraph(): { nodes: Node[]; edges: Edge[] } {
