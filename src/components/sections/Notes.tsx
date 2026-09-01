@@ -22,7 +22,7 @@ function NoteCard({ note, readSuffix }: { note: NoteCopy; readSuffix: string }) 
         className="flex w-full items-start justify-between gap-4 px-6 py-6 text-left sm:px-8"
       >
         <div>
-          <p className="font-mono text-[11px] tracking-[0.06em] text-muted uppercase">
+          <p className="text-[11px] font-semibold tracking-[0.06em] text-muted uppercase">
             {note.readTime} {readSuffix}
           </p>
           <h3 className="mt-2 text-[19px] font-semibold text-ink">{note.title}</h3>
@@ -59,7 +59,7 @@ export function Notes() {
   return (
     <section id="notes" className="relative mx-auto max-w-4xl px-5 py-24 sm:px-8 sm:py-32">
       <Reveal>
-        <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">
+        <p className="text-[11px] font-bold tracking-[0.16em] text-accent uppercase">
           {t.notes.eyebrow}
         </p>
       </Reveal>

@@ -2,16 +2,25 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet" />
 <style>
+  /* Self-hosted from node_modules — same package the live site imports via
+     @fontsource-variable/mona-sans, so this static image uses the exact
+     same typeface as the page it's a preview card for. Google Fonts doesn't
+     carry Mona Sans (it's GitHub's own font), hence the local file:// path
+     instead of the usual <link> tag. */
+  @font-face {
+    font-family: 'Mona Sans Variable';
+    src: url('../node_modules/@fontsource-variable/mona-sans/files/mona-sans-latin-wght-normal.woff2') format('woff2-variations');
+    font-weight: 200 900;
+    font-style: normal;
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body {
     width: 1200px;
     height: 630px;
     background: #0a0908;
     overflow: hidden;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Mona Sans Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   svg.graph {
     position: absolute;
@@ -41,22 +50,19 @@
   }
   .mark svg { width: 46px; height: 46px; }
   .wordmark {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 40px;
     letter-spacing: 0.01em;
     color: #f2efe9;
   }
   .name {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 74px;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
     color: #f2efe9;
     line-height: 1;
   }
   .tagline {
-    font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 400;
     font-size: 26px;
     color: #9c9488;

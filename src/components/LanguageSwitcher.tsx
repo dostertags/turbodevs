@@ -36,7 +36,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1.5 font-mono text-[11px] font-semibold tracking-[0.04em] text-ink transition-colors hover:border-accent"
+        className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-1.5 text-[11px] font-bold tracking-[0.04em] text-ink transition-colors hover:border-accent"
       >
         <Globe aria-hidden="true" className="size-3.5 text-muted" />
         {current?.label}
@@ -67,7 +67,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
                   )}
                 >
                   <span>{l.name}</span>
-                  <span className="font-mono text-[11px] text-muted">{l.label}</span>
+                  <span className="text-[11px] font-semibold text-muted">{l.label}</span>
                 </button>
               </li>
             ))}

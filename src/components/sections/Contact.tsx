@@ -31,7 +31,7 @@ export function Contact() {
   return (
     <section id="contact" className="relative mx-auto max-w-3xl px-5 py-24 sm:px-8 sm:py-32">
       <Reveal className="text-center">
-        <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">
+        <p className="text-[11px] font-bold tracking-[0.16em] text-accent uppercase">
           {t.contact.eyebrow}
         </p>
         <h2 className="mt-3 text-[28px] leading-[1.2] font-semibold tracking-[-0.01em] text-ink sm:text-[36px]">

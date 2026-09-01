@@ -61,7 +61,7 @@ export function Nav() {
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
         <a
           href="#top"
-          className="flex items-center gap-2 font-mono text-[13px] font-semibold tracking-[0.02em] text-ink"
+          className="flex items-center gap-2 text-[13px] font-extrabold tracking-[0.02em] text-ink"
         >
           <Mark />
           TurboDevs
@@ -72,7 +72,7 @@ export function Nav() {
             <li key={item.href}>
               <a
                 href={item.href}
-                className="inline-block py-2 font-mono text-[12px] tracking-[0.06em] text-muted uppercase transition-colors hover:text-ink"
+                className="inline-block py-2 text-[12px] font-semibold tracking-[0.06em] text-muted uppercase transition-colors hover:text-ink"
               >
                 {t.nav[item.key]}
               </a>
@@ -84,7 +84,7 @@ export function Nav() {
           <LanguageSwitcher />
           <a
             href="#contact"
-            className="rounded-full bg-accent px-5 py-2 font-mono text-[12px] font-semibold tracking-[0.02em] text-bg transition-colors hover:bg-[#f0b85c]"
+            className="rounded-full bg-accent px-5 py-2 text-[12px] font-bold tracking-[0.02em] text-bg transition-colors hover:bg-[#f0b85c]"
           >
             {t.nav.startProject}
           </a>
@@ -119,7 +119,7 @@ export function Nav() {
                   <a
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block py-2.5 font-mono text-[13px] tracking-[0.04em] text-ink uppercase"
+                    className="block py-2.5 text-[13px] font-semibold tracking-[0.04em] text-ink uppercase"
                   >
                     {t.nav[item.key]}
                   </a>
@@ -129,7 +129,7 @@ export function Nav() {
                 <a
                   href="#contact"
                   onClick={() => setOpen(false)}
-                  className="block rounded-full bg-accent px-5 py-2.5 text-center font-mono text-[13px] font-semibold text-bg"
+                  className="block rounded-full bg-accent px-5 py-2.5 text-center text-[13px] font-bold text-bg"
                 >
                   {t.nav.startProject}
                 </a>

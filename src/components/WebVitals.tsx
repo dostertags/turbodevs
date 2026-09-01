@@ -40,18 +40,18 @@ function StatCell({ name, metric }: { name: MetricName; metric?: MetricState }) 
     <div className="flex flex-col gap-2.5 rounded-xl border border-border bg-surface-2 px-4 py-4">
       <div className="flex items-center gap-2">
         <Icon aria-hidden="true" className="size-3.5 shrink-0 text-accent" />
-        <span className="font-mono text-[10.5px] font-semibold tracking-[0.08em] text-ink uppercase">
+        <span className="text-[10.5px] font-bold tracking-[0.08em] text-ink uppercase">
           {copy.label}
         </span>
       </div>
 
-      <span className="font-mono text-[22px] font-semibold tracking-[-0.01em] text-ink">
+      <span className="tabular-nums text-[22px] font-bold tracking-[-0.01em] text-ink">
         {measured ? formatValue(name, metric.value) : "—"}
       </span>
 
       <span
         className={cn(
-          "font-mono text-[11px] tracking-[0.02em]",
+          "text-[11px] tracking-[0.02em]",
           measured ? (isGood ? "text-accent" : "text-[#e08a45]") : "text-muted italic",
         )}
       >
@@ -84,7 +84,7 @@ export function WebVitals() {
 
   return (
     <div className="tg-glass rounded-2xl p-6">
-      <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">
+      <p className="text-[11px] font-bold tracking-[0.16em] text-accent uppercase">
         {t.webVitals.eyebrow}
       </p>
       <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">

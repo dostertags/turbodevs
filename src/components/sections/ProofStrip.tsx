@@ -41,7 +41,7 @@ export function ProofStrip() {
           <span key={stat.label} className="flex items-center gap-x-2">
             {index > 0 && <span className="text-muted" aria-hidden="true">·</span>}
             <span className="flex items-baseline gap-1.5">
-              <span className="font-mono tabular-nums font-semibold text-accent">{stat.value}</span>
+              <span className="tabular-nums font-bold text-accent">{stat.value}</span>
               <span className="text-muted">{stat.label}</span>
             </span>
           </span>

@@ -12,7 +12,7 @@ export function FeaturedWork() {
   return (
     <section id="work" className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
       <Reveal>
-        <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">
+        <p className="text-[11px] font-bold tracking-[0.16em] text-accent uppercase">
           {t.work.eyebrow}
         </p>
       </Reveal>
@@ -29,9 +29,12 @@ export function FeaturedWork() {
             <RevealItem key={item.slug}>
               <TiltCard className="h-full rounded-2xl">
                 <div className="tg-glass flex h-full flex-col rounded-2xl p-7">
-                  <p className="font-mono text-[11px] font-medium tracking-[0.08em] text-accent uppercase">
+                  <p className="text-[11px] font-bold tracking-[0.08em] text-accent uppercase">
                     {copy.kicker}
                   </p>
+                  {/* Kept in mono deliberately — this is a real repo/project
+                      identifier (sii, previred, ...), not a heading, and
+                      reads as the code-identifier it actually is. */}
                   <h3 className="mt-2 font-mono text-[18px] font-semibold text-ink">{item.name}</h3>
                   <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-muted">{copy.description}</p>
 
@@ -42,7 +45,7 @@ export function FeaturedWork() {
                   </div>
 
                   {item.metric && (
-                    <p className="mt-4 font-mono text-[12px] tracking-[0.02em] text-muted">{item.metric}</p>
+                    <p className="tabular-nums mt-4 text-[12px] font-medium tracking-[0.02em] text-muted">{item.metric}</p>
                   )}
 
                   {item.links.length > 0 && (

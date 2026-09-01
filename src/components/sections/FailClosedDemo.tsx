@@ -123,7 +123,7 @@ export function FailClosedDemo() {
   return (
     <section id="demo" className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
       <Reveal>
-        <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">
+        <p className="text-[11px] font-bold tracking-[0.16em] text-accent uppercase">
           {t.demo.eyebrow}
         </p>
       </Reveal>

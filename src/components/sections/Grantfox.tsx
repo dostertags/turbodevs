@@ -12,7 +12,7 @@ export function Grantfox() {
     <section id="grantfox" className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
       <div className="tg-glass rounded-3xl p-7 sm:p-12">
         <Reveal>
-          <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">
+          <p className="text-[11px] font-bold tracking-[0.16em] text-accent uppercase">
             {t.grantfox.eyebrow}
           </p>
         </Reveal>
