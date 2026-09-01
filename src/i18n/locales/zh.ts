@@ -209,6 +209,19 @@ export const zh: Dictionary = {
   footer: {
     sourceLabel: "源码",
   },
+  webVitals: {
+    eyebrow: "本页面，实时测量",
+    caption: "来自您本次访问的真实数据，此刻实时呈现——将「只陈述已验证信息」的规则应用于我们自己的网站。",
+    good: "良好",
+    needsAttention: "有待改善",
+    waitingForPaint: "测量中…",
+    waitingForInteraction: "等待点击",
+    metrics: {
+      lcp: { label: "加载速度", description: "主要内容出现所需的时间。" },
+      inp: { label: "响应速度", description: "点击后页面的反应速度。" },
+      cls: { label: "视觉稳定性", description: "页面加载过程中内容是否会发生跳动。" },
+    },
+  },
   whatsapp: {
     label: "WhatsApp",
     greeting: "你好 TurboDevs！我想聊聊一个项目。",

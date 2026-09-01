@@ -209,6 +209,23 @@ export const it: Dictionary = {
   footer: {
     sourceLabel: "Codice sorgente",
   },
+  webVitals: {
+    eyebrow: "Questa pagina, misurata in tempo reale",
+    caption:
+      "Numeri reali della tua visita, proprio ora — la stessa regola di affermare solo ciò che è verificato applicata al nostro stesso sito.",
+    good: "buono",
+    needsAttention: "da migliorare",
+    waitingForPaint: "misurazione in corso…",
+    waitingForInteraction: "in attesa di un clic",
+    metrics: {
+      lcp: { label: "Velocità di caricamento", description: "Quanto tempo ha impiegato il contenuto principale a comparire." },
+      inp: {
+        label: "Reattività",
+        description: "Quanto velocemente la pagina reagisce quando clicchi su qualcosa.",
+      },
+      cls: { label: "Stabilità visiva", description: "Se il contenuto si sposta mentre la pagina si carica." },
+    },
+  },
   whatsapp: {
     label: "WhatsApp",
     greeting: "Ciao TurboDevs! Vorrei parlare di un progetto.",

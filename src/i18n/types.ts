@@ -101,6 +101,19 @@ export type Dictionary = {
   footer: {
     sourceLabel: string
   }
+  webVitals: {
+    eyebrow: string
+    caption: string
+    good: string
+    needsAttention: string
+    waitingForPaint: string
+    waitingForInteraction: string
+    metrics: {
+      lcp: { label: string; description: string }
+      inp: { label: string; description: string }
+      cls: { label: string; description: string }
+    }
+  }
   whatsapp: {
     label: string
     greeting: string

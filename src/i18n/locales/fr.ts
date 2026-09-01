@@ -209,6 +209,23 @@ export const fr: Dictionary = {
   footer: {
     sourceLabel: "Source",
   },
+  webVitals: {
+    eyebrow: "Cette page, mesurée en direct",
+    caption:
+      "Des chiffres réels de votre visite, à l'instant — la même règle consistant à n'affirmer que ce qui est vérifié, appliquée à notre propre site.",
+    good: "bon",
+    needsAttention: "à surveiller",
+    waitingForPaint: "mesure en cours…",
+    waitingForInteraction: "en attente d'un clic",
+    metrics: {
+      lcp: { label: "Vitesse de chargement", description: "Le temps mis par le contenu principal pour s'afficher." },
+      inp: {
+        label: "Réactivité",
+        description: "La rapidité de réaction de la page dès que vous cliquez sur quelque chose.",
+      },
+      cls: { label: "Stabilité visuelle", description: "Si le contenu bouge pendant le chargement de la page." },
+    },
+  },
   whatsapp: {
     label: "WhatsApp",
     greeting: "Bonjour TurboDevs ! J'aimerais discuter d'un projet.",
