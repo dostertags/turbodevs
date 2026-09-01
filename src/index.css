@@ -1,0 +1,172 @@
+@import "tailwindcss";
+@import "@fontsource-variable/ibm-plex-sans";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "@fontsource/ibm-plex-mono/600.css";
+@import "@fontsource/ibm-plex-mono/700.css";
+
+@theme inline {
+  --font-sans: "IBM Plex Sans Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --color-bg: #0a0908;
+  --color-surface: #141310;
+  --color-surface-2: #1c1a15;
+  --color-border: #2c2820;
+  --color-ink: #f2efe9;
+  --color-muted: #9c9488;
+  --color-accent: #e2a545;
+  --color-accent-dim: #6e5127;
+  --color-wire: #3d4a45;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+  }
+  ::selection {
+    background: var(--color-accent-dim);
+    color: var(--color-ink);
+  }
+}
+
+/* ==========================================================================
+   LENIS
+   ========================================================================== */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   HAND-TAILORED GLASS
+   A frosted panel with a hairline border whose highlight travels around the
+   perimeter instead of sitting flat on one edge — reads as a cut, bevelled
+   surface rather than a flat stroke.
+   ========================================================================== */
+.tg-glass {
+  position: relative;
+  isolation: isolate;
+  background: rgba(242, 239, 233, 0.045);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 0 rgba(242, 239, 233, 0.14),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.3),
+    0 12px 40px rgba(0, 0, 0, 0.45);
+}
+/* A more opaque variant for panels that must stay legible over the busiest
+   part of the network graph — the mobile nav drawer, primarily. */
+.tg-glass-solid {
+  background: rgba(10, 9, 8, 0.92);
+}
+
+.tg-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from 200deg,
+    rgba(226, 165, 69, 0.55),
+    rgba(242, 239, 233, 0.12),
+    rgba(61, 74, 69, 0.4),
+    rgba(226, 165, 69, 0.3),
+    rgba(242, 239, 233, 0.12)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tg-cursor-active,
+  .tg-cursor-active * {
+    cursor: none !important;
+  }
+}
+
+/* A slow amber sweep across the accent word in the headline. */
+.tg-shimmer {
+  background: linear-gradient(
+    100deg,
+    var(--color-ink) 30%,
+    #fff7e6 45%,
+    var(--color-accent) 50%,
+    #fff7e6 55%,
+    var(--color-ink) 70%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: tg-shimmer 8s ease-in-out infinite;
+}
+@keyframes tg-shimmer {
+  0%,
+  100% {
+    background-position: 150% 0;
+  }
+  50% {
+    background-position: -50% 0;
+  }
+}
+
+[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* Focus ring — visible on keyboard nav, invisible on mouse click. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Visually hidden but available to assistive tech (e.g. extra link context). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

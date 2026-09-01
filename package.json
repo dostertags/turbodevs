@@ -1,0 +1,44 @@
+{
+  "name": "turbodevs",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --port 4173",
+    "lint": "oxlint",
+    "qa": "node scripts/qa-check.mjs",
+    "deploy": "npm run build && firebase deploy --only hosting --project turbodevs"
+  },
+  "dependencies": {
+    "@fontsource-variable/ibm-plex-sans": "^5.2.5",
+    "@fontsource/ibm-plex-mono": "^5.2.5",
+    "@react-three/drei": "^10.7.8",
+    "@react-three/fiber": "^9.7.0",
+    "@react-three/postprocessing": "^3.0.5",
+    "clsx": "^2.1.1",
+    "lenis": "^1.3.26",
+    "lucide-react": "^1.26.0",
+    "motion": "^13.1.0",
+    "postprocessing": "^6.39.4",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "tailwind-merge": "^3.6.0",
+    "three": "^0.185.1",
+    "web-vitals": "^6.2.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.185.4",
+    "@vitejs/plugin-react": "^6.0.3",
+    "oxlint": "^1.71.0",
+    "playwright": "^1.62.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.2",
+    "vite": "^8.1.1"
+  }
+}

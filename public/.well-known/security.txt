@@ -1,0 +1,6 @@
+# TurboDevs is a small studio site. We don't run a formal bug bounty
+# program, but security reports are welcome and will be read.
+Contact: mailto:dostertags@fen.uchile.cl
+Preferred-Languages: en, es
+Canonical: https://turbodevs.web.app/.well-known/security.txt
+Expires: 2027-09-01T00:00:00.000Z

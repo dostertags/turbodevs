@@ -1,0 +1,28 @@
+# TurboDevs
+
+> Full-service software engineering studio: web apps, automation, Web3/blockchain, and fail-closed engineering discipline — every public claim traces to a named source.
+
+## About
+
+TurboDevs builds and ships production software across web, backend automation, and Web3/blockchain, and contributes to live third-party systems as outside engineers. The studio's default is fail-closed: systems are built to refuse to run in an unsafe or unverified state rather than degrade silently, and public claims are held to the same standard — traceable or labeled unverified.
+
+## Selected work
+
+- [sii](https://github.com/dostertags/sii) — Automation for Chile's tax authority (Servicio de Impuestos Internos), backed by 1,178 hermetic tests.
+- [previred](https://github.com/dostertags/previred) — Automation for Chile's pension-contributions portal (Previred).
+- [stellarfit](https://github.com/dostertags/stellarfit) — Subscription access gated by Stellar-blockchain payment confirmation.
+- [glowcheck](https://github.com/dostertags/glowcheck) — Computer-vision skin analysis.
+- [turbotrabajo](https://github.com/dostertags/turbotrabajo) — Production job-matching SaaS, live at [turbotrabajo.vercel.app](https://turbotrabajo.vercel.app).
+
+## Featured engagement
+
+TurboDevs contributes as an outside team to Grantfox, a wallet-native AI-prompt/agent marketplace built on Stellar, working across its live NestJS backend and Next.js frontend. Confirmed contributions include closing a token-forgery hole (non-development environments now refuse to boot without an explicit `JWT_SECRET`, rather than falling back to a published dev secret), blocking real deployments from starting with payment-simulation or database-seed flags enabled (the seed fabricated a 450-credit wallet), scoping all wallet reads and writes to the authenticated account only, having the API report on-chain balance as unavailable rather than invented when verification isn't wired up, populating transaction hashes only when a real Stellar hash exists, and shipping the "Market V1" dashboard, marketplace, asset-detail, and wallet pages with a purchase state machine that can't double-register a retried purchase.
+
+## Engineering discipline
+
+TurboDevs applies the same fail-closed logic to its own reporting work: for a grid-scale battery-storage client, SCADA data flows through a deterministic Python KPI engine into a frozen fact set, and an LLM narrates prose about those numbers without computing any of them itself — a grounding check verifies every numeric token the LLM emits against the frozen facts, and a single unmatched number blocks the report from publishing. That pipeline is backed by 648 tests with no network calls, plus a dead-man's-switch monitor for missed scheduled runs. The same discipline governs this site: every public claim traces to a named source, and figures that can't be verified (e.g. Grantfox's fee percentage, revenue projections) are labeled "not yet disclosed" rather than estimated.
+
+## Contact
+
+- GitHub: [github.com/dostertags](https://github.com/dostertags)
+- Site: [https://turbodevs.web.app/](https://turbodevs.web.app/)

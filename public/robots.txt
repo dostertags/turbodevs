@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://turbodevs.web.app/sitemap.xml
