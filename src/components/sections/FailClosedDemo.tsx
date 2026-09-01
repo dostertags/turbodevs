@@ -9,6 +9,7 @@ type LogEntry = {
   id: number
   ok: boolean
   text: string
+  count: number
 }
 
 /**
@@ -102,13 +103,21 @@ export function FailClosedDemo() {
     if (!jwtSecretSet) reasons.push(t.demo.reasons.jwtMissing)
     if (dbSeedOnStartup) reasons.push(t.demo.reasons.seedOn)
 
-    const entry: LogEntry =
-      reasons.length > 0
-        ? { id: nextId.current, ok: false, text: `${t.demo.refusedPrefix}${reasons.join("; ")}.` }
-        : { id: nextId.current, ok: true, text: t.demo.successLine }
+    const ok = reasons.length === 0
+    const text = ok ? t.demo.successLine : `${t.demo.refusedPrefix}${reasons.join("; ")}.`
 
-    nextId.current += 1
-    setLog((prev) => [...prev, entry].slice(-6))
+    setLog((prev) => {
+      // Redeploying with an unchanged config repeats the identical line —
+      // a real terminal (and browser devtools) collapses that into a
+      // counter instead of printing the same message twice in a row.
+      const last = prev[prev.length - 1]
+      if (last && last.ok === ok && last.text === text) {
+        return [...prev.slice(0, -1), { ...last, count: last.count + 1 }]
+      }
+      const entry: LogEntry = { id: nextId.current, ok, text, count: 1 }
+      nextId.current += 1
+      return [...prev, entry].slice(-6)
+    })
   }
 
   return (
@@ -194,7 +203,14 @@ export function FailClosedDemo() {
                       ) : (
                         <ShieldAlert className="mt-[3px] size-3.5 shrink-0" aria-hidden="true" />
                       )}
-                      <span className="break-words">{entry.text}</span>
+                      <span className="break-words">
+                        {entry.text}
+                        {entry.count > 1 && (
+                          <span className="ml-1.5 rounded-full border border-current/30 px-1.5 py-0.5 text-[10.5px] opacity-80">
+                            ×{entry.count}
+                          </span>
+                        )}
+                      </span>
                     </li>
                   ))}
                 </ul>
