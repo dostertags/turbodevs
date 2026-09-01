@@ -43,32 +43,36 @@ export function LanguageSwitcher({ className }: { className?: string }) {
       </button>
 
       {open && (
-        <ul
-          role="listbox"
-          aria-label="Select language"
-          className="tg-glass tg-glass-solid absolute top-[calc(100%+8px)] right-0 z-50 w-40 overflow-hidden rounded-xl py-1.5"
-        >
-          {options.map((l) => (
-            <li key={l.code}>
-              <button
-                type="button"
-                role="option"
-                aria-selected={l.code === language}
-                onClick={() => {
-                  setLanguage(l.code)
-                  setOpen(false)
-                }}
-                className={cn(
-                  "flex w-full items-center justify-between gap-3 px-4 py-2 text-left text-[13px] transition-colors hover:bg-white/[0.06]",
-                  l.code === language ? "text-accent" : "text-ink",
-                )}
-              >
-                <span>{l.name}</span>
-                <span className="font-mono text-[11px] text-muted">{l.label}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
+        // Positioning lives on this plain wrapper, not on the glass panel
+        // itself: `.tg-glass` sets `position: relative` (for its own
+        // ::before border), and that rule is unlayered CSS, which always
+        // beats Tailwind's layered `.absolute` utility regardless of class
+        // order. Putting both on one element silently left it in-flow,
+        // which inflated this row's height and threw off `items-center`.
+        <div className="absolute top-full right-0 z-50 mt-2 max-h-[70vh] w-40 overflow-y-auto rounded-xl">
+          <ul role="listbox" aria-label="Select language" className="tg-glass tg-glass-solid rounded-xl py-1.5">
+            {options.map((l) => (
+              <li key={l.code}>
+                <button
+                  type="button"
+                  role="option"
+                  aria-selected={l.code === language}
+                  onClick={() => {
+                    setLanguage(l.code)
+                    setOpen(false)
+                  }}
+                  className={cn(
+                    "flex w-full items-center justify-between gap-3 px-4 py-2 text-left text-[13px] transition-colors hover:bg-white/[0.06]",
+                    l.code === language ? "text-accent" : "text-ink",
+                  )}
+                >
+                  <span>{l.name}</span>
+                  <span className="font-mono text-[11px] text-muted">{l.label}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   )

@@ -32,7 +32,7 @@ export function Hero() {
     <section id="top" ref={ref} className="relative min-h-[100svh]">
       <motion.div
         style={{ y, opacity, scale, filter: blur }}
-        className="relative mx-auto flex min-h-[calc(100svh-64px)] max-w-[980px] flex-col items-center justify-center px-5 py-20 text-center sm:px-8"
+        className="relative mx-auto flex min-h-[calc(100svh_-_64px)] max-w-[980px] flex-col items-center justify-center px-5 py-20 text-center sm:px-8"
       >
         <motion.p
           initial={{ opacity: 0, y: 14 }}
