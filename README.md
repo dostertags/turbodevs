@@ -2,8 +2,9 @@
 
 [![CI](https://github.com/dostertags/turbodevs/actions/workflows/ci.yml/badge.svg)](https://github.com/dostertags/turbodevs/actions/workflows/ci.yml)
 
-Software engineering studio site — full-stack, automation, and Web3 work, built on
-the same fail-closed discipline it's selling. Live at **https://turbodevs.web.app**.
+Software engineering studio site — tailor-made web, automation, and Web3 work,
+engineered to keep running the same way it's sold: reliably. Live in 7 languages at
+**https://turbodevs.web.app**.
 
 ## Stack
 

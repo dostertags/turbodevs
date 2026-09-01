@@ -1,10 +1,10 @@
 # TurboDevs
 
-> Full-service software engineering studio: web apps, automation, Web3/blockchain, and fail-closed engineering discipline — every public claim traces to a named source.
+> Full-service software engineering studio: tailor-made web, automation, and Web3/blockchain systems engineered to keep working around the clock — every public claim traces to a named source.
 
 ## About
 
-TurboDevs builds and ships production software across web, backend automation, and Web3/blockchain, and contributes to live third-party systems as outside engineers. The studio's default is fail-closed: systems are built to refuse to run in an unsafe or unverified state rather than degrade silently, and public claims are held to the same standard — traceable or labeled unverified.
+TurboDevs builds and ships production software across web, backend automation, and Web3/blockchain, and contributes to live third-party systems as outside engineers. The studio's default is reliability: systems are built to stay up and catch problems before they reach production rather than degrade silently, and public claims are held to the same standard — traceable or labeled unverified.
 
 ## Selected work
 

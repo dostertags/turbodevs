@@ -4,6 +4,7 @@ import { Cursor } from "@/components/motion/Cursor"
 import { ScrollProgress } from "@/components/motion/ScrollProgress"
 import { Nav } from "@/components/sections/Nav"
 import { Footer } from "@/components/sections/Footer"
+import { WhatsAppButton } from "@/components/WhatsAppButton"
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
 import { useViewportSync } from "@/hooks/use-viewport-sync"
 
@@ -28,6 +29,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <Nav />
       <main className="relative z-10">{children}</main>
       <Footer />
+      <WhatsAppButton />
     </>
   )
 }

@@ -4,61 +4,69 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal"
 import { TiltCard } from "@/components/motion/TiltCard"
 import { Badge } from "@/components/ui/Badge"
 import { WORK } from "@/content/site"
+import { useI18n } from "@/i18n/LanguageContext"
 
 export function FeaturedWork() {
+  const { t } = useI18n()
+
   return (
     <section id="work" className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
       <Reveal>
-        <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">Selected work</p>
+        <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">
+          {t.work.eyebrow}
+        </p>
       </Reveal>
       <Reveal delay={0.08}>
         <h2 className="mt-3 max-w-[28ch] text-[28px] leading-[1.2] font-semibold tracking-[-0.01em] text-ink sm:text-[36px]">
-          Public, verifiable, and still running.
+          {t.work.title}
         </h2>
       </Reveal>
 
       <RevealGroup className="mt-14 grid gap-5 sm:grid-cols-2">
-        {WORK.map((item) => (
-          <RevealItem key={item.slug}>
-            <TiltCard className="h-full rounded-2xl">
-              <div className="tg-glass flex h-full flex-col rounded-2xl p-7">
-                <p className="font-mono text-[11px] font-medium tracking-[0.08em] text-accent uppercase">
-                  {item.kicker}
-                </p>
-                <h3 className="mt-2 font-mono text-[18px] font-semibold text-ink">{item.name}</h3>
-                <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-muted">{item.description}</p>
+        {WORK.map((item) => {
+          const copy = t.work.items[item.slug]
+          return (
+            <RevealItem key={item.slug}>
+              <TiltCard className="h-full rounded-2xl">
+                <div className="tg-glass flex h-full flex-col rounded-2xl p-7">
+                  <p className="font-mono text-[11px] font-medium tracking-[0.08em] text-accent uppercase">
+                    {copy.kicker}
+                  </p>
+                  <h3 className="mt-2 font-mono text-[18px] font-semibold text-ink">{item.name}</h3>
+                  <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-muted">{copy.description}</p>
 
-                <div className="mt-5 flex flex-wrap gap-1.5">
-                  {item.stack.map((s) => (
-                    <Badge key={s}>{s}</Badge>
-                  ))}
+                  <div className="mt-5 flex flex-wrap gap-1.5">
+                    {item.stack.map((s) => (
+                      <Badge key={s}>{s}</Badge>
+                    ))}
+                  </div>
+
+                  {item.metric && (
+                    <p className="mt-4 font-mono text-[12px] tracking-[0.02em] text-muted">{item.metric}</p>
+                  )}
+
+                  {item.links.length > 0 && (
+                    <div className="mt-5 flex flex-wrap gap-4 border-t border-border pt-5">
+                      {item.links.map((link) => (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1 text-[13px] font-medium text-ink transition-colors hover:text-accent"
+                        >
+                          {link.label}
+                          <span className="sr-only"> ({item.name}, opens in new tab)</span>
+                          <ArrowUpRight aria-hidden="true" className="size-3.5" />
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
-
-                {item.metric && (
-                  <p className="mt-4 font-mono text-[12px] tracking-[0.02em] text-muted">{item.metric}</p>
-                )}
-
-                {item.links.length > 0 && (
-                <div className="mt-5 flex flex-wrap gap-4 border-t border-border pt-5">
-                  {item.links.map((link) => (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1 text-[13px] font-medium text-ink transition-colors hover:text-accent"
-                    >
-                      {link.label}
-                      <span className="sr-only"> ({item.name}, opens in new tab)</span>
-                      <ArrowUpRight aria-hidden="true" className="size-3.5" />
-                    </a>
-                  ))}
-                </div>
-                )}
-              </div>
-            </TiltCard>
-          </RevealItem>
-        ))}
+              </TiltCard>
+            </RevealItem>
+          )
+        })}
       </RevealGroup>
     </section>
   )

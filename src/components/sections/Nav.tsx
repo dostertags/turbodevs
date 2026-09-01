@@ -3,7 +3,16 @@ import { AnimatePresence, motion } from "motion/react"
 import { Menu, X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { NAV } from "@/content/site"
+import { useI18n } from "@/i18n/LanguageContext"
+import { LanguageSwitcher } from "@/components/LanguageSwitcher"
+
+const NAV_ITEMS = [
+  { key: "work", href: "#work" },
+  { key: "grantfox", href: "#grantfox" },
+  { key: "approach", href: "#approach" },
+  { key: "notes", href: "#notes" },
+  { key: "contact", href: "#contact" },
+] as const
 
 function Mark() {
   return (
@@ -23,6 +32,7 @@ function Mark() {
 }
 
 export function Nav() {
+  const { t } = useI18n()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -49,40 +59,49 @@ export function Nav() {
       )}
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-        <a href="#top" className="flex items-center gap-2 font-mono text-[13px] font-semibold tracking-[0.02em] text-ink">
+        <a
+          href="#top"
+          className="flex items-center gap-2 font-mono text-[13px] font-semibold tracking-[0.02em] text-ink"
+        >
           <Mark />
           TurboDevs
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
-          {NAV.map((item) => (
+          {NAV_ITEMS.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
                 className="inline-block py-2 font-mono text-[12px] tracking-[0.06em] text-muted uppercase transition-colors hover:text-ink"
               >
-                {item.label}
+                {t.nav[item.key]}
               </a>
             </li>
           ))}
         </ul>
 
-        <a
-          href="#contact"
-          className="hidden rounded-full bg-accent px-5 py-2 font-mono text-[12px] font-semibold tracking-[0.02em] text-bg transition-colors hover:bg-[#f0b85c] md:inline-flex"
-        >
-          Start a project
-        </a>
+        <div className="hidden items-center gap-3 md:flex">
+          <LanguageSwitcher />
+          <a
+            href="#contact"
+            className="rounded-full bg-accent px-5 py-2 font-mono text-[12px] font-semibold tracking-[0.02em] text-bg transition-colors hover:bg-[#f0b85c]"
+          >
+            {t.nav.startProject}
+          </a>
+        </div>
 
-        <button
-          type="button"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-          className="inline-flex size-9 items-center justify-center rounded-full text-ink md:hidden"
-        >
-          {open ? <X className="size-5" aria-hidden="true" /> : <Menu className="size-5" aria-hidden="true" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageSwitcher />
+          <button
+            type="button"
+            aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex size-9 items-center justify-center rounded-full text-ink"
+          >
+            {open ? <X className="size-5" aria-hidden="true" /> : <Menu className="size-5" aria-hidden="true" />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -95,14 +114,14 @@ export function Nav() {
             className="tg-glass tg-glass-solid overflow-hidden md:hidden"
           >
             <ul className="flex flex-col gap-1 px-5 py-4">
-              {NAV.map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className="block py-2.5 font-mono text-[13px] tracking-[0.04em] text-ink uppercase"
                   >
-                    {item.label}
+                    {t.nav[item.key]}
                   </a>
                 </li>
               ))}
@@ -112,7 +131,7 @@ export function Nav() {
                   onClick={() => setOpen(false)}
                   className="block rounded-full bg-accent px-5 py-2.5 text-center font-mono text-[13px] font-semibold text-bg"
                 >
-                  Start a project
+                  {t.nav.startProject}
                 </a>
               </li>
             </ul>

@@ -3,6 +3,7 @@ import { Lock, ShieldAlert, ShieldCheck, TerminalSquare } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Reveal } from "@/components/motion/Reveal"
+import { useI18n } from "@/i18n/LanguageContext"
 
 type LogEntry = {
   id: number
@@ -70,13 +71,14 @@ function ConfigToggle({
 }
 
 /**
- * Interactive proof of the "fail closed, not silently" philosophy, modeled
- * directly on the deployment-mode check running in Grantfox's real backend:
- * non-development environments refuse to boot without an explicit
- * JWT_SECRET, and refuse to boot if a seed/mock flag would fabricate state.
- * Everything here is client-side state — no network calls, no fake API.
+ * Interactive proof that reliability is designed in, modeled directly on the
+ * deployment-mode check running in Grantfox's real backend: non-development
+ * environments require an explicit JWT_SECRET, and won't boot if a seed/mock
+ * flag would fabricate state. Everything here is client-side — no network
+ * calls, no fake API.
  */
 export function FailClosedDemo() {
+  const { t } = useI18n()
   const [jwtSecretSet, setJwtSecretSet] = useState(false)
   const [dbSeedOnStartup, setDbSeedOnStartup] = useState(true)
   const [log, setLog] = useState<LogEntry[]>([])
@@ -88,22 +90,22 @@ export function FailClosedDemo() {
     if (node) node.scrollTop = node.scrollHeight
   }, [log])
 
+  // Reset the log when the language changes so it never mixes strings from
+  // two different translations.
+  useEffect(() => {
+    setLog([])
+  }, [t])
+
   function handleDeploy() {
     const reasons: string[] = []
 
-    if (!jwtSecretSet) {
-      reasons.push(
-        "JWT_SECRET not set — would fall back to the published dev secret, letting anyone forge a valid token",
-      )
-    }
-    if (dbSeedOnStartup) {
-      reasons.push("DB_SEED_ON_STARTUP is on in production — boot would seed a fabricated 450-credit wallet")
-    }
+    if (!jwtSecretSet) reasons.push(t.demo.reasons.jwtMissing)
+    if (dbSeedOnStartup) reasons.push(t.demo.reasons.seedOn)
 
     const entry: LogEntry =
       reasons.length > 0
-        ? { id: nextId.current, ok: false, text: `✗ Refused to start — ${reasons.join("; ")}.` }
-        : { id: nextId.current, ok: true, text: "✓ Boot sequence started — all guard checks passed." }
+        ? { id: nextId.current, ok: false, text: `${t.demo.refusedPrefix}${reasons.join("; ")}.` }
+        : { id: nextId.current, ok: true, text: t.demo.successLine }
 
     nextId.current += 1
     setLog((prev) => [...prev, entry].slice(-6))
@@ -112,42 +114,45 @@ export function FailClosedDemo() {
   return (
     <section id="demo" className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
       <Reveal>
-        <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">SEE IT WORK</p>
+        <p className="font-mono text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">
+          {t.demo.eyebrow}
+        </p>
       </Reveal>
       <Reveal delay={0.08}>
         <h2 className="mt-3 max-w-[22ch] text-[28px] leading-[1.2] font-semibold tracking-[-0.01em] text-ink sm:text-[36px]">
-          Flip a switch. Watch it refuse.
+          {t.demo.title}
         </h2>
       </Reveal>
       <Reveal delay={0.14}>
-        <p className="mt-5 max-w-[62ch] text-[15.5px] leading-relaxed text-muted">
-          This is the same deployment-mode check running in Grantfox&apos;s real backend, reduced to a toggle. Change
-          the flags below and hit deploy — the logic runs entirely in your browser, no fake API standing in for a
-          server.
-        </p>
+        <p className="mt-5 max-w-[62ch] text-[15.5px] leading-relaxed text-muted">{t.demo.paragraph}</p>
       </Reveal>
 
       <Reveal delay={0.2} className="mt-9">
         <div className="tg-glass rounded-2xl p-6 sm:p-8">
           <div className="flex items-center gap-2 text-muted">
             <TerminalSquare className="size-4" aria-hidden="true" />
-            <span className="font-mono text-[11px] tracking-[0.08em] uppercase">deploy panel</span>
+            <span className="font-mono text-[11px] tracking-[0.08em] uppercase">{t.demo.panelLabel}</span>
           </div>
 
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
             <ConfigToggle
-              label="JWT_SECRET set"
-              description="Explicit secret for signing auth tokens."
+              label={t.demo.toggles.jwt.label}
+              description={t.demo.toggles.jwt.description}
               checked={jwtSecretSet}
               onToggle={() => setJwtSecretSet((v) => !v)}
             />
             <ConfigToggle
-              label="DB_SEED_ON_STARTUP"
-              description="Seeds a demo wallet balance on boot."
+              label={t.demo.toggles.seed.label}
+              description={t.demo.toggles.seed.description}
               checked={dbSeedOnStartup}
               onToggle={() => setDbSeedOnStartup((v) => !v)}
             />
-            <ConfigToggle label="NODE_ENV=production" description="Locked for this demo." checked locked />
+            <ConfigToggle
+              label={t.demo.toggles.nodeEnv.label}
+              description={t.demo.toggles.nodeEnv.description}
+              checked
+              locked
+            />
           </div>
 
           <button
@@ -155,7 +160,7 @@ export function FailClosedDemo() {
             onClick={handleDeploy}
             className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-[14px] font-medium tracking-[0.01em] text-bg transition-colors duration-200 hover:bg-[#f0b85c] focus-visible:outline-none"
           >
-            Deploy
+            {t.demo.deployButton}
           </button>
 
           <div className="mt-6 rounded-xl border border-border bg-bg">
@@ -163,7 +168,7 @@ export function FailClosedDemo() {
               <span className="size-2 rounded-full bg-[#e2664533]" aria-hidden="true" />
               <span className="size-2 rounded-full bg-[#e2a54533]" aria-hidden="true" />
               <span className="size-2 rounded-full bg-[#6e975133]" aria-hidden="true" />
-              <span className="ml-2 font-mono text-[11px] text-muted">$ NODE_ENV=production npm run start</span>
+              <span className="ml-2 font-mono text-[11px] text-muted">{t.demo.terminalPrompt}</span>
             </div>
             <div
               ref={logRef}
@@ -173,9 +178,7 @@ export function FailClosedDemo() {
               className="max-h-[168px] overflow-y-auto px-4 py-3"
             >
               {log.length === 0 ? (
-                <p className="font-mono text-[12.5px] leading-[28px] text-muted italic">
-                  // press deploy to run the check
-                </p>
+                <p className="font-mono text-[12.5px] leading-[28px] text-muted italic">{t.demo.emptyState}</p>
               ) : (
                 <ul>
                   {log.map((entry) => (

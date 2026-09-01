@@ -5,7 +5,7 @@ import { ArrowDown } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import { softEase } from "@/components/motion/Reveal"
 import { SplitText } from "@/components/motion/SplitText"
-import { HERO } from "@/content/site"
+import { useI18n } from "@/i18n/LanguageContext"
 
 /**
  * Deliberately no background of its own — the fixed WebGL network graph
@@ -14,6 +14,7 @@ import { HERO } from "@/content/site"
  * enough for the eye to read real depth.
  */
 export function Hero() {
+  const { t } = useI18n()
   const ref = useRef<HTMLDivElement>(null)
   const reduceMotion = useReducedMotion()
 
@@ -39,12 +40,13 @@ export function Hero() {
           transition={{ duration: 0.7, ease: softEase }}
           className="mb-5 font-mono text-[11px] font-semibold tracking-[0.16em] text-accent uppercase"
         >
-          {HERO.eyebrow}
+          {t.hero.eyebrow}
         </motion.p>
 
         <SplitText
+          key={t.hero.headline}
           as="h1"
-          text={HERO.headline}
+          text={t.hero.headline}
           className="max-w-[20ch] text-[34px] leading-[1.12] font-semibold tracking-[-0.01em] text-ink sm:text-[46px] md:text-[58px]"
           stagger={0.045}
           delay={0.15}
@@ -56,7 +58,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.55, ease: softEase }}
           className="mx-auto mt-7 max-w-[58ch] text-[16px] leading-relaxed text-muted sm:text-[18px]"
         >
-          {HERO.paragraph}
+          {t.hero.paragraph}
         </motion.p>
 
         <motion.div
@@ -65,37 +67,28 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.75, ease: softEase }}
           className="mt-9 flex flex-wrap items-center justify-center gap-3.5"
         >
-          <Button href={HERO.ctaPrimary.href} variant="primary">
-            {HERO.ctaPrimary.label}
+          <Button href="#work" variant="primary">
+            {t.hero.ctaPrimary}
           </Button>
-          <Button href={HERO.ctaSecondary.href} variant="secondary">
-            {HERO.ctaSecondary.label}
+          <Button href="#contact" variant="secondary">
+            {t.hero.ctaSecondary}
           </Button>
         </motion.div>
       </motion.div>
 
       <motion.a
         href="#work"
-        aria-label="Scroll to work"
+        aria-label={t.hero.scrollHint}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.3, duration: 1 }}
         style={{ opacity }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-ink/45 transition-colors hover:text-ink"
       >
-        {/*
-          The bounce is a JS-driven Motion animation (not a CSS
-          animation/transition), so the global prefers-reduced-motion rule
-          in index.css can't touch it, and it runs on an infinite loop
-          (WCAG 2.2.2 Pause, Stop, Hide) — hold it still instead of looping
-          when the user has asked for reduced motion.
-        */}
         <motion.span
           className="block"
           animate={reduceMotion ? { y: 0 } : { y: [0, 8, 0] }}
-          transition={
-            reduceMotion ? { duration: 0 } : { duration: 2.2, repeat: Infinity, ease: "easeInOut" }
-          }
+          transition={reduceMotion ? { duration: 0 } : { duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
         >
           <ArrowDown className="size-5" />
         </motion.span>
