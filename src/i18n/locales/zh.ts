@@ -24,6 +24,18 @@ export const zh: Dictionary = {
     ctaPrimary: "查看作品",
     ctaSecondary: "联系我们",
     scrollHint: "向下滚动查看作品",
+    sectors: {
+      government: "政府与合规",
+      web3: "Web3 与区块链",
+      energy: "能源与工业",
+      consumerSaas: "消费级软件",
+      hospitality: "酒店餐饮与小微企业",
+    },
+    stats: [
+      { value: "1,800+", label: "自动化测试" },
+      { value: "5", label: "公开代码仓库" },
+      { value: "7", label: "编程语言" },
+    ],
   },
   services: {
     eyebrow: "我们构建什么",

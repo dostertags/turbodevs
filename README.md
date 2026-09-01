@@ -30,10 +30,19 @@ npm run dev
 
 ```bash
 npm run lint    # oxlint
+npm run test    # vitest — unit/component tests
 npm run build   # tsc -b && vite build — typecheck + production build
 ```
 
-Both run in CI on every push and PR to `main` (see `.github/workflows/ci.yml`).
+All three run in CI on every push and PR to `master` (see `.github/workflows/ci.yml`).
+
+The test suite includes two regression guards worth knowing about:
+- `src/i18n/i18n-completeness.test.ts` diffs every translated locale's key
+  shape against `en` — the exact class of bug that once shipped the Web
+  Vitals widget in English-only on every translated page now fails CI instead.
+- `src/content/site.test.ts` asserts every hero sector chip only references
+  `WORK` slugs that actually exist, so a claim can't quietly outlive the
+  project backing it.
 
 ## Deploy
 

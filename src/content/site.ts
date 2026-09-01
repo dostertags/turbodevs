@@ -67,6 +67,20 @@ export const WORK: WorkItem[] = [
   },
 ]
 
+export type SectorKey = "government" | "web3" | "energy" | "consumerSaas" | "hospitality"
+
+// Which real, public WORK slugs back each hero sector chip. "hospitality" is
+// deliberately empty — it's a capability claim (see research/VERIFIED_FACTS.md),
+// not backed by a public, linkable project, so it must never gain a slug here
+// without also gaining a real link in WORK.
+export const SECTOR_WORK_MAP: Record<SectorKey, WorkSlug[]> = {
+  government: ["sii", "previred"],
+  web3: ["stellarfit"],
+  energy: ["battery-storage-reporting"],
+  consumerSaas: ["turbotrabajo", "glowcheck"],
+  hospitality: [],
+}
+
 export const GRANTFOX_HREF = "https://grantfox.xyz/"
 
 export const CONTACT_INFO = {

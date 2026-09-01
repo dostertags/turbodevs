@@ -1,4 +1,8 @@
+import type { SectorKey } from "@/content/site"
+
 export type WorkCopy = { kicker: string; description: string }
+
+export type StatCopy = { value: string; label: string }
 
 export type NoteCopy = {
   title: string
@@ -29,6 +33,8 @@ export type Dictionary = {
     ctaPrimary: string
     ctaSecondary: string
     scrollHint: string
+    sectors: Record<SectorKey, string>
+    stats: StatCopy[]
   }
   services: {
     eyebrow: string

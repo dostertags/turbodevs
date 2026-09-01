@@ -24,6 +24,18 @@ export const de: Dictionary = {
     ctaPrimary: "Projekte ansehen",
     ctaSecondary: "Sprechen Sie mit uns",
     scrollHint: "Zu den Projekten scrollen",
+    sectors: {
+      government: "Behörden & Compliance",
+      web3: "Web3 & Blockchain",
+      energy: "Energie & Industrie",
+      consumerSaas: "Consumer-Software",
+      hospitality: "Gastgewerbe & Kleinunternehmen",
+    },
+    stats: [
+      { value: "1.800+", label: "automatisierte Tests" },
+      { value: "5", label: "öffentliche Repositories" },
+      { value: "7", label: "Programmiersprachen" },
+    ],
   },
   services: {
     eyebrow: "Was wir bauen",

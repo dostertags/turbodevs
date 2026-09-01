@@ -5,6 +5,8 @@ import { ArrowDown } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import { softEase } from "@/components/motion/Reveal"
 import { SplitText } from "@/components/motion/SplitText"
+import { ProofStrip } from "@/components/sections/ProofStrip"
+import { DepthLayers } from "@/components/DepthLayers"
 import { useI18n } from "@/i18n/LanguageContext"
 
 /**
@@ -74,7 +76,28 @@ export function Hero() {
             {t.hero.ctaSecondary}
           </Button>
         </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.95, ease: softEase }}
+          className="mt-10"
+        >
+          <ProofStrip />
+        </motion.div>
       </motion.div>
+
+      {/*
+        A plain wrapper carries the placement (absolute/top/right). DepthLayers'
+        own root already sets `position: relative` as plain CSS (so its four
+        layers can position themselves against it) — that's unlayered CSS, and
+        unlayered always beats a Tailwind utility class on the same element
+        regardless of order, so `absolute` belongs on a wrapper, not passed
+        into DepthLayers' own className.
+      */}
+      <div className="pointer-events-none absolute top-24 right-6 hidden sm:block md:top-28 md:right-12">
+        <DepthLayers />
+      </div>
 
       <motion.a
         href="#work"

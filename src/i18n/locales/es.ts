@@ -24,6 +24,18 @@ export const es: Dictionary = {
     ctaPrimary: "Ver el trabajo",
     ctaSecondary: "Habla con nosotros",
     scrollHint: "Desplázate para ver el trabajo",
+    sectors: {
+      government: "Gobierno y Cumplimiento Normativo",
+      web3: "Web3 y Blockchain",
+      energy: "Energía e Industria",
+      consumerSaas: "Software para Consumidores",
+      hospitality: "Hospitalidad y Pequeñas Empresas",
+    },
+    stats: [
+      { value: "1.800+", label: "pruebas automatizadas" },
+      { value: "5", label: "repositorios públicos" },
+      { value: "7", label: "lenguajes" },
+    ],
   },
   services: {
     eyebrow: "Qué construimos",
