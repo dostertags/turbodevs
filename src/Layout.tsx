@@ -1,23 +1,16 @@
-import { lazy, Suspense } from "react"
 import { MotionConfig } from "motion/react"
 
 import { ScrollProgress } from "@/components/motion/ScrollProgress"
 import { Nav } from "@/components/sections/Nav"
 import { Footer } from "@/components/sections/Footer"
 import { WhatsAppButton } from "@/components/WhatsAppButton"
+import { Backdrop } from "@/components/Backdrop"
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
 import { useViewportSync } from "@/hooks/use-viewport-sync"
 import { useI18n } from "@/i18n/LanguageContext"
 import { useAnalytics } from "@/hooks/use-analytics"
 import { useMotionPreference } from "@/motion/MotionPreference"
 import { DUR } from "@/motion/tokens"
-
-// three.js + @react-three/fiber + drei + postprocessing are the heaviest
-// dependency in this app by far. Loading them in the same chunk as the rest
-// of the page means text and navigation wait on ~440KB of WebGL machinery
-// that's purely decorative. Splitting it into its own chunk via React.lazy
-// lets the real content paint first; the background fills in a beat later.
-const Scene = lazy(() => import("@/three/Scene").then((m) => ({ default: m.Scene })))
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const { t } = useI18n()
@@ -45,9 +38,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {t.a11y.skipToContent}
       </a>
 
-      <Suspense fallback={null}>
-        <Scene />
-      </Suspense>
+      <Backdrop />
       <ScrollProgress />
       <Nav motionOff={motionOff} onToggleMotion={toggle} />
       <main id="main" tabIndex={-1} className="relative z-10">

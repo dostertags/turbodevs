@@ -53,10 +53,11 @@ number, that is stated rather than hidden.
 | Stylesheet | 37.9 KB raw / 7.8 KB gzip | `npm run size` |
 | Fonts on disk | 339.1 KB across 33 files | `npm run size` |
 | Transferred on first load (latin visitor) | ~584 KB | Playwright resource timing, 2026-09-05 |
-| WebGL contexts | 1 (was 2 before Phase 1) | `e2e/hero.spec.ts` |
+| **Transferred on first load, after Phase 3.4** | **276 KB** | Playwright resource timing, 2026-09-06 |
+| WebGL contexts | 0 (was 2 before Phase 1) | `e2e/backdrop.spec.ts` |
 | Page height, 1440×900 | 7,799 px | Playwright |
 | Page height, 390×844 | 11,326 px | Playwright |
-| Unit tests / e2e checks | 86 / 64 | `npm run test`, `npm run test:e2e` |
+| Unit tests / e2e checks | 92 / 85 | `npm run test`, `npm run test:e2e` |
 | Serious+critical axe violations | 0 | `e2e/a11y.spec.ts` |
 
 ### Field, from 2026-09-06
@@ -80,7 +81,7 @@ a real run before claiming any improvement.
 |---|---|
 | 1 (done) | No transfer change. Removes one WebGL context; fixes a form that could silently drop leads. |
 | 2 | No transfer change. Motion whose resting state needs no JS frame. |
-| 3 | The 3D chunk stops loading on phones entirely; deleting it outright is the first named cut. |
+| 3 (item 3.4 done) | **Done: the 3D chunk is no longer fetched on any device.** First-load transfer 584 KB → 276 KB (−53%), WebGL contexts 2 → 0. The background is now a deterministic inline SVG of the same seeded 46-node graph. The canvas remains behind `WEBGL_BACKDROP` in `src/components/Backdrop.tsx` (ships off) so it can be compared and, if not wanted, deleted outright along with three/drei/postprocessing. Remaining in Phase 3: the static headline, the terminal in the hero, the phone hero. |
 | 5 | Entry chunk toward 120 KB gzip (locale dictionaries load per page); LCP stops waiting on JavaScript; six locales become indexable. |
 | 6 | Budgets become absolute gates rather than ratchets. |
 
