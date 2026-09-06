@@ -1,118 +1,82 @@
-import { motion } from "motion/react"
+import { useLayoutEffect, useRef } from "react"
 
 import { cn } from "@/lib/utils"
-import { DISTANCE, DUR, EASE } from "@/motion/tokens"
-import { useHydrated } from "@/hooks/use-hydrated"
+import { EASE } from "@/motion/tokens"
+import { registerReveal } from "@/components/motion/reveal-controller"
 
 /**
- * Content arriving as it scrolls into view.
+ * Content arriving as it scrolls into view — without ever being able to strand
+ * that content invisible.
  *
- * Two deliberate changes from the version this replaces:
+ * Visible is the resting state, declared in the markup and in CSS, needing no
+ * JavaScript. Only elements that are demonstrably below the fold when they
+ * mount are hidden, and the shared controller in `reveal-controller.ts` brings
+ * them back on a geometry sweep that cannot miss. If the script never runs, if
+ * an observer never fires, or if the scroll position jumps straight past a
+ * section, the content is simply there.
  *
- * No blur. Every element of every section used to animate `filter:
- * blur(10px) → blur(0)`. Blur is one of the most expensive properties a
- * browser can animate; there were around forty of them on the page, several
- * sitting over a canvas that repaints every frame, and the effect was applied
- * so uniformly that it stopped reading as emphasis and started reading as the
- * page being out of focus. A short rise and a fade say the same thing for
- * almost nothing.
- *
- * Nothing is hidden until the page is interactive. `initial` used to set
- * `opacity: 0` in the markup, which means the page's entire content is
- * invisible until JavaScript has loaded, parsed, and produced a frame — on a
- * slow phone that is seconds of blank sections, and if the animation never
- * runs the content never appears at all. Now the resting state is the visible
- * one, and the animation is only introduced once we know we are hydrated.
+ * This is the second rewrite. The first one kept the polarity the wrong way
+ * round — hidden by default, revealed by an IntersectionObserver — and shipped
+ * a page where jumping the scroll left whole sections permanently blank.
  */
 
 export const softEase = EASE
 
-type RevealProps = React.ComponentProps<typeof motion.div> & {
+function useReveal(delaySeconds: number, stagger: boolean) {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useLayoutEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    let delay = delaySeconds
+    if (stagger) {
+      // Position among siblings, so a grid arrives in a wave without the
+      // parent having to hand each child an index.
+      const index = el.parentElement ? [...el.parentElement.children].indexOf(el) : 0
+      delay += Math.min(index, 6) * 0.06
+    }
+
+    return registerReveal(el, delay)
+  }, [delaySeconds, stagger])
+
+  return ref
+}
+
+type RevealProps = React.HTMLAttributes<HTMLDivElement> & {
   delay?: number
-  y?: number
 }
 
-export function Reveal({ children, className, delay = 0, y = DISTANCE, ...props }: RevealProps) {
-  const hydrated = useHydrated()
-
-  if (!hydrated) {
-    // `children` is typed for motion.div, which permits a MotionValue; the
-    // plain element wants a ReactNode. Nothing here renders a MotionValue.
-    return <div className={cn(className)}>{children as React.ReactNode}</div>
-  }
+export function Reveal({ children, className, delay = 0, ...rest }: RevealProps) {
+  const ref = useReveal(delay, false)
 
   return (
-    <motion.div
-      className={cn(className)}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      // `once` — elements that re-animate every time they re-enter the
-      // viewport are exhausting to scroll past.
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: DUR.enter, delay, ease: EASE }}
-      {...props}
-    >
+    <div ref={ref} className={cn("tg-reveal", className)} {...rest}>
       {children}
-    </motion.div>
+    </div>
   )
 }
 
-export function RevealGroup({
-  children,
-  className,
-  stagger = 0.06,
-  delay = 0,
-  ...props
-}: React.ComponentProps<typeof motion.div> & { stagger?: number; delay?: number }) {
-  const hydrated = useHydrated()
-
-  if (!hydrated) {
-    // `children` is typed for motion.div, which permits a MotionValue; the
-    // plain element wants a ReactNode. Nothing here renders a MotionValue.
-    return <div className={cn(className)}>{children as React.ReactNode}</div>
-  }
-
+/**
+ * A container whose children arrive in a wave. It does not coordinate the
+ * animation: each item registers its own position. The parent-to-child variant
+ * propagation this used to rely on was the other half of the stranding bug —
+ * when the parent's observer missed, every child stayed hidden with it.
+ */
+export function RevealGroup({ children, className, ...rest }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <motion.div
-      className={cn(className)}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-60px" }}
-      variants={{
-        hidden: {},
-        visible: { transition: { staggerChildren: stagger, delayChildren: delay } },
-      }}
-      {...props}
-    >
+    <div className={cn(className)} {...rest}>
       {children}
-    </motion.div>
+    </div>
   )
 }
 
-export function RevealItem({
-  children,
-  className,
-  y = DISTANCE,
-  ...props
-}: React.ComponentProps<typeof motion.div> & { y?: number }) {
-  const hydrated = useHydrated()
-
-  if (!hydrated) {
-    // `children` is typed for motion.div, which permits a MotionValue; the
-    // plain element wants a ReactNode. Nothing here renders a MotionValue.
-    return <div className={cn(className)}>{children as React.ReactNode}</div>
-  }
+export function RevealItem({ children, className, delay = 0, ...rest }: RevealProps) {
+  const ref = useReveal(delay, true)
 
   return (
-    <motion.div
-      className={cn(className)}
-      variants={{
-        hidden: { opacity: 0, y },
-        visible: { opacity: 1, y: 0, transition: { duration: DUR.enter, ease: EASE } },
-      }}
-      {...props}
-    >
+    <div ref={ref} className={cn("tg-reveal", className)} {...rest}>
       {children}
-    </motion.div>
+    </div>
   )
 }

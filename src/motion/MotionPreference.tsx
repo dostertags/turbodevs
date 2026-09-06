@@ -1,7 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react"
 
 import { track } from "@/lib/track"
-import { view } from "@/three/state"
 
 const STORAGE_KEY = "turbodevs:motion"
 
@@ -12,6 +11,18 @@ type MotionPreference = {
 }
 
 const MotionPreferenceContext = createContext<MotionPreference>({ motionOff: false, toggle: () => {} })
+
+/**
+ * Writes the motion preference onto <html> before React renders anything.
+ *
+ * It cannot wait for the provider's effect: React runs a parent's effects
+ * after its children's layout effects, so every scroll-reveal below would
+ * already have registered — and hidden itself — before learning that this
+ * visitor had asked for no motion at all.
+ */
+export function applyStoredMotionPreference() {
+  document.documentElement.dataset.motion = readInitial() ? "off" : "on"
+}
 
 function readInitial(): boolean {
   if (typeof window === "undefined") return false
@@ -47,7 +58,6 @@ export function MotionPreferenceProvider({ children }: { children: React.ReactNo
   // rule needing to know about React.
   useEffect(() => {
     document.documentElement.dataset.motion = motionOff ? "off" : "on"
-    view.reducedMotion = motionOff
   }, [motionOff])
 
   const toggle = useCallback(() => {

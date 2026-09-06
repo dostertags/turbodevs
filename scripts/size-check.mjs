@@ -24,10 +24,12 @@ const BUDGETS = [
     target: "120KB — after locale dictionaries are loaded per page (Phase 5)",
   },
   {
-    name: "3D chunk (three, drei, postprocessing)",
+    // three, drei and postprocessing were removed from the project entirely;
+    // the background is inline SVG now. Nothing should match this again.
+    name: "3D chunk (removed — must stay removed)",
     match: (f) => /^(Scene|useDotTexture)-.*\.js$/.test(f),
-    maxGzipKB: 320,
-    target: "0KB on phones, deferred on desktop (Phase 3) — deleting it entirely is the first named cut",
+    maxGzipKB: 0,
+    target: "0KB — the dependency is gone",
   },
   {
     name: "stylesheet",

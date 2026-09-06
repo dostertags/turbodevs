@@ -1,8 +1,6 @@
 import { useEffect } from "react"
 import Lenis from "lenis"
 
-import { view } from "@/three/state"
-
 /**
  * How far below the top of the viewport an anchored section should land —
  * clearance for the fixed 64px header. Read from the same CSS custom property
@@ -57,12 +55,6 @@ export function useSmoothScroll(motionOff = false) {
       syncTouch: false,
       wheelMultiplier: 1,
       touchMultiplier: 1.6,
-    })
-
-    lenis.on("scroll", (inst: Lenis) => {
-      view.scroll = inst.progress || 0
-      view.velocity = Math.max(-1, Math.min(1, inst.velocity / 40))
-      view.heroVisible = inst.scroll < window.innerHeight * 0.9
     })
 
     let rafId = 0

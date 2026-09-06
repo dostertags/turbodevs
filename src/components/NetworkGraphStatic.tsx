@@ -1,6 +1,6 @@
 import { useMemo } from "react"
 
-import { buildGraph, verifiedIndices } from "@/three/graph"
+import { buildGraph, verifiedIndices } from "@/lib/graph"
 
 /**
  * The background constellation, drawn as inline SVG.

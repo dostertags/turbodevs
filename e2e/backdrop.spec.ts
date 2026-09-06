@@ -5,7 +5,7 @@ import { expect, test } from "@playwright/test"
  * to cost the visitor the page.
  */
 
-test("no WebGL machinery is downloaded, on any device", async ({ page }) => {
+test("no WebGL machinery exists in the project at all, on any device", async ({ page }) => {
   const heavy: string[] = []
   page.on("request", (request) => {
     const url = request.url()

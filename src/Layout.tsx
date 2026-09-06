@@ -6,7 +6,6 @@ import { Footer } from "@/components/sections/Footer"
 import { WhatsAppButton } from "@/components/WhatsAppButton"
 import { Backdrop } from "@/components/Backdrop"
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
-import { useViewportSync } from "@/hooks/use-viewport-sync"
 import { useI18n } from "@/i18n/LanguageContext"
 import { useAnalytics } from "@/hooks/use-analytics"
 import { useMotionPreference } from "@/motion/MotionPreference"
@@ -15,7 +14,6 @@ import { DUR } from "@/motion/tokens"
 export function Layout({ children }: { children: React.ReactNode }) {
   const { t } = useI18n()
   const { motionOff, toggle } = useMotionPreference()
-  useViewportSync()
   useSmoothScroll(motionOff)
   useAnalytics()
 

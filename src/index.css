@@ -213,3 +213,22 @@ html[data-motion="off"] *::after {
     opacity: 1;
   }
 }
+
+/* ==========================================================================
+   SCROLL REVEAL
+   Visible is the resting state — declared here, in CSS, with no JavaScript
+   involved. `tg-reveal-pending` is added by src/components/motion/Reveal.tsx
+   only to elements that are below the fold when they mount, and removed when
+   they arrive. If the script never runs, or an observer never fires, every
+   one of these is simply visible.
+   ========================================================================== */
+.tg-reveal {
+  transition:
+    opacity 550ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tg-reveal-pending {
+  opacity: 0;
+  transform: translateY(16px);
+}
