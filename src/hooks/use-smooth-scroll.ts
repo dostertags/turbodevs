@@ -41,13 +41,14 @@ function useAnchorTargetsFocusable() {
  * real `window.scrollTop`, so anchor links, `position: sticky`, and Motion's
  * `useScroll` all keep reading correct values.
  */
-export function useSmoothScroll() {
+export function useSmoothScroll(motionOff = false) {
   useAnchorTargetsFocusable()
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return
-    }
+    // Smooth scrolling is motion too: it takes the page out of the visitor's
+    // direct control for over a second per jump, which is exactly what someone
+    // switching motion off is asking to stop.
+    if (motionOff) return
 
     const lenis = new Lenis({
       duration: 1.1,
@@ -119,5 +120,5 @@ export function useSmoothScroll() {
       document.removeEventListener("click", onClick)
       lenis.destroy()
     }
-  }, [])
+  }, [motionOff])
 }

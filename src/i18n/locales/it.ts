@@ -253,6 +253,8 @@ export const it: Dictionary = {
     greeting: "Ciao TurboDevs! Vorrei parlare di un progetto.",
   },
   a11y: {
+    pauseMotion: "Metti in pausa l’animazione",
+    resumeMotion: "Riprendi l’animazione",
     skipToContent: "Vai al contenuto",
     newTab: "si apre in una nuova scheda",
     selectLanguage: "Seleziona lingua",

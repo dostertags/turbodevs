@@ -3,6 +3,8 @@ import { Lock, ShieldAlert, ShieldCheck, TerminalSquare } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Reveal } from "@/components/motion/Reveal"
+import { Section } from "@/components/ui/Section"
+import { SectionHeader } from "@/components/ui/SectionHeader"
 import { useI18n } from "@/i18n/LanguageContext"
 import { track } from "@/lib/track"
 
@@ -123,23 +125,17 @@ export function FailClosedDemo() {
   }
 
   return (
-    <section id="demo" className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
-      <Reveal>
-        <p className="text-[11px] font-bold tracking-[0.16em] text-accent uppercase">
-          {t.demo.eyebrow}
-        </p>
-      </Reveal>
-      <Reveal delay={0.08}>
-        <h2 className="mt-3 max-w-[22ch] text-[28px] leading-[1.2] font-semibold tracking-[-0.01em] text-ink sm:text-[36px]">
-          {t.demo.title}
-        </h2>
-      </Reveal>
-      <Reveal delay={0.14}>
-        <p className="mt-5 max-w-[62ch] text-[15.5px] leading-relaxed text-muted">{t.demo.paragraph}</p>
-      </Reveal>
+    <Section id="demo" labelledBy="demo-title">
+      <SectionHeader
+        eyebrow={t.demo.eyebrow}
+        title={t.demo.title}
+        titleId="demo-title"
+        paragraph={t.demo.paragraph}
+        titleWidth="22ch"
+      />
 
       <Reveal delay={0.2} className="mt-9">
-        <div className="tg-glass rounded-2xl p-6 sm:p-8">
+        <div className="rounded-2xl border border-border bg-surface p-6 sm:p-8">
           <div className="flex items-center gap-2 text-muted">
             <TerminalSquare className="size-4" aria-hidden="true" />
             <span className="font-mono text-[11px] tracking-[0.08em] uppercase">{t.demo.panelLabel}</span>
@@ -169,16 +165,16 @@ export function FailClosedDemo() {
           <button
             type="button"
             onClick={handleDeploy}
-            className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-[14px] font-medium tracking-[0.01em] text-bg transition-colors duration-200 hover:bg-[#f0b85c]"
+            className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-[14px] font-medium tracking-[0.01em] text-bg transition-colors duration-200 hover:bg-accent-hover"
           >
             {t.demo.deployButton}
           </button>
 
           <div className="mt-6 rounded-xl border border-border bg-bg">
             <div className="flex items-center gap-2 border-b border-border px-4 py-2">
-              <span className="size-2 rounded-full bg-[#e2664533]" aria-hidden="true" />
-              <span className="size-2 rounded-full bg-[#e2a54533]" aria-hidden="true" />
-              <span className="size-2 rounded-full bg-[#6e975133]" aria-hidden="true" />
+              <span className="size-2 rounded-full bg-danger/20" aria-hidden="true" />
+              <span className="size-2 rounded-full bg-accent/20" aria-hidden="true" />
+              <span className="size-2 rounded-full bg-ok/20" aria-hidden="true" />
               <span className="ml-2 font-mono text-[11px] text-muted">{t.demo.terminalPrompt}</span>
             </div>
             <div
@@ -197,7 +193,7 @@ export function FailClosedDemo() {
                       key={entry.id}
                       className={cn(
                         "flex items-start gap-2 font-mono text-[12.5px] leading-[1.6]",
-                        entry.ok ? "text-emerald-400" : "text-red-400",
+                        entry.ok ? "text-ok" : "text-danger",
                       )}
                     >
                       {entry.ok ? (
@@ -221,6 +217,6 @@ export function FailClosedDemo() {
           </div>
         </div>
       </Reveal>
-    </section>
+    </Section>
   )
 }

@@ -8,8 +8,24 @@ import { expect, test } from "@playwright/test"
  */
 
 test("no serious or critical axe violations on the page", async ({ page }) => {
+  // Scan the page at rest. With animation running, an element caught halfway
+  // through a fade reports the contrast of its half-faded colour, which makes
+  // the whole scan non-deterministic — it passed alone and failed under load.
+  // Turning motion off through the site's own control is also the honest thing
+  // to scan: it is the state an assistive-tech user is most likely in.
+  await page.addInitScript(() => localStorage.setItem("turbodevs:motion", "off"))
   await page.goto("/")
-  await page.waitForTimeout(1500)
+
+  // Walk the page so every scroll-revealed section has rendered before the scan.
+  await page.evaluate(async () => {
+    const step = window.innerHeight
+    for (let y = 0; y < document.documentElement.scrollHeight; y += step) {
+      window.scrollTo(0, y)
+      await new Promise((resolve) => setTimeout(resolve, 60))
+    }
+    window.scrollTo(0, 0)
+  })
+  await page.waitForTimeout(500)
 
   const { violations } = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
@@ -22,6 +38,10 @@ test("no serious or critical axe violations on the page", async ({ page }) => {
 
 test("the first Tab reaches a skip link that moves focus into the content", async ({ page }) => {
   await page.goto("/")
+  // Everything on this page is client-rendered, so wait for the link to exist
+  // before pressing a key — otherwise under parallel load the keystroke lands
+  // on an empty document and focus stays on <body>.
+  await page.locator('a[href="#main"]').waitFor({ state: "attached" })
   await page.keyboard.press("Tab")
 
   const link = await page.evaluate(() => {
@@ -47,6 +67,7 @@ test("activating a nav link by keyboard moves focus, updates the hash, and scrol
   // the header and the section could not be linked to.
   // Any visible in-page anchor exercises the same handler; the header row is
   // inside a closed drawer on phones, so pick whichever one is on screen.
+  await page.locator('a[href="#work"]').first().waitFor({ state: "attached" })
   await page.evaluate(() => {
     const link = [...document.querySelectorAll<HTMLAnchorElement>('a[href="#work"]')].find(
       (a) => a.getBoundingClientRect().width > 0,

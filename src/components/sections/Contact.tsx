@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react"
 import { GitFork, Send } from "lucide-react"
 
 import { Reveal } from "@/components/motion/Reveal"
+import { Section } from "@/components/ui/Section"
+import { SectionHeader } from "@/components/ui/SectionHeader"
 import { CONTACT_INFO } from "@/content/site"
 import { useI18n } from "@/i18n/LanguageContext"
 import { track } from "@/lib/track"
@@ -64,18 +66,17 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative mx-auto max-w-3xl px-5 py-24 sm:px-8 sm:py-32">
-      <Reveal className="text-center">
-        <p className="text-[11px] font-bold tracking-[0.16em] text-accent uppercase">
-          {t.contact.eyebrow}
-        </p>
-        <h2 className="mt-3 text-[28px] leading-[1.2] font-semibold tracking-[-0.01em] text-ink sm:text-[36px]">
-          {t.contact.title}
-        </h2>
-        <p className="mx-auto mt-4 max-w-[52ch] text-[15.5px] leading-relaxed text-muted">{t.contact.paragraph}</p>
-      </Reveal>
+    <Section id="contact" labelledBy="contact-title" width="narrow">
+      <SectionHeader
+        eyebrow={t.contact.eyebrow}
+        title={t.contact.title}
+        titleId="contact-title"
+        paragraph={t.contact.paragraph}
+        align="center"
+        titleWidth="24ch"
+      />
 
-      <Reveal delay={0.1} className="tg-glass mt-10 rounded-2xl p-6 sm:p-9">
+      <Reveal delay={0.1} className="mt-10 rounded-2xl border border-border bg-surface p-6 sm:p-9">
         {status === "sent" ? (
           <p ref={sentRef} tabIndex={-1} role="status" className="py-6 text-center text-[15px] text-ink">
             {t.contact.sentMessage}
@@ -158,7 +159,7 @@ export function Contact() {
                 type="submit"
                 disabled={status === "sending"}
                 aria-busy={status === "sending"}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-[14px] font-medium text-bg transition-colors hover:bg-[#f0b85c] disabled:opacity-60 sm:w-auto"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-[14px] font-medium text-bg transition-colors hover:bg-accent-hover disabled:opacity-60 sm:w-auto"
               >
                 {status === "sending" ? t.contact.sendingLabel : t.contact.sendButton}
                 <Send aria-hidden="true" className="size-4" />
@@ -169,7 +170,7 @@ export function Contact() {
             </div>
 
             {status === "error" && (
-              <p role="alert" className="text-[13px] text-[#e0836a] sm:col-span-2">
+              <p role="alert" className="text-[13px] text-danger sm:col-span-2">
                 {t.contact.errorMessage}{" "}
                 <a href={`mailto:${CONTACT_INFO.formEmail}`} className="underline">
                   {CONTACT_INFO.formEmail}
@@ -181,6 +182,6 @@ export function Contact() {
           </form>
         )}
       </Reveal>
-    </section>
+    </Section>
   )
 }

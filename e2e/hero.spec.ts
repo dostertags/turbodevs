@@ -87,11 +87,46 @@ test.describe("hero", () => {
 
   test("the rotation control is a real target, outside the heading", async ({ page }) => {
     await page.goto("/")
-    const control = page.locator("button[aria-pressed]").first()
+    // Scoped to main: the header now carries its own aria-pressed control
+    // (the site-wide motion switch), which is a different thing.
+    const control = page.locator("main button[aria-pressed]").first()
     if ((await control.count()) === 0) test.skip(true, "no rotation control under reduced motion")
     const box = await control.boundingBox()
     expect(box!.width, "WCAG 2.5.8 minimum target size").toBeGreaterThanOrEqual(44)
     expect(box!.height).toBeGreaterThanOrEqual(44)
+  })
+
+  test("the site-wide motion switch actually stops the page moving", async ({ page }) => {
+    await page.goto("/")
+    const toggle = page.locator("header button[aria-pressed]:visible").first()
+
+    // The operating-system preference is the default, so the starting state
+    // differs per project — the invariant is that the control and the document
+    // always agree, not that it starts in any particular position.
+    const startedOff = (await page.locator("html").getAttribute("data-motion")) === "off"
+    await expect(toggle).toHaveAttribute("aria-pressed", String(startedOff))
+
+    // Get to the "motion off" state, whichever side we started on.
+    if (!startedOff) await toggle.click()
+    await expect(toggle).toHaveAttribute("aria-pressed", "true")
+    await expect(page.locator("html")).toHaveAttribute("data-motion", "off")
+
+    // The headline rotation is motion too. It used to have its own pause
+    // control that stopped that one word while everything else kept going;
+    // this switch has to stop it as well.
+    const phrase = page.getByTestId("rotating-current").first()
+    const before = await phrase.textContent()
+    await page.waitForTimeout(4200)
+    expect(await page.getByTestId("rotating-current").first().textContent()).toBe(before)
+
+    // And the choice is remembered across a reload, in both directions.
+    await page.reload()
+    await expect(page.locator("html")).toHaveAttribute("data-motion", "off")
+    const afterReload = page.locator("header button[aria-pressed]:visible").first()
+    await afterReload.click()
+    await expect(page.locator("html")).toHaveAttribute("data-motion", "on")
+    await page.reload()
+    await expect(page.locator("html")).toHaveAttribute("data-motion", "on")
   })
 
   test("nothing overflows horizontally, in any language", async ({ page }) => {

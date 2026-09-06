@@ -151,5 +151,9 @@ export type Dictionary = {
     skipToContent: string
     newTab: string
     selectLanguage: string
+    /** Site-wide motion switch (WCAG 2.2.2), in its "currently playing" state. */
+    pauseMotion: string
+    /** The same switch, currently paused. */
+    resumeMotion: string
   }
 }

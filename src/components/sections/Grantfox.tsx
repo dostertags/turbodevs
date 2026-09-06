@@ -1,6 +1,8 @@
 import { ArrowUpRight, Check } from "lucide-react"
 
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal"
+import { Section } from "@/components/ui/Section"
+import { SectionHeader } from "@/components/ui/SectionHeader"
 import { Button } from "@/components/ui/Button"
 import { GRANTFOX_HREF } from "@/content/site"
 import { useI18n } from "@/i18n/LanguageContext"
@@ -10,21 +12,19 @@ export function Grantfox() {
   const { t } = useI18n()
 
   return (
-    <section id="grantfox" className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
-      <div className="tg-glass rounded-3xl p-7 sm:p-12">
-        <Reveal>
-          <p className="text-[11px] font-bold tracking-[0.16em] text-accent uppercase">
-            {t.grantfox.eyebrow}
-          </p>
-        </Reveal>
-        <Reveal delay={0.08}>
-          <h2 className="mt-3 max-w-[32ch] text-[26px] leading-[1.25] font-semibold tracking-[-0.01em] text-ink sm:text-[34px]">
-            {t.grantfox.title}
-          </h2>
-        </Reveal>
-        <Reveal delay={0.14}>
-          <p className="mt-5 max-w-[62ch] text-[15.5px] leading-relaxed text-muted">{t.grantfox.paragraph}</p>
-        </Reveal>
+    <Section id="grantfox" labelledBy="grantfox-title">
+      {/* Opaque, not glass: this panel sits over the animated background, so
+          its backdrop-filter was re-running on every frame for an effect that
+          is indistinguishable from a plain surface. */}
+      <div className="rounded-3xl border border-border bg-surface p-7 sm:p-12">
+        <SectionHeader
+          eyebrow={t.grantfox.eyebrow}
+          title={t.grantfox.title}
+          titleId="grantfox-title"
+          paragraph={t.grantfox.paragraph}
+          size="minor"
+          titleWidth="32ch"
+        />
 
         <RevealGroup className="mt-9 grid gap-4 sm:grid-cols-3">
           {t.grantfox.points.map((point) => (
@@ -49,6 +49,6 @@ export function Grantfox() {
           </Button>
         </Reveal>
       </div>
-    </section>
+    </Section>
   )
 }

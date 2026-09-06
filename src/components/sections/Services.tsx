@@ -1,21 +1,21 @@
-import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal"
+import { RevealGroup, RevealItem } from "@/components/motion/Reveal"
+import { Section } from "@/components/ui/Section"
+import { SectionHeader } from "@/components/ui/SectionHeader"
 import { useI18n } from "@/i18n/LanguageContext"
 
 export function Services() {
   const { t } = useI18n()
 
   return (
-    <section className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
-      <Reveal>
-        <p className="text-[11px] font-bold tracking-[0.16em] text-accent uppercase">
-          {t.services.eyebrow}
-        </p>
-      </Reveal>
-      <Reveal delay={0.08}>
-        <h2 className="mt-3 max-w-[24ch] text-[28px] leading-[1.2] font-semibold tracking-[-0.01em] text-ink sm:text-[36px]">
-          {t.services.title}
-        </h2>
-      </Reveal>
+    // Given an id and a heading id at last: this section was reachable from
+    // neither the header nor the footer, and had no accessible name.
+    <Section id="services" labelledBy="services-title">
+      <SectionHeader
+        eyebrow={t.services.eyebrow}
+        title={t.services.title}
+        titleId="services-title"
+        titleWidth="24ch"
+      />
 
       <RevealGroup className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2">
         {t.services.items.map((s) => (
@@ -25,6 +25,6 @@ export function Services() {
           </RevealItem>
         ))}
       </RevealGroup>
-    </section>
+    </Section>
   )
 }

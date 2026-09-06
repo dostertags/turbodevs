@@ -2,7 +2,9 @@ import { useId, useState } from "react"
 import { ChevronDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal"
+import { RevealGroup, RevealItem } from "@/components/motion/Reveal"
+import { Section } from "@/components/ui/Section"
+import { SectionHeader } from "@/components/ui/SectionHeader"
 import { useI18n } from "@/i18n/LanguageContext"
 import type { NoteCopy } from "@/i18n/types"
 
@@ -13,7 +15,7 @@ function NoteCard({ note, readSuffix }: { note: NoteCopy; readSuffix: string }) 
   const panelId = useId()
 
   return (
-    <div className="tg-glass overflow-hidden rounded-2xl">
+    <div className="overflow-hidden rounded-2xl border border-border bg-surface">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -57,20 +59,14 @@ export function Notes() {
   const { t } = useI18n()
 
   return (
-    <section id="notes" className="relative mx-auto max-w-4xl px-5 py-24 sm:px-8 sm:py-32">
-      <Reveal>
-        <p className="text-[11px] font-bold tracking-[0.16em] text-accent uppercase">
-          {t.notes.eyebrow}
-        </p>
-      </Reveal>
-      <Reveal delay={0.08}>
-        <h2 className="mt-3 max-w-[22ch] text-[28px] leading-[1.2] font-semibold tracking-[-0.01em] text-ink sm:text-[36px]">
-          {t.notes.title}
-        </h2>
-      </Reveal>
-      <Reveal delay={0.14}>
-        <p className="mt-5 max-w-[62ch] text-[15.5px] leading-relaxed text-muted">{t.notes.paragraph}</p>
-      </Reveal>
+    <Section id="notes" labelledBy="notes-title" width="reading">
+      <SectionHeader
+        eyebrow={t.notes.eyebrow}
+        title={t.notes.title}
+        titleId="notes-title"
+        paragraph={t.notes.paragraph}
+        titleWidth="22ch"
+      />
 
       <RevealGroup className="mt-10 flex flex-col gap-4">
         {NOTE_SLUGS.map((slug) => (
@@ -79,6 +75,6 @@ export function Notes() {
           </RevealItem>
         ))}
       </RevealGroup>
-    </section>
+    </Section>
   )
 }

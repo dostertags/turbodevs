@@ -1,32 +1,55 @@
 import { motion } from "motion/react"
 
 import { cn } from "@/lib/utils"
+import { DISTANCE, DUR, EASE } from "@/motion/tokens"
+import { useHydrated } from "@/hooks/use-hydrated"
 
 /**
- * A near-vertical start that flattens into a long tail. Things leap into
- * motion and then settle, which reads as physical rather than mechanical.
+ * Content arriving as it scrolls into view.
+ *
+ * Two deliberate changes from the version this replaces:
+ *
+ * No blur. Every element of every section used to animate `filter:
+ * blur(10px) → blur(0)`. Blur is one of the most expensive properties a
+ * browser can animate; there were around forty of them on the page, several
+ * sitting over a canvas that repaints every frame, and the effect was applied
+ * so uniformly that it stopped reading as emphasis and started reading as the
+ * page being out of focus. A short rise and a fade say the same thing for
+ * almost nothing.
+ *
+ * Nothing is hidden until the page is interactive. `initial` used to set
+ * `opacity: 0` in the markup, which means the page's entire content is
+ * invisible until JavaScript has loaded, parsed, and produced a frame — on a
+ * slow phone that is seconds of blank sections, and if the animation never
+ * runs the content never appears at all. Now the resting state is the visible
+ * one, and the animation is only introduced once we know we are hydrated.
  */
-export const softEase = [0.16, 1, 0.3, 1] as const
+
+export const softEase = EASE
 
 type RevealProps = React.ComponentProps<typeof motion.div> & {
   delay?: number
   y?: number
-  blur?: boolean
 }
 
-/**
- * Fades, lifts and focuses its children when they scroll into view.
- * `once: true` — elements that re-animate every time they re-enter the
- * viewport are exhausting to scroll past.
- */
-export function Reveal({ children, className, delay = 0, y = 28, blur = true, ...props }: RevealProps) {
+export function Reveal({ children, className, delay = 0, y = DISTANCE, ...props }: RevealProps) {
+  const hydrated = useHydrated()
+
+  if (!hydrated) {
+    // `children` is typed for motion.div, which permits a MotionValue; the
+    // plain element wants a ReactNode. Nothing here renders a MotionValue.
+    return <div className={cn(className)}>{children as React.ReactNode}</div>
+  }
+
   return (
     <motion.div
       className={cn(className)}
-      initial={{ opacity: 0, y, filter: blur ? "blur(10px)" : "blur(0px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      // `once` — elements that re-animate every time they re-enter the
+      // viewport are exhausting to scroll past.
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.8, delay, ease: softEase }}
+      transition={{ duration: DUR.enter, delay, ease: EASE }}
       {...props}
     >
       {children}
@@ -37,10 +60,18 @@ export function Reveal({ children, className, delay = 0, y = 28, blur = true, ..
 export function RevealGroup({
   children,
   className,
-  stagger = 0.08,
+  stagger = 0.06,
   delay = 0,
   ...props
 }: React.ComponentProps<typeof motion.div> & { stagger?: number; delay?: number }) {
+  const hydrated = useHydrated()
+
+  if (!hydrated) {
+    // `children` is typed for motion.div, which permits a MotionValue; the
+    // plain element wants a ReactNode. Nothing here renders a MotionValue.
+    return <div className={cn(className)}>{children as React.ReactNode}</div>
+  }
+
   return (
     <motion.div
       className={cn(className)}
@@ -61,20 +92,23 @@ export function RevealGroup({
 export function RevealItem({
   children,
   className,
-  y = 24,
+  y = DISTANCE,
   ...props
 }: React.ComponentProps<typeof motion.div> & { y?: number }) {
+  const hydrated = useHydrated()
+
+  if (!hydrated) {
+    // `children` is typed for motion.div, which permits a MotionValue; the
+    // plain element wants a ReactNode. Nothing here renders a MotionValue.
+    return <div className={cn(className)}>{children as React.ReactNode}</div>
+  }
+
   return (
     <motion.div
       className={cn(className)}
       variants={{
-        hidden: { opacity: 0, y, filter: "blur(8px)" },
-        visible: {
-          opacity: 1,
-          y: 0,
-          filter: "blur(0px)",
-          transition: { duration: 0.75, ease: softEase },
-        },
+        hidden: { opacity: 0, y },
+        visible: { opacity: 1, y: 0, transition: { duration: DUR.enter, ease: EASE } },
       }}
       {...props}
     >

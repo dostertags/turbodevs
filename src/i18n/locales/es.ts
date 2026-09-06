@@ -255,6 +255,8 @@ export const es: Dictionary = {
     greeting: "¡Hola TurboDevs! Me gustaría hablar sobre un proyecto.",
   },
   a11y: {
+    pauseMotion: "Pausar animación",
+    resumeMotion: "Reanudar animación",
     skipToContent: "Saltar al contenido",
     newTab: "se abre en una pestaña nueva",
     selectLanguage: "Seleccionar idioma",

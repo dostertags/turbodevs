@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react"
+import { MotionConfig } from "motion/react"
 
-import { Cursor } from "@/components/motion/Cursor"
 import { ScrollProgress } from "@/components/motion/ScrollProgress"
 import { Nav } from "@/components/sections/Nav"
 import { Footer } from "@/components/sections/Footer"
@@ -9,6 +9,8 @@ import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
 import { useViewportSync } from "@/hooks/use-viewport-sync"
 import { useI18n } from "@/i18n/LanguageContext"
 import { useAnalytics } from "@/hooks/use-analytics"
+import { useMotionPreference } from "@/motion/MotionPreference"
+import { DUR } from "@/motion/tokens"
 
 // three.js + @react-three/fiber + drei + postprocessing are the heaviest
 // dependency in this app by far. Loading them in the same chunk as the rest
@@ -19,12 +21,17 @@ const Scene = lazy(() => import("@/three/Scene").then((m) => ({ default: m.Scene
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const { t } = useI18n()
+  const { motionOff, toggle } = useMotionPreference()
   useViewportSync()
-  useSmoothScroll()
+  useSmoothScroll(motionOff)
   useAnalytics()
 
   return (
-    <>
+    // `reducedMotion="always"` makes every Motion animation on the page resolve
+    // instantly. Previously the OS preference reached the stylesheet, Lenis and
+    // the cursor, but not Motion — so a visitor who had asked for less motion
+    // still got every entrance animation and the hero's scroll choreography.
+    <MotionConfig reducedMotion={motionOff ? "always" : "user"} transition={{ duration: DUR.enter }}>
       {/*
         First thing in the tab order, visible only once focused. Without it a
         keyboard or screen-reader visitor walks the entire header — logo, five
@@ -42,13 +49,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Scene />
       </Suspense>
       <ScrollProgress />
-      <Cursor />
-      <Nav />
+      <Nav motionOff={motionOff} onToggleMotion={toggle} />
       <main id="main" tabIndex={-1} className="relative z-10">
         {children}
       </main>
       <Footer />
       <WhatsAppButton />
-    </>
+    </MotionConfig>
   )
 }

@@ -91,3 +91,32 @@ export const CONTACT_INFO = {
 export const FOOTER_INFO = {
   repoHref: "https://github.com/dostertags/turbodevs",
 } as const
+
+/**
+ * The page's sections, in the order they appear, and the single source of the
+ * navigation. `NAV_ITEMS` used to be declared twice — verbatim, in `Nav.tsx`
+ * and `Footer.tsx` — so the header and the footer could disagree about what
+ * the site contains, and `Services` had no id at all: it was unreachable from
+ * either, and skipped entirely by the hero's own primary call to action.
+ *
+ * `inNav` exists because not every section earns a slot in a header that has
+ * to fit seven languages.
+ */
+export type SectionId = "work" | "grantfox" | "approach" | "demo" | "notes" | "contact"
+
+export type SectionEntry = {
+  id: SectionId
+  /** Key into `t.nav` for the label. */
+  navKey: "work" | "grantfox" | "approach" | "notes" | "contact"
+  inNav: boolean
+}
+
+export const SECTIONS: SectionEntry[] = [
+  { id: "work", navKey: "work", inNav: true },
+  { id: "grantfox", navKey: "grantfox", inNav: true },
+  { id: "approach", navKey: "approach", inNav: true },
+  { id: "notes", navKey: "notes", inNav: true },
+  { id: "contact", navKey: "contact", inNav: true },
+]
+
+export const NAV_SECTIONS = SECTIONS.filter((s) => s.inNav)

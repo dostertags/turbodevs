@@ -26,7 +26,9 @@ export function ScrollProgress() {
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-[#6e5127] via-[#e2a545] to-[#f2efe9]"
+      // The same three palette steps as before, by name rather than by
+      // literal, so the bar follows the accent if the accent ever moves.
+      className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-accent-dim via-accent to-ink"
       style={{ scaleX: reduceMotion ? scrollYProgress : scaleX }}
     />
   )

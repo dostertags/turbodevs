@@ -1,16 +1,8 @@
 import { GitFork } from "lucide-react"
 
 import { WebVitals } from "@/components/WebVitals"
-import { FOOTER_INFO } from "@/content/site"
+import { FOOTER_INFO, NAV_SECTIONS } from "@/content/site"
 import { useI18n } from "@/i18n/LanguageContext"
-
-const NAV_ITEMS = [
-  { key: "work", href: "#work" },
-  { key: "grantfox", href: "#grantfox" },
-  { key: "approach", href: "#approach" },
-  { key: "notes", href: "#notes" },
-  { key: "contact", href: "#contact" },
-] as const
 
 export function Footer() {
   const { t } = useI18n()
@@ -23,13 +15,13 @@ export function Footer() {
         <div className="mt-8 flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
           <p className="text-[12px] font-medium tracking-[0.02em] text-muted">© {new Date().getFullYear()} TurboDevs.</p>
           <ul className="flex flex-wrap items-center justify-center gap-6">
-            {NAV_ITEMS.map((item) => (
-              <li key={item.href}>
+            {NAV_SECTIONS.map((item) => (
+              <li key={item.id}>
                 <a
-                  href={item.href}
+                  href={"#" + item.id}
                   className="text-[11px] font-semibold tracking-[0.06em] text-muted uppercase transition-colors hover:text-ink"
                 >
-                  {t.nav[item.key]}
+                  {t.nav[item.navKey]}
                 </a>
               </li>
             ))}

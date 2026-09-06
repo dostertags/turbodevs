@@ -249,6 +249,8 @@ export const en: Dictionary = {
     greeting: "Hi TurboDevs! I'd like to talk about a project.",
   },
   a11y: {
+    pauseMotion: "Pause animation",
+    resumeMotion: "Resume animation",
     skipToContent: "Skip to content",
     newTab: "opens in new tab",
     selectLanguage: "Select language",

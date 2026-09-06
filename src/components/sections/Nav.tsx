@@ -5,15 +5,9 @@ import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useI18n } from "@/i18n/LanguageContext"
 import { LanguageSwitcher } from "@/components/LanguageSwitcher"
+import { MotionToggle } from "@/components/MotionToggle"
 import { track } from "@/lib/track"
-
-const NAV_ITEMS = [
-  { key: "work", href: "#work" },
-  { key: "grantfox", href: "#grantfox" },
-  { key: "approach", href: "#approach" },
-  { key: "notes", href: "#notes" },
-  { key: "contact", href: "#contact" },
-] as const
+import { NAV_SECTIONS } from "@/content/site"
 
 function Mark() {
   return (
@@ -32,7 +26,7 @@ function Mark() {
   )
 }
 
-export function Nav() {
+export function Nav({ motionOff, onToggleMotion }: { motionOff: boolean; onToggleMotion: () => void }) {
   const { t } = useI18n()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
@@ -80,31 +74,33 @@ export function Nav() {
         </a>
 
         <ul className="hidden items-center gap-8 lg:flex">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.href}>
+          {NAV_SECTIONS.map((item) => (
+            <li key={item.id}>
               <a
-                href={item.href}
-                onClick={() => track("nav_click", { id: item.key })}
+                href={"#" + item.id}
+                onClick={() => track("nav_click", { id: item.id })}
                 className="inline-block py-2 text-[12px] font-semibold tracking-[0.06em] text-muted uppercase transition-colors hover:text-ink"
               >
-                {t.nav[item.key]}
+                {t.nav[item.navKey]}
               </a>
             </li>
           ))}
         </ul>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <MotionToggle motionOff={motionOff} onToggle={onToggleMotion} />
           <LanguageSwitcher />
           <a
             href="#contact"
             onClick={() => track("cta_click", { id: "nav_start" })}
-            className="rounded-full bg-accent px-5 py-2 text-[12px] font-bold tracking-[0.02em] text-bg transition-colors hover:bg-[#f0b85c]"
+            className="rounded-full bg-accent px-5 py-2 text-[12px] font-bold tracking-[0.02em] text-bg transition-colors hover:bg-accent-hover"
           >
             {t.nav.startProject}
           </a>
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
+          <MotionToggle motionOff={motionOff} onToggle={onToggleMotion} />
           <LanguageSwitcher />
           <button
             ref={closeButtonRef}
@@ -129,14 +125,14 @@ export function Nav() {
             className="tg-glass tg-glass-solid overflow-hidden lg:hidden"
           >
             <ul className="flex flex-col gap-1 px-5 py-4">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.href}>
+              {NAV_SECTIONS.map((item) => (
+                <li key={item.id}>
                   <a
-                    href={item.href}
+                    href={"#" + item.id}
                     onClick={() => setOpen(false)}
                     className="block py-2.5 text-[13px] font-semibold tracking-[0.04em] text-ink uppercase"
                   >
-                    {t.nav[item.key]}
+                    {t.nav[item.navKey]}
                   </a>
                 </li>
               ))}

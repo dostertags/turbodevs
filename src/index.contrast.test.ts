@@ -42,6 +42,15 @@ describe("palette contrast", () => {
     { name: "muted text on a surface panel", fg: "muted", bg: "surface", min: 4.5 },
     { name: "muted text on the deeper surface", fg: "muted", bg: "surface-2", min: 4.5 },
     { name: "accent text on the page background", fg: "accent", bg: "bg", min: 4.5 },
+    // Semantic state colours. The terminal log lines sit on --color-bg; the
+    // Web Vitals rating and the form's error sit on a panel.
+    { name: "success text in the terminal", fg: "ok", bg: "bg", min: 4.5 },
+    { name: "failure text in the terminal", fg: "danger", bg: "bg", min: 4.5 },
+    { name: "error text on a panel", fg: "danger", bg: "surface", min: 4.5 },
+    { name: "warning text on the deeper surface", fg: "warn", bg: "surface-2", min: 4.5 },
+    // A hover state that drops below AA is a hover state that disappears.
+    { name: "button label on the accent hover fill", fg: "bg", bg: "accent-hover", min: 4.5 },
+    { name: "button label on the accent fill", fg: "bg", bg: "accent", min: 4.5 },
     // 1.4.11: the visible boundary of a form field / an unchecked switch.
     { name: "interactive border on the deeper surface", fg: "border-strong", bg: "surface-2", min: 3 },
     { name: "interactive border on the page background", fg: "border-strong", bg: "bg", min: 3 },

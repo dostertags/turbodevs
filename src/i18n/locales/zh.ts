@@ -249,6 +249,8 @@ export const zh: Dictionary = {
     greeting: "你好 TurboDevs！我想聊聊一个项目。",
   },
   a11y: {
+    pauseMotion: "暂停动画",
+    resumeMotion: "恢复动画",
     skipToContent: "跳转到主要内容",
     newTab: "在新标签页中打开",
     selectLanguage: "选择语言",

@@ -1,24 +1,23 @@
-import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal"
+import { RevealGroup, RevealItem } from "@/components/motion/Reveal"
+import { Section } from "@/components/ui/Section"
+import { SectionHeader } from "@/components/ui/SectionHeader"
 import { useI18n } from "@/i18n/LanguageContext"
 
 export function Approach() {
   const { t } = useI18n()
 
   return (
-    <section id="approach" className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
-      <Reveal>
-        <p className="text-[11px] font-bold tracking-[0.16em] text-accent uppercase">
-          {t.approach.eyebrow}
-        </p>
-      </Reveal>
-      <Reveal delay={0.08}>
-        <h2 className="mt-3 max-w-[20ch] text-[28px] leading-[1.2] font-semibold tracking-[-0.01em] sm:text-[36px]">
-          <span className="tg-shimmer">{t.approach.title}</span>
-        </h2>
-      </Reveal>
-      <Reveal delay={0.14}>
-        <p className="mt-5 max-w-[62ch] text-[15.5px] leading-relaxed text-muted">{t.approach.paragraph}</p>
-      </Reveal>
+    <Section id="approach" labelledBy="approach-title">
+      {/* The shimmer sweep is gone: an 8s infinite gradient animation on one
+          heading, running forever whether or not anyone is looking at it, and
+          the only element on the page treated that way. */}
+      <SectionHeader
+        eyebrow={t.approach.eyebrow}
+        title={t.approach.title}
+        titleId="approach-title"
+        paragraph={t.approach.paragraph}
+        titleWidth="20ch"
+      />
 
       <RevealGroup className="mt-14 grid gap-5 sm:grid-cols-3">
         {t.approach.pillars.map((pillar, i) => (
@@ -29,6 +28,6 @@ export function Approach() {
           </RevealItem>
         ))}
       </RevealGroup>
-    </section>
+    </Section>
   )
 }

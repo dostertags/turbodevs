@@ -31,6 +31,31 @@
   --color-accent: #e2a545;
   --color-accent-dim: #6e5127;
   --color-wire: #3d4a45;
+
+  /* Semantic state colours. Each of these existed before as a one-off
+     literal scattered through components: the accent hover was written out
+     three separate times, the "needs attention" and error colours were two
+     different near-identical oranges, and the terminal used Tailwind stock
+     emerald-400 / red-400 — the only two saturated screen colours on an
+     otherwise warm, desaturated page, which read as if they came from a
+     different site. Named here so the palette is one decision, and checked
+     in src/index.contrast.test.ts so none of them can drift below AA. */
+  --color-accent-hover: #f0b85c;
+  --color-ok: #8fae7a;
+  --color-warn: #e08a45;
+  --color-danger: #d9705a;
+
+  /* Type scale. One display size, two heading sizes and a lead size, each a
+     clamp() so the step from phone to desktop is continuous instead of
+     jumping at a breakpoint. Replaces the hand-written per-element sizes
+     that had drifted into six different heading sizes across eight
+     sections. */
+  --text-display: clamp(2.125rem, 1.2rem + 4.2vw, 4.5rem);
+  --text-h2: clamp(1.75rem, 1.3rem + 2.1vw, 3rem);
+  --text-h2-minor: clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem);
+  --text-lead: clamp(1rem, 0.95rem + 0.35vw, 1.25rem);
+  --tracking-display: -0.03em;
+  --tracking-h2: -0.02em;
 }
 
 :root {
@@ -132,37 +157,17 @@ html.lenis body {
   }
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .tg-cursor-active,
-  .tg-cursor-active * {
-    cursor: none !important;
-  }
-}
-
-/* A slow amber sweep across the accent word in the headline. */
-.tg-shimmer {
-  background: linear-gradient(
-    100deg,
-    var(--color-ink) 30%,
-    #fff7e6 45%,
-    var(--color-accent) 50%,
-    #fff7e6 55%,
-    var(--color-ink) 70%
-  );
-  background-size: 250% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: tg-shimmer 8s ease-in-out infinite;
-}
-@keyframes tg-shimmer {
-  0%,
-  100% {
-    background-position: 150% 0;
-  }
-  50% {
-    background-position: -50% 0;
-  }
+/* The same, driven by the in-page control rather than the OS setting. WCAG
+   2.2.2 asks for a mechanism inside the content, and the OS switch is not one:
+   a visitor on a borrowed machine cannot reach it. */
+html[data-motion="off"],
+html[data-motion="off"] *,
+html[data-motion="off"] *::before,
+html[data-motion="off"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
 }
 
 [id] {

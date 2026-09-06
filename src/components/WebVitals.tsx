@@ -53,7 +53,7 @@ function StatCell({ name, metric }: { name: MetricName; metric?: MetricState }) 
       <span
         className={cn(
           "text-[11px] tracking-[0.02em]",
-          measured ? (isGood ? "text-accent" : "text-[#e08a45]") : "text-muted italic",
+          measured ? (isGood ? "text-accent" : "text-warn") : "text-muted italic",
         )}
       >
         {measured ? (isGood ? t.webVitals.good : t.webVitals.needsAttention) : pendingLabel}
@@ -93,7 +93,7 @@ export function WebVitals() {
   }, [])
 
   return (
-    <div className="tg-glass rounded-2xl p-6">
+    <div className="rounded-2xl border border-border bg-surface p-6">
       <p className="text-[11px] font-bold tracking-[0.16em] text-accent uppercase">
         {t.webVitals.eyebrow}
       </p>

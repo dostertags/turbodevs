@@ -10,6 +10,7 @@ import { ProofStrip } from "@/components/sections/ProofStrip"
 import { useI18n } from "@/i18n/LanguageContext"
 import { track } from "@/lib/track"
 import { useRotator } from "@/hooks/use-rotator"
+import { useMotionOff } from "@/motion/MotionPreference"
 
 const ROTATE_INTERVAL_MS = 3400
 
@@ -31,7 +32,8 @@ const ROTATE_INTERVAL_MS = 3400
 export function Hero() {
   const { t } = useI18n()
   const ref = useRef<HTMLDivElement>(null)
-  const reduceMotion = useReducedMotion()
+  const motionOff = useMotionOff()
+  const reduceMotion = useReducedMotion() || motionOff
   // A manual pause/resume control for the auto-rotating headline (WCAG
   // 2.2.2, Pause/Stop/Hide) — prefers-reduced-motion alone freezes it for
   // OS-level opt-outs, but that's not a substitute for an in-content
