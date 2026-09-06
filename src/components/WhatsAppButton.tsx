@@ -1,10 +1,51 @@
+import { useEffect, useState } from "react"
+
+import { cn } from "@/lib/utils"
 import { useI18n } from "@/i18n/LanguageContext"
 
 const PHONE = "56976953752"
 
+/** Sections whose own controls sit in the bottom-right corner the button occupies. */
+const CONFLICTS = ["#demo", "#contact"]
+
+/**
+ * A fixed channel button that yields the corner instead of fighting for it.
+ *
+ * It used to sit at `z-[70]` — above the header (z-50) and above everything
+ * else — permanently covering whatever was in the bottom-right corner: the
+ * fail-closed demo's switches, the contact form's Send button, and the last
+ * sector chip in the hero on a 390px phone. A floating shortcut to a
+ * conversation is worth keeping, but not at the price of covering the primary
+ * action of the section a visitor is actually using, so it now sits *below*
+ * the header and hides itself while either of those sections is on screen.
+ */
 export function WhatsAppButton() {
   const { t } = useI18n()
+  const [hidden, setHidden] = useState(false)
   const href = `https://wa.me/${PHONE}?text=${encodeURIComponent(t.whatsapp.greeting)}`
+
+  useEffect(() => {
+    const targets = CONFLICTS.map((sel) => document.querySelector(sel)).filter(
+      (el): el is Element => el !== null,
+    )
+    if (targets.length === 0) return
+
+    const visible = new Set<Element>()
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.add(entry.target)
+          else visible.delete(entry.target)
+        }
+        setHidden(visible.size > 0)
+      },
+      // Only yield once a meaningful part of the section is on screen, so the
+      // button doesn't flicker on and off at the boundary.
+      { threshold: 0.25 },
+    )
+    targets.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <a
@@ -12,7 +53,14 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`${t.whatsapp.label}: +${PHONE}`}
-      className="fixed right-4 bottom-4 z-[70] flex size-13 items-center justify-center rounded-full bg-[#25D366] text-[14px] font-medium text-white shadow-[0_8px_28px_rgba(37,211,102,0.4)] transition-transform duration-300 hover:scale-[1.05] focus-visible:scale-[1.05] sm:size-auto sm:gap-2.5 sm:rounded-full sm:py-3 sm:pr-5 sm:pl-4 md:right-8 md:bottom-8"
+      // aria-hidden + tabIndex track the visual state so the button is not a
+      // focusable target while it is translated off screen.
+      aria-hidden={hidden}
+      tabIndex={hidden ? -1 : undefined}
+      className={cn(
+        "fixed right-4 bottom-4 z-40 flex size-13 items-center justify-center rounded-full bg-[#25D366] text-[14px] font-semibold text-bg shadow-[0_8px_28px_rgba(37,211,102,0.4)] transition-[transform,opacity] duration-300 hover:scale-[1.05] focus-visible:scale-[1.05] sm:size-auto sm:gap-2.5 sm:rounded-full sm:py-3 sm:pr-5 sm:pl-4 md:right-8 md:bottom-8",
+        hidden && "pointer-events-none translate-y-24 opacity-0",
+      )}
     >
       {/* Official WhatsApp glyph, inline so it never depends on a network request. */}
       <svg viewBox="0 0 24 24" aria-hidden="true" className="size-6 shrink-0 fill-current sm:size-5">

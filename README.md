@@ -29,20 +29,39 @@ npm run dev
 ## Quality gates
 
 ```bash
-npm run lint    # oxlint
-npm run test    # vitest — unit/component tests
-npm run build   # tsc -b && vite build — typecheck + production build
+npm run lint      # oxlint
+npm run test      # vitest — unit/component tests
+npm run build     # tsc -b && vite build — typecheck + production build
+npm run size      # bundle budget (run after build)
+npm run test:e2e  # playwright — 5 viewports x 7 locales, incl. axe
 ```
 
-All three run in CI on every push and PR to `master` (see `.github/workflows/ci.yml`).
+All of these run in CI on every push and PR to `master` (see
+`.github/workflows/ci.yml`).
 
-The test suite includes two regression guards worth knowing about:
+The suites exist to catch specific classes of bug that have actually shipped here:
+
 - `src/i18n/i18n-completeness.test.ts` diffs every translated locale's key
   shape against `en` — the exact class of bug that once shipped the Web
   Vitals widget in English-only on every translated page now fails CI instead.
 - `src/content/site.test.ts` asserts every hero sector chip only references
   `WORK` slugs that actually exist, so a claim can't quietly outlive the
   project backing it.
+- `src/i18n/claims.test.ts` is the machine-checkable half of the editorial
+  rule below: banned vocabulary (claims with no ledger row) and per-string
+  length budgets, across all seven locales plus `index.html` and `llms.txt`.
+  It was written because three claims had already drifted past the rule,
+  including a hero stat that read "7 **programming** languages" in six
+  languages.
+- `src/index.contrast.test.ts` computes WCAG contrast straight from the
+  `@theme` tokens in `index.css`, so a colour can't be nudged without the
+  consequence failing CI.
+- `src/components/sections/Contact.test.tsx` pins the one thing the form must
+  never do: report "Sent" for a message that was not delivered.
+- `e2e/` covers what jsdom structurally cannot see — computed opacity and
+  filters mid-scroll, a fixed element covering a control, whether the header
+  fits in Portuguese at 820px, whether the headline is actually painted, and
+  an axe scan of the built page.
 
 ## Deploy
 

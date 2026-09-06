@@ -4,7 +4,7 @@ export const en: Dictionary = {
   meta: {
     title: "TurboDevs — Tailor-Made Software, Built to Run 24/7",
     description:
-      "TurboDevs is a full-service software engineering studio building tailor-made systems across web, automation, and Web3 — engineered to keep working around the clock, not just on launch day.",
+      "TurboDevs is a software engineering studio building tailor-made systems across web, automation, and Web3 — engineered to keep working around the clock, not just on launch day.",
   },
   nav: {
     work: "Work",
@@ -29,7 +29,7 @@ export const en: Dictionary = {
       ],
     },
     paragraph:
-      "Full-stack systems, automation pipelines, and Web3 integrations, engineered for teams who need tailor-made solutions that stay reliable around the clock. Polyglot engineering — TypeScript, Python, Solidity/Soroban — proven across tax compliance, Web3 payments, and production SaaS running 24/7.",
+      "Full-stack systems, automation pipelines, and Web3 integrations, engineered for teams who need tailor-made solutions that stay reliable around the clock. Polyglot engineering — TypeScript and Python — proven across tax compliance, Web3 payments, and production SaaS running 24/7.",
     ctaPrimary: "See the work",
     ctaSecondary: "Talk to us",
     scrollHint: "Scroll to work",
@@ -45,7 +45,6 @@ export const en: Dictionary = {
     stats: [
       { value: "1,800+", label: "automated tests" },
       { value: "5", label: "public repos" },
-      { value: "7", label: "languages" },
     ],
   },
   services: {
@@ -60,7 +59,7 @@ export const en: Dictionary = {
       {
         title: "Web3 & blockchain integration",
         description:
-          "Wallet-native auth, on-chain payment verification, and smart-contract-adjacent systems on Stellar/Soroban — built for stellarfit's Horizon-confirmed checkout and shipped inside Grantfox's live marketplace.",
+          "Wallet-native auth and on-chain payment verification on Stellar — built for stellarfit's Horizon-confirmed checkout and shipped inside Grantfox's live marketplace.",
       },
       {
         title: "Automation & compliance systems",
@@ -248,5 +247,10 @@ export const en: Dictionary = {
   whatsapp: {
     label: "WhatsApp",
     greeting: "Hi TurboDevs! I'd like to talk about a project.",
+  },
+  a11y: {
+    skipToContent: "Skip to content",
+    newTab: "opens in new tab",
+    selectLanguage: "Select language",
   },
 }

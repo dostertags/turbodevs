@@ -141,4 +141,15 @@ export type Dictionary = {
     label: string
     greeting: string
   }
+  /**
+   * Strings that only ever reach assistive technology. They used to be
+   * hard-coded English literals inside components ("(opens in new tab)",
+   * "Select language"), so a screen-reader user reading the site in any of the
+   * other six languages was handed English mid-sentence.
+   */
+  a11y: {
+    skipToContent: string
+    newTab: string
+    selectLanguage: string
+  }
 }

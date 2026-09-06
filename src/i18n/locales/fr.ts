@@ -4,7 +4,7 @@ export const fr: Dictionary = {
   meta: {
     title: "TurboDevs — Logiciels sur mesure, conçus pour tourner 24 h/24, 7 j/7",
     description:
-      "TurboDevs est un studio d'ingénierie logicielle full-service qui conçoit des systèmes sur mesure pour le web, l'automatisation et le Web3 — pensés pour continuer à fonctionner jour et nuit, pas seulement le jour du lancement.",
+      "TurboDevs est un studio d'ingénierie logicielle qui conçoit des systèmes sur mesure pour le web, l'automatisation et le Web3 — pensés pour continuer à fonctionner jour et nuit, pas seulement le jour du lancement.",
   },
   nav: {
     work: "Réalisations",
@@ -29,7 +29,7 @@ export const fr: Dictionary = {
       ],
     },
     paragraph:
-      "Systèmes full-stack, pipelines d'automatisation et intégrations Web3, conçus pour les équipes qui ont besoin de solutions sur mesure fiables en continu. Ingénierie polyglotte — TypeScript, Python, Solidity/Soroban — éprouvée sur la conformité fiscale, les paiements Web3 et des SaaS en production tournant 24 h/24, 7 j/7.",
+      "Systèmes full-stack, pipelines d'automatisation et intégrations Web3, conçus pour les équipes qui ont besoin de solutions sur mesure fiables en continu. Ingénierie polyglotte — TypeScript et Python — éprouvée sur la conformité fiscale, les paiements Web3 et des SaaS en production tournant 24 h/24, 7 j/7.",
     ctaPrimary: "Voir les réalisations",
     ctaSecondary: "Parlez-nous",
     scrollHint: "Défiler vers les réalisations",
@@ -40,12 +40,11 @@ export const fr: Dictionary = {
       web3: "Web3 et blockchain",
       energy: "Énergie et industrie",
       consumerSaas: "Logiciels grand public",
-      hospitality: "Hôtellerie et petites entreprises",
+      hospitality: "Hôtellerie-restauration et petites entreprises",
     },
     stats: [
       { value: "1 800+", label: "tests automatisés" },
       { value: "5", label: "dépôts publics" },
-      { value: "7", label: "langages" },
     ],
   },
   services: {
@@ -60,7 +59,7 @@ export const fr: Dictionary = {
       {
         title: "Intégration Web3 et blockchain",
         description:
-          "Authentification native au wallet, vérification de paiement on-chain et systèmes proches des smart contracts sur Stellar/Soroban — conçus pour le checkout de stellarfit confirmé par Horizon, et déployés dans la marketplace en production de Grantfox.",
+          "Authentification native au wallet et vérification de paiement on-chain sur Stellar — conçues pour le checkout de stellarfit confirmé par Horizon, et déployés dans la marketplace en production de Grantfox.",
       },
       {
         title: "Systèmes d'automatisation et de conformité",
@@ -252,5 +251,10 @@ export const fr: Dictionary = {
   whatsapp: {
     label: "WhatsApp",
     greeting: "Bonjour TurboDevs ! J'aimerais discuter d'un projet.",
+  },
+  a11y: {
+    skipToContent: "Aller au contenu",
+    newTab: "ouvre un nouvel onglet",
+    selectLanguage: "Choisir la langue",
   },
 }

@@ -37,7 +37,7 @@ export function Grantfox() {
         <Reveal delay={0.2} className="mt-9">
           <Button href={GRANTFOX_HREF} variant="secondary" target="_blank" rel="noreferrer">
             {t.grantfox.cta}
-            <span className="sr-only"> (opens in new tab)</span>
+            <span className="sr-only"> ({t.a11y.newTab})</span>
             <ArrowUpRight aria-hidden="true" className="size-4" />
           </Button>
         </Reveal>

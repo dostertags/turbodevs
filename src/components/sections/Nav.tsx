@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { AnimatePresence, motion } from "motion/react"
 import { Menu, X } from "lucide-react"
 
@@ -35,6 +35,7 @@ export function Nav() {
   const { t } = useI18n()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -46,8 +47,18 @@ export function Nav() {
   useEffect(() => {
     if (!open) return
     document.body.style.overflow = "hidden"
+    // Escape has to close it: the drawer covers the page, and without this the
+    // only way out is to find the small X by touch or by tabbing back to it.
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false)
+        closeButtonRef.current?.focus()
+      }
+    }
+    document.addEventListener("keydown", onKey)
     return () => {
       document.body.style.overflow = ""
+      document.removeEventListener("keydown", onKey)
     }
   }, [open])
 
@@ -67,7 +78,7 @@ export function Nav() {
           TurboDevs
         </a>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-8 lg:flex">
           {NAV_ITEMS.map((item) => (
             <li key={item.href}>
               <a
@@ -80,7 +91,7 @@ export function Nav() {
           ))}
         </ul>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <LanguageSwitcher />
           <a
             href="#contact"
@@ -90,9 +101,10 @@ export function Nav() {
           </a>
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <LanguageSwitcher />
           <button
+            ref={closeButtonRef}
             type="button"
             aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
             aria-expanded={open}
@@ -111,7 +123,7 @@ export function Nav() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="tg-glass tg-glass-solid overflow-hidden md:hidden"
+            className="tg-glass tg-glass-solid overflow-hidden lg:hidden"
           >
             <ul className="flex flex-col gap-1 px-5 py-4">
               {NAV_ITEMS.map((item) => (

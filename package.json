@@ -10,8 +10,9 @@
     "lint": "oxlint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "qa": "node scripts/qa-check.mjs",
-    "deploy": "npm run build && firebase deploy --only hosting --project turbodevs"
+    "deploy": "npm run build && firebase deploy --only hosting --project turbodevs",
+    "test:e2e": "playwright test",
+    "size": "node scripts/size-check.mjs"
   },
   "dependencies": {
     "@fontsource-variable/mona-sans": "^5.3.0",
@@ -31,6 +32,8 @@
     "web-vitals": "^6.2.1"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/vite": "^4.3.3",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",

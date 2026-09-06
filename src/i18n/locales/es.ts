@@ -4,7 +4,7 @@ export const es: Dictionary = {
   meta: {
     title: "TurboDevs — Software a Medida, Construido para Funcionar 24/7",
     description:
-      "TurboDevs es un estudio de ingeniería de software integral que construye sistemas a medida en web, automatización y Web3 — diseñados para seguir funcionando las 24 horas, no solo el día del lanzamiento.",
+      "TurboDevs es un estudio de ingeniería de software que construye sistemas a medida en web, automatización y Web3 — diseñados para seguir funcionando las 24 horas, no solo el día del lanzamiento.",
   },
   nav: {
     work: "Trabajo",
@@ -29,7 +29,7 @@ export const es: Dictionary = {
       ],
     },
     paragraph:
-      "Sistemas full-stack, pipelines de automatización e integraciones Web3, diseñados para equipos que necesitan soluciones a medida que se mantengan confiables las 24 horas. Ingeniería políglota — TypeScript, Python, Solidity/Soroban — probada en cumplimiento tributario, pagos Web3 y SaaS en producción funcionando 24/7.",
+      "Sistemas full-stack, pipelines de automatización e integraciones Web3, diseñados para equipos que necesitan soluciones a medida que se mantengan confiables las 24 horas. Ingeniería políglota — TypeScript y Python — probada en cumplimiento tributario, pagos Web3 y SaaS en producción funcionando 24/7.",
     ctaPrimary: "Ver el trabajo",
     ctaSecondary: "Habla con nosotros",
     scrollHint: "Desplázate para ver el trabajo",
@@ -45,7 +45,6 @@ export const es: Dictionary = {
     stats: [
       { value: "1.800+", label: "pruebas automatizadas" },
       { value: "5", label: "repositorios públicos" },
-      { value: "7", label: "lenguajes" },
     ],
   },
   services: {
@@ -60,7 +59,7 @@ export const es: Dictionary = {
       {
         title: "Integración Web3 y blockchain",
         description:
-          "Autenticación nativa por wallet, verificación de pagos on-chain y sistemas adyacentes a smart contracts en Stellar/Soroban — construidos para el checkout de stellarfit confirmado por Horizon y desplegados dentro del marketplace en producción de Grantfox.",
+          "Autenticación nativa por wallet y verificación de pagos on-chain en Stellar — construidas para el checkout de stellarfit confirmado por Horizon y desplegados dentro del marketplace en producción de Grantfox.",
       },
       {
         title: "Sistemas de automatización y cumplimiento",
@@ -254,5 +253,10 @@ export const es: Dictionary = {
   whatsapp: {
     label: "WhatsApp",
     greeting: "¡Hola TurboDevs! Me gustaría hablar sobre un proyecto.",
+  },
+  a11y: {
+    skipToContent: "Saltar al contenido",
+    newTab: "se abre en una pestaña nueva",
+    selectLanguage: "Seleccionar idioma",
   },
 }

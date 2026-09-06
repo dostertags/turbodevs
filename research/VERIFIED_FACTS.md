@@ -20,6 +20,18 @@ exist without a row here. If a claim can't be sourced, it doesn't ship.
 | Hero sector chips (Government & Compliance, Web3 & Blockchain, Energy & Industrial, Consumer Software) | Each maps to real `WORK` slugs via `SECTOR_WORK_MAP` in `src/content/site.ts`, enforced by `src/content/site.test.ts` | 2026-09-01 |
 | Hero sector chip "Hospitality & Small Business" | **Capability claim only** — grounded in a real, built `TurboRestaurant` project on a shared multi-vertical scaffold (`turbo-vertical-scaffold`), verified by direct read of its `package.json`. Deliberately has **no** entry in `SECTOR_WORK_MAP` (no public repo, no confirmed live URL) — never state this as a linkable/public work item without first getting one. | 2026-09-01, local repo read. User confirmed capability-only framing. |
 
+## Removed from the site (the claim outran its source)
+
+| Claim | Why it no longer ships | Date |
+|---|---|---|
+| `Solidity/Soroban` in the hero paragraph, and `smart-contract-adjacent systems on Stellar/Soroban` in Services | No row here mentions either. stellarfit is a Horizon-confirmed **payment** integration; no repository in this ledger contains Solidity or Soroban contract work. Restated as wallet-native auth and on-chain payment verification on Stellar, which rows 11 and 14 do support. | 2026-09-06 |
+| Hero stat `7 languages` | The row below is real, but the stat described **this site’s own UI locale count**, not the work — and all six translations rendered it as *programming* languages (de "Programmiersprachen", es "lenguajes", zh "编程语言"), which is false. Removed rather than reworded; the slot is refilled with a ledger-linked proof in a later phase. | 2026-09-06 |
+| `full-service` (meta description in 7 locales, `index.html`, JSON-LD, `llms.txt`) | A breadth claim with no source, on a site that deliberately publishes no team size. | 2026-09-06 |
+| `llms.txt`: on-chain balance reported as unavailable, transaction hashes populated only when real, purchase state machine that cannot double-register a retried purchase | Real observations from the Grantfox code review, but row 14 does not carry them and no public artefact backs them. Trimmed to what row 14 states. **To restore: add a row citing a public PR/commit, or a maintainer statement.** | 2026-09-06 |
+
+Enforced by `src/i18n/claims.test.ts`, which fails CI if any of these strings
+returns to any locale, to `index.html`, or to `public/llms.txt`.
+
 ## Explicitly NOT claimed (no source)
 
 - Team size, headcount, or founder count.

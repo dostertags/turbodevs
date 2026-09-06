@@ -42,7 +42,7 @@ export function Footer() {
               >
                 <GitFork aria-hidden="true" className="size-3.5" />
                 {t.footer.sourceLabel}
-                <span className="sr-only"> (opens in new tab)</span>
+                <span className="sr-only"> ({t.a11y.newTab})</span>
               </a>
             </li>
           </ul>

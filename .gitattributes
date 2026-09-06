@@ -1,0 +1,6 @@
+# One line ending in the repository regardless of who checks it out, so a
+# translation edit on Windows does not show up as a whole-file rewrite.
+* text=auto eol=lf
+*.png binary
+*.woff binary
+*.woff2 binary

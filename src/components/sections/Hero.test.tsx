@@ -1,15 +1,6 @@
 import { act, fireEvent, render, screen } from "@testing-library/react"
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest"
 
-// Isolates this test from the real react-three-fiber Canvas: jsdom has no
-// ResizeObserver, so mounting the actual WebGL canvas throws outside of a
-// real browser (see `src/three/HeroVisual.tsx` — untested for the same
-// reason `Scene.tsx`/`NetworkGraph.tsx` are). The headline itself renders
-// outside the Suspense boundary that wraps this, so it's unaffected.
-vi.mock("@/three/HeroVisual", () => ({
-  HeroVisual: () => null,
-}))
-
 import { LanguageProvider } from "@/i18n/LanguageContext"
 import { en } from "@/i18n/locales/en"
 import { Hero } from "@/components/sections/Hero"
@@ -62,6 +53,17 @@ describe("Hero", () => {
     const visibleContent = heading.querySelector("span[aria-hidden]")
     expect(visibleContent).not.toBeNull()
     expect(visibleContent).toContainElement(screen.getByTestId("rotating-current"))
+  })
+
+  it("keeps the rotation control out of the heading", () => {
+    // Regression guard: the pause button used to live inside the <h1>, where
+    // it rendered as a 28px glass circle floating in the display type (and on
+    // a phone, alone on its own line under the rotating phrase) — it read as
+    // a rendering fault, and it put an interactive control inside a heading.
+    renderHero()
+    const heading = screen.getByRole("heading", { level: 1 })
+    expect(heading.querySelector("button")).toBeNull()
+    expect(screen.getByRole("button", { name: en.hero.pauseRotation })).toBeInTheDocument()
   })
 
   describe("rotation pause control", () => {

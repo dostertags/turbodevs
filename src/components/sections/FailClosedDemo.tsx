@@ -53,7 +53,7 @@ function ConfigToggle({
         onClick={onToggle}
         className={cn(
           "relative h-6 w-11 shrink-0 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-2",
-          checked ? "bg-accent" : "bg-bg border border-border",
+          checked ? "bg-accent" : "bg-bg border border-border-strong",
           locked ? "cursor-not-allowed opacity-70" : "cursor-pointer",
         )}
       >
@@ -143,7 +143,7 @@ export function FailClosedDemo() {
             <span className="font-mono text-[11px] tracking-[0.08em] uppercase">{t.demo.panelLabel}</span>
           </div>
 
-          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+          <div className="mt-5 grid gap-3 md:grid-cols-3">
             <ConfigToggle
               label={t.demo.toggles.jwt.label}
               description={t.demo.toggles.jwt.description}
@@ -167,7 +167,7 @@ export function FailClosedDemo() {
           <button
             type="button"
             onClick={handleDeploy}
-            className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-[14px] font-medium tracking-[0.01em] text-bg transition-colors duration-200 hover:bg-[#f0b85c] focus-visible:outline-none"
+            className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-[14px] font-medium tracking-[0.01em] text-bg transition-colors duration-200 hover:bg-[#f0b85c]"
           >
             {t.demo.deployButton}
           </button>

@@ -27,3 +27,48 @@ jobs:
 
       - name: Typecheck & build
         run: npm run build
+
+      # Fails when a bundle grows past its budget. The budgets sit just above
+      # today's sizes, so this catches regressions now and gets tightened as
+      # each phase of the overhaul lands.
+      - name: Bundle budget
+        run: npm run size
+
+      - name: Upload build
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 7
+
+  e2e:
+    runs-on: ubuntu-latest
+    # Everything a jsdom unit test cannot see: computed opacity mid-scroll, a
+    # fixed element covering a control, whether the header fits in Portuguese,
+    # whether the headline is actually painted, and axe on the built page.
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Build
+        run: npm run build
+
+      - name: End-to-end tests
+        run: npm run test:e2e
+
+      - name: Upload report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report
+          retention-days: 7

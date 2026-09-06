@@ -4,7 +4,7 @@ export const pt: Dictionary = {
   meta: {
     title: "TurboDevs — Software Sob Medida, Construído para Rodar 24/7",
     description:
-      "A TurboDevs é um estúdio de engenharia de software full-service que constrói sistemas sob medida para web, automação e Web3 — projetados para continuar funcionando o tempo todo, não apenas no dia do lançamento.",
+      "A TurboDevs é um estúdio de engenharia de software que constrói sistemas sob medida para web, automação e Web3 — projetados para continuar funcionando o tempo todo, não apenas no dia do lançamento.",
   },
   nav: {
     work: "Trabalho",
@@ -29,7 +29,7 @@ export const pt: Dictionary = {
       ],
     },
     paragraph:
-      "Sistemas full-stack, pipelines de automação e integrações Web3, projetados para equipes que precisam de soluções sob medida que se mantêm confiáveis o tempo todo. Engenharia poliglota — TypeScript, Python, Solidity/Soroban — comprovada em conformidade tributária, pagamentos Web3 e SaaS em produção rodando 24/7.",
+      "Sistemas full-stack, pipelines de automação e integrações Web3, projetados para equipes que precisam de soluções sob medida que se mantêm confiáveis o tempo todo. Engenharia poliglota — TypeScript e Python — comprovada em conformidade tributária, pagamentos Web3 e SaaS em produção rodando 24/7.",
     ctaPrimary: "Ver o trabalho",
     ctaSecondary: "Falar conosco",
     scrollHint: "Role até o trabalho",
@@ -40,12 +40,11 @@ export const pt: Dictionary = {
       web3: "Web3 & Blockchain",
       energy: "Energia & Indústria",
       consumerSaas: "Software para Consumidor",
-      hospitality: "Hotelaria & Pequenos Negócios",
+      hospitality: "Hotelaria, Restauração & Pequenos Negócios",
     },
     stats: [
       { value: "1.800+", label: "testes automatizados" },
       { value: "5", label: "repositórios públicos" },
-      { value: "7", label: "linguagens" },
     ],
   },
   services: {
@@ -60,7 +59,7 @@ export const pt: Dictionary = {
       {
         title: "Integração Web3 e blockchain",
         description:
-          "Autenticação nativa via carteira, verificação de pagamentos on-chain e sistemas adjacentes a contratos inteligentes em Stellar/Soroban — construídos para o checkout com confirmação pela Horizon da stellarfit e lançados dentro do marketplace em produção da Grantfox.",
+          "Autenticação nativa via carteira e verificação de pagamentos on-chain em Stellar — construídas para o checkout com confirmação pela Horizon da stellarfit e lançados dentro do marketplace em produção da Grantfox.",
       },
       {
         title: "Sistemas de automação e conformidade",
@@ -252,5 +251,10 @@ export const pt: Dictionary = {
   whatsapp: {
     label: "WhatsApp",
     greeting: "Olá, TurboDevs! Gostaria de falar sobre um projeto.",
+  },
+  a11y: {
+    skipToContent: "Pular para o conteúdo",
+    newTab: "abre em uma nova aba",
+    selectLanguage: "Selecionar idioma",
   },
 }

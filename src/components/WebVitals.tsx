@@ -87,7 +87,7 @@ export function WebVitals() {
       <p className="text-[11px] font-bold tracking-[0.16em] text-accent uppercase">
         {t.webVitals.eyebrow}
       </p>
-      <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+      <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-3">
         <StatCell name="lcp" metric={metrics.lcp} />
         <StatCell name="inp" metric={metrics.inp} />
         <StatCell name="cls" metric={metrics.cls} />

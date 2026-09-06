@@ -51,13 +51,15 @@ type LanguageContextValue = {
 const LanguageContext = createContext<LanguageContextValue | null>(null)
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<LanguageCode>(DEFAULT_LANGUAGE)
-
-  // Runs once on mount, client-side only — avoids a hydration mismatch from
-  // reading localStorage/navigator.language during the initial render.
-  useEffect(() => {
-    setLanguageState(detectInitialLanguage())
-  }, [])
+  // Resolved during the first render, not in an effect afterwards. Detecting
+  // in an effect meant every visitor whose language is not English got a full
+  // render in English, a state update, and a second full render — a visible
+  // flash of the wrong language on every single load, plus wasted work.
+  // Reading localStorage/navigator during render is safe precisely because
+  // nothing here is server-rendered yet; when the site starts prerendering one
+  // page per locale, the language comes from the page itself and this whole
+  // detection moves to "only when the URL carries no locale".
+  const [language, setLanguageState] = useState<LanguageCode>(detectInitialLanguage)
 
   useEffect(() => {
     document.documentElement.lang = language

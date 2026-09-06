@@ -1,5 +1,5 @@
 import path from "path"
-import { defineConfig } from "vitest/config"
+import { configDefaults, defineConfig } from "vitest/config"
 import react from "@vitejs/plugin-react"
 import tailwindcss from "@tailwindcss/vite"
 
@@ -11,6 +11,10 @@ export default defineConfig({
     },
   },
   test: {
+    // e2e/ is driven by @playwright/test, which has its own runner and its own
+    // `test`/`expect`. Without this, vitest collects those files and fails on
+    // them before running a single assertion.
+    exclude: [...configDefaults.exclude, "e2e/**"],
     environment: "jsdom",
     globals: true,
     setupFiles: ["./src/test/setup.ts"],

@@ -4,7 +4,7 @@ export const zh: Dictionary = {
   meta: {
     title: "TurboDevs — 度身定制软件，专为 24/7 全天候运行打造",
     description:
-      "TurboDevs 是一家全服务软件工程工作室，专注于为 Web、自动化和 Web3 领域打造度身定制的系统——工程设计以全天候持续运行为目标，而不仅仅是在上线当天表现良好。",
+      "TurboDevs 是一家软件工程工作室，专注于为 Web、自动化和 Web3 领域打造度身定制的系统——工程设计以全天候持续运行为目标，而不仅仅是在上线当天表现良好。",
   },
   nav: {
     work: "作品",
@@ -29,7 +29,7 @@ export const zh: Dictionary = {
       ],
     },
     paragraph:
-      "全栈系统、自动化流水线与 Web3 集成，专为需要全天候稳定运行的定制解决方案的团队打造。多语言工程能力——TypeScript、Python、Solidity/Soroban——已在税务合规、Web3 支付和 24/7 运行的生产级 SaaS 中得到验证。",
+      "全栈系统、自动化流水线与 Web3 集成，专为需要全天候稳定运行的定制解决方案的团队打造。多语言工程能力——TypeScript 与 Python——已在税务合规、Web3 支付和 24/7 运行的生产级 SaaS 中得到验证。",
     ctaPrimary: "查看作品",
     ctaSecondary: "联系我们",
     scrollHint: "向下滚动查看作品",
@@ -45,7 +45,6 @@ export const zh: Dictionary = {
     stats: [
       { value: "1,800+", label: "自动化测试" },
       { value: "5", label: "公开代码仓库" },
-      { value: "7", label: "编程语言" },
     ],
   },
   services: {
@@ -60,7 +59,7 @@ export const zh: Dictionary = {
       {
         title: "Web3 与区块链集成",
         description:
-          "钱包原生身份验证、链上支付校验，以及基于 Stellar/Soroban 的近智能合约系统——为 stellarfit 经 Horizon 确认的结账流程而构建，并已交付上线于 Grantfox 的实时市场。",
+          "基于 Stellar 的钱包原生身份验证与链上支付校验——为 stellarfit 经 Horizon 确认的结账流程而构建，并已交付上线于 Grantfox 的线上市场。",
       },
       {
         title: "自动化与合规系统",
@@ -248,5 +247,10 @@ export const zh: Dictionary = {
   whatsapp: {
     label: "WhatsApp",
     greeting: "你好 TurboDevs！我想聊聊一个项目。",
+  },
+  a11y: {
+    skipToContent: "跳转到主要内容",
+    newTab: "在新标签页中打开",
+    selectLanguage: "选择语言",
   },
 }

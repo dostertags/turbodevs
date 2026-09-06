@@ -4,7 +4,7 @@ export const de: Dictionary = {
   meta: {
     title: "TurboDevs — Maßgeschneiderte Software, gebaut für den 24/7-Betrieb",
     description:
-      "TurboDevs ist ein Full-Service-Studio für Softwareentwicklung, das maßgeschneiderte Systeme für Web, Automatisierung und Web3 baut — entwickelt, um rund um die Uhr zuverlässig zu laufen, nicht nur am Launch-Tag.",
+      "TurboDevs ist ein Studio für Softwareentwicklung, das maßgeschneiderte Systeme für Web, Automatisierung und Web3 baut — entwickelt, um rund um die Uhr zuverlässig zu laufen, nicht nur am Launch-Tag.",
   },
   nav: {
     work: "Projekte",
@@ -29,7 +29,7 @@ export const de: Dictionary = {
       ],
     },
     paragraph:
-      "Full-Stack-Systeme, Automatisierungs-Pipelines und Web3-Integrationen — entwickelt für Teams, die maßgeschneiderte Lösungen brauchen, die rund um die Uhr zuverlässig laufen. Polyglotte Entwicklung — TypeScript, Python, Solidity/Soroban — bewährt in Steuer-Compliance, Web3-Zahlungen und Produktions-SaaS im 24/7-Betrieb.",
+      "Full-Stack-Systeme, Automatisierungs-Pipelines und Web3-Integrationen — entwickelt für Teams, die maßgeschneiderte Lösungen brauchen, die rund um die Uhr zuverlässig laufen. Polyglotte Entwicklung — TypeScript und Python — bewährt in Steuer-Compliance, Web3-Zahlungen und Produktions-SaaS im 24/7-Betrieb.",
     ctaPrimary: "Projekte ansehen",
     ctaSecondary: "Sprechen Sie mit uns",
     scrollHint: "Zu den Projekten scrollen",
@@ -45,7 +45,6 @@ export const de: Dictionary = {
     stats: [
       { value: "1.800+", label: "automatisierte Tests" },
       { value: "5", label: "öffentliche Repositories" },
-      { value: "7", label: "Programmiersprachen" },
     ],
   },
   services: {
@@ -60,7 +59,7 @@ export const de: Dictionary = {
       {
         title: "Web3- und Blockchain-Integration",
         description:
-          "Wallet-native Authentifizierung, On-Chain-Zahlungsverifizierung und smart-contract-nahe Systeme auf Stellar/Soroban — entwickelt für stellarfits Horizon-bestätigten Checkout und im Live-Marketplace von Grantfox im Einsatz.",
+          "Wallet-native Authentifizierung und On-Chain-Zahlungsverifizierung auf Stellar — entwickelt für stellarfits Horizon-bestätigten Checkout und im Live-Marketplace von Grantfox im Einsatz.",
       },
       {
         title: "Automatisierung & Compliance-Systeme",
@@ -254,5 +253,10 @@ export const de: Dictionary = {
   whatsapp: {
     label: "WhatsApp",
     greeting: "Hallo TurboDevs! Ich würde gerne über ein Projekt sprechen.",
+  },
+  a11y: {
+    skipToContent: "Zum Inhalt springen",
+    newTab: "wird in neuem Tab geöffnet",
+    selectLanguage: "Sprache auswählen",
   },
 }

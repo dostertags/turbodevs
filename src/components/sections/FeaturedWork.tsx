@@ -59,7 +59,7 @@ export function FeaturedWork() {
                           className="inline-flex items-center gap-1 text-[13px] font-medium text-ink transition-colors hover:text-accent"
                         >
                           {link.label}
-                          <span className="sr-only"> ({item.name}, opens in new tab)</span>
+                          <span className="sr-only"> ({item.name}, {t.a11y.newTab})</span>
                           <ArrowUpRight aria-hidden="true" className="size-3.5" />
                         </a>
                       ))}

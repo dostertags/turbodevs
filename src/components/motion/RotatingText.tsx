@@ -26,7 +26,18 @@ export function RotatingText({ items, index, className, reduceMotion }: Rotating
 
   return (
     <span
-      className={cn("relative inline-grid text-left align-bottom", className)}
+      // `justify-items-center` + `text-center`, not `text-left`: the sizer
+      // below reserves the width of the LONGEST item, so on a phone this box
+      // is as wide as the headline column. Left-aligning inside it printed
+      // every shorter phrase hard against the left edge of a centred heading,
+      // which read as a layout bug. Centring inside the reserved box keeps
+      // the zero-layout-shift property and looks like the centred heading it
+      // belongs to. `[overflow-wrap:anywhere]` keeps the long unbreakable
+      // German compounds inside the 350px column instead of overflowing it.
+      className={cn(
+        "relative inline-grid justify-items-center text-center align-bottom [overflow-wrap:anywhere]",
+        className,
+      )}
       aria-label={items.join(" · ")}
     >
       {/* Default ("sync") mode, deliberately not "wait": the entering and

@@ -6,7 +6,7 @@ import { useI18n } from "@/i18n/LanguageContext"
 import { LANGUAGES } from "@/i18n/languages"
 
 export function LanguageSwitcher({ className }: { className?: string }) {
-  const { language, setLanguage, available } = useI18n()
+  const { language, setLanguage, available, t } = useI18n()
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -50,7 +50,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         // order. Putting both on one element silently left it in-flow,
         // which inflated this row's height and threw off `items-center`.
         <div className="absolute top-full right-0 z-50 mt-2 max-h-[70vh] w-40 overflow-y-auto rounded-xl">
-          <ul role="listbox" aria-label="Select language" className="tg-glass tg-glass-solid rounded-xl py-1.5">
+          <ul role="listbox" aria-label={t.a11y.selectLanguage} className="tg-glass tg-glass-solid rounded-xl py-1.5">
             {options.map((l) => (
               <li key={l.code}>
                 <button
