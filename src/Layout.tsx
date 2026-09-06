@@ -8,6 +8,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton"
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
 import { useViewportSync } from "@/hooks/use-viewport-sync"
 import { useI18n } from "@/i18n/LanguageContext"
+import { useAnalytics } from "@/hooks/use-analytics"
 
 // three.js + @react-three/fiber + drei + postprocessing are the heaviest
 // dependency in this app by far. Loading them in the same chunk as the rest
@@ -20,6 +21,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const { t } = useI18n()
   useViewportSync()
   useSmoothScroll()
+  useAnalytics()
 
   return (
     <>

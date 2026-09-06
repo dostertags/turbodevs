@@ -4,6 +4,7 @@ import { GitFork, Send } from "lucide-react"
 import { Reveal } from "@/components/motion/Reveal"
 import { CONTACT_INFO } from "@/content/site"
 import { useI18n } from "@/i18n/LanguageContext"
+import { track } from "@/lib/track"
 
 type Status = "idle" | "sending" | "sent" | "error"
 
@@ -30,6 +31,7 @@ export function Contact() {
     e.preventDefault()
     setStatus("sending")
     setErrorDetail(null)
+    track("form_submit")
     const form = e.currentTarget
     try {
       const res = await fetch(`https://formsubmit.co/ajax/${CONTACT_INFO.formEmail}`, {
@@ -50,9 +52,14 @@ export function Contact() {
         throw new Error(body.message || `FormSubmit responded ${res.status}`)
       }
       setStatus("sent")
+      track("form_sent")
     } catch (error) {
-      setErrorDetail(error instanceof Error ? error.message : null)
+      const detail = error instanceof Error ? error.message : null
+      setErrorDetail(detail)
       setStatus("error")
+      // The reason matters more than the count: an unactivated inbox and a
+      // network failure need completely different responses from the owner.
+      track("form_error", { reason: (detail ?? "unknown").slice(0, 64) })
     }
   }
 

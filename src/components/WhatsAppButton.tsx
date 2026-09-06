@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 import { cn } from "@/lib/utils"
 import { useI18n } from "@/i18n/LanguageContext"
+import { track } from "@/lib/track"
 
 const PHONE = "56976953752"
 
@@ -55,6 +56,7 @@ export function WhatsAppButton() {
       aria-label={`${t.whatsapp.label}: +${PHONE}`}
       // aria-hidden + tabIndex track the visual state so the button is not a
       // focusable target while it is translated off screen.
+      onClick={() => track("whatsapp_click")}
       aria-hidden={hidden}
       tabIndex={hidden ? -1 : undefined}
       className={cn(

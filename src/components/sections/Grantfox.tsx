@@ -4,6 +4,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal"
 import { Button } from "@/components/ui/Button"
 import { GRANTFOX_HREF } from "@/content/site"
 import { useI18n } from "@/i18n/LanguageContext"
+import { track } from "@/lib/track"
 
 export function Grantfox() {
   const { t } = useI18n()
@@ -35,7 +36,13 @@ export function Grantfox() {
         </RevealGroup>
 
         <Reveal delay={0.2} className="mt-9">
-          <Button href={GRANTFOX_HREF} variant="secondary" target="_blank" rel="noreferrer">
+          <Button
+            href={GRANTFOX_HREF}
+            variant="secondary"
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => track("grantfox_exit")}
+          >
             {t.grantfox.cta}
             <span className="sr-only"> ({t.a11y.newTab})</span>
             <ArrowUpRight aria-hidden="true" className="size-4" />

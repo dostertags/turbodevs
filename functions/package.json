@@ -1,0 +1,13 @@
+{
+  "name": "turbodevs-functions",
+  "description": "Same-origin, cookieless event endpoint for turbodevs.web.app",
+  "private": true,
+  "main": "index.js",
+  "engines": {
+    "node": "22"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.6.0",
+    "firebase-functions": "^6.6.0"
+  }
+}

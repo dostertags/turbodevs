@@ -4,6 +4,7 @@ import { Gauge, MousePointerClick, Move } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { useI18n } from "@/i18n/LanguageContext"
+import { track } from "@/lib/track"
 
 type MetricName = "lcp" | "inp" | "cls"
 type Rating = "good" | "needs-improvement" | "poor"
@@ -71,15 +72,24 @@ export function WebVitals() {
     // reportAllChanges means each metric updates as soon as it has any real
     // value instead of only once, at page-hide — without it, CLS in
     // particular can sit unresolved for the entire visit.
-    onLCP((metric) => setMetrics((prev) => ({ ...prev, lcp: { value: metric.value, rating: metric.rating } })), {
-      reportAllChanges: true,
-    })
-    onINP((metric) => setMetrics((prev) => ({ ...prev, inp: { value: metric.value, rating: metric.rating } })), {
-      reportAllChanges: true,
-    })
-    onCLS((metric) => setMetrics((prev) => ({ ...prev, cls: { value: metric.value, rating: metric.rating } })), {
-      reportAllChanges: true,
-    })
+    // The same measurement now serves two purposes: the widget below shows
+    // this visitor their own numbers, and the beacon collects them so the
+    // rolling field p75 can replace the modelled figures the plan is working
+    // against. Reported once per metric (not on every change) so a single
+    // visit does not send dozens of beacons.
+    const report = (name: MetricName) => {
+      let sent = false
+      return (metric: { value: number; rating: Rating }) => {
+        setMetrics((prev) => ({ ...prev, [name]: { value: metric.value, rating: metric.rating } }))
+        if (!sent) {
+          sent = true
+          track("web_vital", { metric: name, value: Math.round(metric.value * 1000) / 1000, rating: metric.rating })
+        }
+      }
+    }
+    onLCP(report("lcp"), { reportAllChanges: true })
+    onINP(report("inp"), { reportAllChanges: true })
+    onCLS(report("cls"), { reportAllChanges: true })
   }, [])
 
   return (

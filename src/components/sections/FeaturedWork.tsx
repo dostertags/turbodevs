@@ -5,6 +5,7 @@ import { TiltCard } from "@/components/motion/TiltCard"
 import { Badge } from "@/components/ui/Badge"
 import { WORK } from "@/content/site"
 import { useI18n } from "@/i18n/LanguageContext"
+import { track } from "@/lib/track"
 
 export function FeaturedWork() {
   const { t } = useI18n()
@@ -56,6 +57,7 @@ export function FeaturedWork() {
                           href={link.href}
                           target="_blank"
                           rel="noreferrer"
+                          onClick={() => track("work_link", { slug: item.slug, label: link.label })}
                           className="inline-flex items-center gap-1 text-[13px] font-medium text-ink transition-colors hover:text-accent"
                         >
                           {link.label}

@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useI18n } from "@/i18n/LanguageContext"
 import { LanguageSwitcher } from "@/components/LanguageSwitcher"
+import { track } from "@/lib/track"
 
 const NAV_ITEMS = [
   { key: "work", href: "#work" },
@@ -83,6 +84,7 @@ export function Nav() {
             <li key={item.href}>
               <a
                 href={item.href}
+                onClick={() => track("nav_click", { id: item.key })}
                 className="inline-block py-2 text-[12px] font-semibold tracking-[0.06em] text-muted uppercase transition-colors hover:text-ink"
               >
                 {t.nav[item.key]}
@@ -95,6 +97,7 @@ export function Nav() {
           <LanguageSwitcher />
           <a
             href="#contact"
+            onClick={() => track("cta_click", { id: "nav_start" })}
             className="rounded-full bg-accent px-5 py-2 text-[12px] font-bold tracking-[0.02em] text-bg transition-colors hover:bg-[#f0b85c]"
           >
             {t.nav.startProject}
@@ -140,7 +143,10 @@ export function Nav() {
               <li className="pt-2">
                 <a
                   href="#contact"
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    track("cta_click", { id: "drawer_start" })
+                    setOpen(false)
+                  }}
                   className="block rounded-full bg-accent px-5 py-2.5 text-center text-[13px] font-bold text-bg"
                 >
                   {t.nav.startProject}

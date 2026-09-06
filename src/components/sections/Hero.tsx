@@ -8,6 +8,7 @@ import { SplitText } from "@/components/motion/SplitText"
 import { RotatingText } from "@/components/motion/RotatingText"
 import { ProofStrip } from "@/components/sections/ProofStrip"
 import { useI18n } from "@/i18n/LanguageContext"
+import { track } from "@/lib/track"
 import { useRotator } from "@/hooks/use-rotator"
 
 const ROTATE_INTERVAL_MS = 3400
@@ -131,10 +132,10 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.75, ease: softEase }}
           className="mt-9 flex flex-wrap items-center justify-center gap-3.5"
         >
-          <Button href="#work" variant="primary">
+          <Button href="#work" variant="primary" onClick={() => track("cta_click", { id: "hero_primary" })}>
             {t.hero.ctaPrimary}
           </Button>
-          <Button href="#contact" variant="secondary">
+          <Button href="#contact" variant="secondary" onClick={() => track("cta_click", { id: "hero_secondary" })}>
             {t.hero.ctaSecondary}
           </Button>
         </motion.div>

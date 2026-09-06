@@ -4,6 +4,7 @@ import { Globe } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useI18n } from "@/i18n/LanguageContext"
 import { LANGUAGES } from "@/i18n/languages"
+import { track } from "@/lib/track"
 
 export function LanguageSwitcher({ className }: { className?: string }) {
   const { language, setLanguage, available, t } = useI18n()
@@ -58,6 +59,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
                   role="option"
                   aria-selected={l.code === language}
                   onClick={() => {
+                    track("lang_change", { to: l.code })
                     setLanguage(l.code)
                     setOpen(false)
                   }}

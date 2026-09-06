@@ -7,8 +7,15 @@ import { defineConfig, devices } from "@playwright/test"
  * whether the headline is actually painted when the GPU is starved.
  *
  * Every project runs against the production build (`vite preview`), not the dev
- * server, so what is measured is what ships.
+ * server, so what is measured is what ships. To smoke-test the deployed site
+ * instead, set a base URL:
+ *
+ *     PLAYWRIGHT_BASE_URL=https://turbodevs.web.app npm run test:e2e
+ *
+ * CI leaves it unset and tests the build it just produced.
  */
+const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:4173"
+
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
@@ -20,17 +27,19 @@ export default defineConfig({
   expect: { timeout: 10_000 },
 
   use: {
-    baseURL: "http://localhost:4173",
+    baseURL: BASE_URL,
     trace: "on-first-retry",
     screenshot: "only-on-failure",
   },
 
-  webServer: {
-    command: "npm run preview",
-    url: "http://localhost:4173",
-    reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
-  },
+  webServer: process.env.PLAYWRIGHT_BASE_URL
+    ? undefined
+    : {
+        command: "npm run preview",
+        url: "http://localhost:4173",
+        reuseExistingServer: !process.env.CI,
+        timeout: 120_000,
+      },
 
   projects: [
     { name: "desktop-1440", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 } } },

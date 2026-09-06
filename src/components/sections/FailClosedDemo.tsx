@@ -4,6 +4,7 @@ import { Lock, ShieldAlert, ShieldCheck, TerminalSquare } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Reveal } from "@/components/motion/Reveal"
 import { useI18n } from "@/i18n/LanguageContext"
+import { track } from "@/lib/track"
 
 type LogEntry = {
   id: number
@@ -99,6 +100,7 @@ export function FailClosedDemo() {
 
   function handleDeploy() {
     const reasons: string[] = []
+    track("demo_deploy", { jwt: jwtSecretSet, seed: dbSeedOnStartup })
 
     if (!jwtSecretSet) reasons.push(t.demo.reasons.jwtMissing)
     if (dbSeedOnStartup) reasons.push(t.demo.reasons.seedOn)
