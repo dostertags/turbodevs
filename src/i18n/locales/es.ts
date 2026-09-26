@@ -29,7 +29,7 @@ export const es: Dictionary = {
       ],
     },
     paragraph:
-      "Hecho para software de misión crítica, donde una caída no es una opción. Construimos sistemas resilientes y listos para producción — desde motores de cumplimiento tributario hasta pagos Web3 — respaldados por confiabilidad operativa 24/7.",
+      "Hecho para software de misión crítica, donde una caída no es una opción. Construimos sistemas resilientes y listos para producción — desde monitoreo de plantas solares y motores de cumplimiento tributario hasta pagos Web3 — respaldados por confiabilidad operativa 24/7.",
     ctaPrimary: "Ver el trabajo",
     ctaSecondary: "Habla con nosotros",
     scrollHint: "Desplázate para ver el trabajo",

@@ -29,7 +29,7 @@ export const en: Dictionary = {
       ],
     },
     paragraph:
-      "Built for High-Stakes Software Where Downtime Isn't an Option. We engineer resilient, production-ready systems — from tax compliance engines to Web3 payments — backed by 24/7 operational reliability.",
+      "Built for High-Stakes Software Where Downtime Isn't an Option. We engineer resilient, production-ready systems — from solar power plant monitoring and tax compliance engines to Web3 payments — backed by 24/7 operational reliability.",
     ctaPrimary: "See the work",
     ctaSecondary: "Talk to us",
     scrollHint: "Scroll to work",

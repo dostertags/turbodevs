@@ -29,7 +29,7 @@ export const fr: Dictionary = {
       ],
     },
     paragraph:
-      "Conçu pour les logiciels critiques, là où l'indisponibilité n'est pas une option. Nous concevons des systèmes résilients, prêts pour la production — des moteurs de conformité fiscale aux paiements Web3 — adossés à une fiabilité opérationnelle 24/7.",
+      "Conçu pour les logiciels critiques, là où l'indisponibilité n'est pas une option. Nous concevons des systèmes résilients, prêts pour la production — de la supervision de centrales solaires et des moteurs de conformité fiscale aux paiements Web3 — adossés à une fiabilité opérationnelle 24/7.",
     ctaPrimary: "Voir les réalisations",
     ctaSecondary: "Parlez-nous",
     scrollHint: "Défiler vers les réalisations",

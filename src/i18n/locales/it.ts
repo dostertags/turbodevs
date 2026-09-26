@@ -29,7 +29,7 @@ export const it: Dictionary = {
       ],
     },
     paragraph:
-      "Pensato per software critici, dove un fermo non è un'opzione. Progettiamo sistemi resilienti e pronti per la produzione — dai motori di compliance fiscale ai pagamenti Web3 — supportati da un'affidabilità operativa 24/7.",
+      "Pensato per software critici, dove un fermo non è un'opzione. Progettiamo sistemi resilienti e pronti per la produzione — dal monitoraggio di impianti fotovoltaici e dai motori di compliance fiscale ai pagamenti Web3 — supportati da un'affidabilità operativa 24/7.",
     ctaPrimary: "Guarda i lavori",
     ctaSecondary: "Parla con noi",
     scrollHint: "Scorri per i lavori",

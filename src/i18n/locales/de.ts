@@ -29,7 +29,7 @@ export const de: Dictionary = {
       ],
     },
     paragraph:
-      "Für geschäftskritische Software, bei der Ausfallzeiten keine Option sind. Wir entwickeln resiliente, produktionsreife Systeme — von Steuer-Compliance-Engines bis zu Web3-Zahlungen — mit zuverlässigem 24/7-Betrieb.",
+      "Für geschäftskritische Software, bei der Ausfallzeiten keine Option sind. Wir entwickeln resiliente, produktionsreife Systeme — von der Überwachung von Solarkraftwerken und Steuer-Compliance-Engines bis zu Web3-Zahlungen — mit zuverlässigem 24/7-Betrieb.",
     ctaPrimary: "Projekte ansehen",
     ctaSecondary: "Sprechen Sie mit uns",
     scrollHint: "Zu den Projekten scrollen",
