@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest"
 
 import { LanguageProvider } from "@/i18n/LanguageContext"
 import { en } from "@/i18n/locales/en"
-import { Hero } from "@/components/sections/Hero"
+import { Hero, ROTATE_INTERVAL_MS } from "@/components/sections/Hero"
 
 function renderHero() {
   return render(
@@ -17,6 +17,10 @@ describe("Hero", () => {
   it("renders exactly one h1", () => {
     renderHero()
     expect(screen.getAllByRole("heading", { level: 1 })).toHaveLength(1)
+  })
+
+  it("rotates the phrase every 1.7s — half the previous 3.4s cycle", () => {
+    expect(ROTATE_INTERVAL_MS).toBe(1700)
   })
 
   it("renders the static headline lead", () => {
@@ -104,7 +108,7 @@ describe("Hero", () => {
       fireEvent.click(pauseButton)
       fireEvent.click(screen.getByRole("button", { name: en.hero.resumeRotation }))
 
-      act(() => vi.advanceTimersByTime(3400))
+      act(() => vi.advanceTimersByTime(ROTATE_INTERVAL_MS))
 
       // The exiting word's crossfade-out isn't necessarily finished in
       // jsdom's fake-timer world (AnimatePresence unmounts it once its own

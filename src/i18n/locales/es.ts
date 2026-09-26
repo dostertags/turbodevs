@@ -42,6 +42,7 @@ export const es: Dictionary = {
       consumerSaas: "Software para Consumidores",
       hospitality: "Hospitalidad y Pequeñas Empresas",
     },
+    serviceLinesLabel: "También operamos",
     stats: [
       { value: "1.800+", label: "pruebas automatizadas" },
       { value: "5", label: "repositorios públicos" },
@@ -72,6 +73,47 @@ export const es: Dictionary = {
           "Los LLM redactan el texto sobre números que tu código ya calculó — nunca los números en sí. Cada afirmación generada se verifica contra un conjunto de hechos congelado antes de publicarse.",
       },
     ],
+    linesTitle: "Líneas de negocio",
+    lines: {
+      hrOutplacement: {
+        title: "Recursos Humanos y Outplacement",
+        description:
+          "Software para contratación y transiciones de carrera: automatización de postulaciones laborales y matching entre candidatos y cargos, además de flujos de remuneraciones y cotizaciones previsionales — el stack detrás de turbotrabajo y previred.",
+        cta: "Hablemos de RR. HH.",
+      },
+      procurement: {
+        title: "Compras y Licitaciones Privadas",
+        description:
+          "Un respondedor automático para licitaciones privadas y solicitudes de compra, para que las oportunidades se respondan en lugar de vencer en una bandeja de entrada. Funcionando hoy en Sainz Intec, donde está trayendo nuevos negocios.",
+        cta: "Hablemos de licitaciones",
+      },
+      leadGen: {
+        title: "Generación de Leads",
+        description:
+          "Investigación de prospectos, construcción de listas y automatización de contacto, hechas con la misma disciplina que el resto de nuestro trabajo de automatización: cada contacto es rastreable hasta su origen.",
+        cta: "Hablemos de leads",
+      },
+    },
+  },
+  testimonials: {
+    eyebrow: "Testimonios de clientes",
+    title: "Lo que dicen nuestros clientes.",
+    items: {
+      quorelia: {
+        quote: "TurboDevs nos desarrolló una estación solar con baterías 24/7 que funciona día y noche.",
+        project: "Estación solar + baterías",
+      },
+      sainzIntec: {
+        quote:
+          "TurboDevs nos construyó un sistema que responde licitaciones privadas por sí solo — y está trayendo nuevos negocios reales a la empresa.",
+        project: "Respuesta automática a licitaciones",
+      },
+      vertigo: {
+        quote:
+          "Entregaron nuestro sitio web rápido y han seguido con nosotros desde entonces — siempre atentos a lo que necesitamos.",
+        project: "Web de restaurante y soporte continuo",
+      },
+    },
   },
   work: {
     eyebrow: "Trabajo seleccionado",

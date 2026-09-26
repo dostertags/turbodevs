@@ -1,6 +1,7 @@
 import { Layout } from "@/Layout"
 import { Hero } from "@/components/sections/Hero"
 import { Services } from "@/components/sections/Services"
+import { Testimonials } from "@/components/sections/Testimonials"
 import { FeaturedWork } from "@/components/sections/FeaturedWork"
 import { Grantfox } from "@/components/sections/Grantfox"
 import { Approach } from "@/components/sections/Approach"
@@ -12,6 +13,7 @@ export default function App() {
   return (
     <Layout>
       <Hero />
+      <Testimonials />
       <Services />
       <FeaturedWork />
       <Grantfox />

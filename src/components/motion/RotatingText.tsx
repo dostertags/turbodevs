@@ -55,7 +55,7 @@ export function RotatingText({ items, index, className, reduceMotion }: Rotating
           initial={reduceMotion ? false : { opacity: 0, y: 10, filter: "blur(6px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           exit={reduceMotion ? undefined : { opacity: 0, y: -10, filter: "blur(6px)" }}
-          transition={{ duration: reduceMotion ? 0 : 0.5, ease: softEase }}
+          transition={{ duration: reduceMotion ? 0 : 0.35, ease: softEase }}
         >
           {current}
         </motion.span>

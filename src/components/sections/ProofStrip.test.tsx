@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest"
 import { LanguageProvider } from "@/i18n/LanguageContext"
 import { en } from "@/i18n/locales/en"
 import { ProofStrip } from "@/components/sections/ProofStrip"
+import { SERVICE_LINES } from "@/content/site"
 
 function renderWithProvider() {
   return render(
@@ -34,6 +35,21 @@ describe("ProofStrip", () => {
     const sectorCount = Object.keys(en.hero.sectors).length
     const chips = screen.getAllByTestId("sector-chip")
     expect(chips).toHaveLength(sectorCount)
+  })
+
+  it("renders one link per business line, each pointing at its card in Services", () => {
+    renderWithProvider()
+    const links = screen.getAllByTestId("service-link")
+    expect(links).toHaveLength(SERVICE_LINES.length)
+    SERVICE_LINES.forEach(({ key, anchor }, i) => {
+      expect(links[i]).toHaveAttribute("href", `#${anchor}`)
+      expect(links[i]).toHaveTextContent(en.services.lines[key].title)
+    })
+  })
+
+  it("groups the business-line links under a visible label", () => {
+    renderWithProvider()
+    expect(screen.getByRole("group", { name: en.hero.serviceLinesLabel })).toBeInTheDocument()
   })
 
   it("is decorative-safe: the strip itself doesn't hijack heading structure", () => {

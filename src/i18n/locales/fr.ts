@@ -42,6 +42,7 @@ export const fr: Dictionary = {
       consumerSaas: "Logiciels grand public",
       hospitality: "Hôtellerie-restauration et petites entreprises",
     },
+    serviceLinesLabel: "Nous gérons aussi",
     stats: [
       { value: "1 800+", label: "tests automatisés" },
       { value: "5", label: "dépôts publics" },
@@ -72,6 +73,48 @@ export const fr: Dictionary = {
           "Les LLM rédigent le texte autour de chiffres que votre code a déjà calculés — jamais les chiffres eux-mêmes. Chaque affirmation générée est revérifiée par rapport à un ensemble de faits figés avant sa publication.",
       },
     ],
+    linesTitle: "Lignes d'activité",
+    lines: {
+      hrOutplacement: {
+        title: "Ressources humaines et outplacement",
+        description:
+          "Des logiciels pour le recrutement et les transitions de carrière : automatisation des candidatures et mise en correspondance candidats–postes, ainsi que des flux de paie et de cotisations retraite — la stack derrière turbotrabajo et previred.",
+        cta: "Parlons de vos besoins RH",
+      },
+      procurement: {
+        title: "Achats privés et appels d'offres",
+        description:
+          "Un répondeur automatisé pour les appels d'offres privés et les demandes d'achat, pour que les opportunités obtiennent une réponse au lieu d'expirer dans une boîte de réception. En service aujourd'hui chez Sainz Intec, où il apporte de nouvelles affaires.",
+        cta: "Parlons appels d'offres",
+      },
+      leadGen: {
+        title: "Génération de leads",
+        description:
+          "Recherche de prospects, constitution de listes et automatisation de la prospection, avec la même discipline que le reste de notre travail d'automatisation : chaque contact est traçable jusqu'à sa source.",
+        cta: "Parlons génération de leads",
+      },
+    },
+  },
+  testimonials: {
+    eyebrow: "Témoignages clients",
+    title: "Ce que disent nos clients.",
+    items: {
+      quorelia: {
+        quote:
+          "TurboDevs a développé pour nous une station solaire à batteries 24/7 qui fonctionne jour et nuit.",
+        project: "Station solaire + batteries",
+      },
+      sainzIntec: {
+        quote:
+          "TurboDevs nous a construit un répondeur aux appels d'offres privés qui fonctionne tout seul — et il apporte de vraies nouvelles affaires à l'entreprise.",
+        project: "Répondeur d'appels d'offres automatisé",
+      },
+      vertigo: {
+        quote:
+          "Ils ont livré notre site web rapidement, et ils nous accompagnent depuis — toujours attentifs à ce dont nous avons besoin.",
+        project: "Site de restaurant et suivi continu",
+      },
+    },
   },
   work: {
     eyebrow: "Réalisations sélectionnées",

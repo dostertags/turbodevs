@@ -19,6 +19,14 @@ exist without a row here. If a claim can't be sourced, it doesn't ship.
 | Hero stat "7 languages" | Count of `LANGUAGES` in `src/i18n/languages.ts` | 2026-09-01, own source |
 | Hero sector chips (Government & Compliance, Web3 & Blockchain, Energy & Industrial, Consumer Software) | Each maps to real `WORK` slugs via `SECTOR_WORK_MAP` in `src/content/site.ts`, enforced by `src/content/site.test.ts` | 2026-09-01 |
 | Hero sector chip "Hospitality & Small Business" | **Capability claim only** — grounded in a real, built `TurboRestaurant` project on a shared multi-vertical scaffold (`turbo-vertical-scaffold`), verified by direct read of its `package.json`. Deliberately has **no** entry in `SECTOR_WORK_MAP` (no public repo, no confirmed live URL) — never state this as a linkable/public work item without first getting one. | 2026-09-01, local repo read. User confirmed capability-only framing. |
+| Testimonial — **Quorelia**: developed a 24/7 solar battery station that works day and night | Client statement supplied by the owner, verbatim original: *"TurboDevs developed a working 24/7 solar battery station that works day and night"*. Shipped with grammar cleaned only. | 2026-09-26, owner. **Owner to confirm the client approved publication of this wording.** |
+| Testimonial — **Sainz Intec**: built an automated private-bid responder that is bringing in real new business | Client statement supplied by the owner, verbatim original: *"TurboDevs developed a working automatically working private bid responder that is getting real new business to the company"*. Grammar cleaned only. | 2026-09-26, owner. **Owner to confirm client approval.** |
+| Testimonial — **Vertigo Restaurant**: website shipped fast, ongoing relationship, on top of their needs | Statement supplied by the owner: *"Happy on our fast shipping on their website and our continuous relationship with them so we are always on top of their needs"*. Recast in the client's voice without adding facts. | 2026-09-26, owner. **The original reads as the studio describing the client — owner to confirm this is Vertigo's own statement and that they approved it.** |
+| **Not shipped** from the same brief: "reduced operational costs by 40%", "eliminated our grid dependency", "3x more qualified leads monthly", "AI-powered RFQ automation engine", "lightning-fast logistics integration" | Proposed rewrites that add figures and capabilities none of the three clients stated. Enforced by `src/components/sections/Testimonials.test.tsx` (no digit in any quote but "24/7"). **To ship one: get the figure from the client, in writing, and add it to their row above.** | 2026-09-26 |
+| Business line — Human Resources & Outplacement | Owner-stated current business line. Description cites turbotrabajo (row 13, job-application SaaS) and previred (row 10, pension-contribution workflows). | 2026-09-26, owner |
+| Business line — Private Procurement & Bidding | Owner-stated current business line; the "running at Sainz Intec, bringing in new business" sentence is the Sainz Intec row above. | 2026-09-26, owner |
+| Business line — Lead Generation | **Capability claim only**, owner-stated. No public artefact yet; the description makes no outcome claim. | 2026-09-26, owner |
+| Contact form delivery (FormSubmit) | Live-site submission on 2026-09-26 returned *"This form needs Activation"* — the one-time activation email to the form inbox has not been clicked. **Delivery still unproven end to end; record the activation date here once done.** | 2026-09-26, owner screenshot |
 
 ## Removed from the site (the claim outran its source)
 
@@ -36,6 +44,6 @@ returns to any locale, to `index.html`, or to `public/llms.txt`.
 
 - Team size, headcount, or founder count.
 - Revenue, funding raised, or valuation.
-- Client count or "trusted by" logos beyond what's listed above.
+- Client count or "trusted by" logos beyond what's listed above. The three testimonials are set as text wordmarks; no client logo has been supplied with permission to use it.
 - Grantfox's fee/commission percentage (undisclosed as of this writing).
 - TurboRestaurant as a named, linkable portfolio item (no repo, no live URL — see row above).

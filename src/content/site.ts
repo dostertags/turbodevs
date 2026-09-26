@@ -81,6 +81,33 @@ export const SECTOR_WORK_MAP: Record<SectorKey, WorkSlug[]> = {
   hospitality: [],
 }
 
+/**
+ * Business lines the owner runs today, each with an anchor in the Services
+ * section. Capability claims — see research/VERIFIED_FACTS.md for what backs
+ * each one, and note that none is a linkable WORK item.
+ */
+export type ServiceLineKey = "hrOutplacement" | "procurement" | "leadGen"
+
+export const SERVICE_LINES: { key: ServiceLineKey; anchor: string }[] = [
+  { key: "hrOutplacement", anchor: "service-hr-outplacement" },
+  { key: "procurement", anchor: "service-procurement" },
+  { key: "leadGen", anchor: "service-lead-generation" },
+]
+
+/**
+ * Client statements, supplied by the owner (ledger rows 22–24). Company names
+ * are proper nouns and stay untranslated; the quote itself is translated per
+ * locale. No quote may carry a figure the client did not give — enforced by
+ * src/components/sections/Testimonials.test.tsx.
+ */
+export type TestimonialKey = "quorelia" | "sainzIntec" | "vertigo"
+
+export const TESTIMONIALS: { key: TestimonialKey; company: string }[] = [
+  { key: "quorelia", company: "Quorelia" },
+  { key: "sainzIntec", company: "Sainz Intec" },
+  { key: "vertigo", company: "Vertigo Restaurant" },
+]
+
 export const GRANTFOX_HREF = "https://grantfox.xyz/"
 
 export const CONTACT_INFO = {

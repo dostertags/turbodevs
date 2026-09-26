@@ -12,7 +12,10 @@ import { track } from "@/lib/track"
 import { useRotator } from "@/hooks/use-rotator"
 import { useMotionOff } from "@/motion/MotionPreference"
 
-const ROTATE_INTERVAL_MS = 3400
+// Halved from 3400ms at the owner's request. The crossfade in RotatingText was
+// shortened to match, so each phrase still sits fully legible for ~1.35s —
+// comfortably more than the two or three words it has to be read in.
+export const ROTATE_INTERVAL_MS = 1700
 
 /**
  * Deliberately no background of its own — the fixed WebGL network graph

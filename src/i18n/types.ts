@@ -1,4 +1,4 @@
-import type { SectorKey } from "@/content/site"
+import type { SectorKey, ServiceLineKey, TestimonialKey } from "@/content/site"
 
 export type WorkCopy = { kicker: string; description: string }
 
@@ -51,12 +51,23 @@ export type Dictionary = {
     /** Same toggle's label in its "currently paused, click to resume" state. */
     resumeRotation: string
     sectors: Record<SectorKey, string>
+    /** Short label naming the row of business-line buttons under the sector chips. */
+    serviceLinesLabel: string
     stats: StatCopy[]
   }
   services: {
     eyebrow: string
     title: string
     items: { title: string; description: string }[]
+    /** Heading over the three business-line cards. */
+    linesTitle: string
+    lines: Record<ServiceLineKey, { title: string; description: string; cta: string }>
+  }
+  testimonials: {
+    eyebrow: string
+    title: string
+    /** `project` names what was built — a label, never a metric. */
+    items: Record<TestimonialKey, { quote: string; project: string }>
   }
   work: {
     eyebrow: string
