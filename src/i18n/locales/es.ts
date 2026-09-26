@@ -84,7 +84,7 @@ export const es: Dictionary = {
       procurement: {
         title: "Compras y Licitaciones Privadas",
         description:
-          "Un respondedor automático para licitaciones privadas y solicitudes de compra, para que las oportunidades se respondan en lugar de vencer en una bandeja de entrada. Funcionando hoy en Sainz Intec, donde está trayendo nuevos negocios.",
+          "Un sistema que responde automáticamente licitaciones privadas y solicitudes de compra, para que las oportunidades se respondan en lugar de vencer en una bandeja de entrada. Funcionando hoy en Sainz Intec, donde está trayendo nuevos negocios.",
         cta: "Hablemos de licitaciones",
       },
       leadGen: {
