@@ -26,7 +26,7 @@ exist without a row here. If a claim can't be sourced, it doesn't ship.
 | Business line — Human Resources & Outplacement | Owner-stated current business line. Description cites turbotrabajo (row 13, job-application SaaS) and previred (row 10, pension-contribution workflows). | 2026-09-26, owner |
 | Business line — Private Procurement & Bidding | Owner-stated current business line; the "running at Sainz Intec, bringing in new business" sentence is the Sainz Intec row above. | 2026-09-26, owner |
 | Business line — Lead Generation | **Capability claim only**, owner-stated. No public artefact yet; the description makes no outcome claim. | 2026-09-26, owner |
-| Contact form delivery (FormSubmit) | Live-site submission on 2026-09-26 returned *"This form needs Activation"* — the one-time activation email to the form inbox has not been clicked. **Delivery still unproven end to end; record the activation date here once done.** | 2026-09-26, owner screenshot |
+| Contact form delivery (FormSubmit) | Activated by the owner on 2026-09-26 (an earlier submission that day had returned *"This form needs Activation"*). A test submission through the live site's own form then returned `{"success":"true","message":"The form was submitted successfully."}` and the page showed its "Sent" confirmation. **Inbox receipt to be confirmed by the owner.** | 2026-09-26, live-site submission |
 
 ## Removed from the site (the claim outran its source)
 
