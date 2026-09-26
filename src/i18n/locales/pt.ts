@@ -42,6 +42,11 @@ export const pt: Dictionary = {
       consumerSaas: "Software para Consumidor",
       hospitality: "Hotelaria, Restauração & Pequenos Negócios",
     },
+    serviceLines: {
+      hrOutplacement: "Recursos Humanos e Outplacement",
+      procurement: "Compras Privadas e Licitações",
+      leadGen: "Geração de Leads",
+    },
     stats: [
       { value: "1.800+", label: "testes automatizados" },
       { value: "5", label: "repositórios públicos" },
@@ -72,27 +77,6 @@ export const pt: Dictionary = {
           "LLMs escrevem o texto sobre números que o seu código já calculou — nunca os números em si. Toda afirmação gerada é verificada novamente contra um conjunto de fatos congelado antes de ser publicada.",
       },
     ],
-    linesTitle: "Linhas de negócio",
-    lines: {
-      hrOutplacement: {
-        title: "Recursos Humanos e Outplacement",
-        description:
-          "Software para contratação e transições de carreira: automação de candidaturas a vagas e match entre candidatos e vagas, além de fluxos de folha de pagamento e contribuições previdenciárias — a stack por trás da turbotrabajo e da previred.",
-        cta: "Falar conosco sobre RH",
-      },
-      procurement: {
-        title: "Compras Privadas e Licitações",
-        description:
-          "Um respondedor automático para licitações privadas e solicitações de compra, para que as oportunidades sejam respondidas em vez de expirarem em uma caixa de entrada. Em funcionamento hoje na Sainz Intec, onde está trazendo novos negócios.",
-        cta: "Falar conosco sobre licitações",
-      },
-      leadGen: {
-        title: "Geração de Leads",
-        description:
-          "Pesquisa de prospects, construção de listas e automação de abordagem, feitas com a mesma disciplina do restante do nosso trabalho de automação: cada contato rastreável até a sua origem.",
-        cta: "Falar conosco sobre leads",
-      },
-    },
   },
   testimonials: {
     eyebrow: "Depoimentos de clientes",

@@ -42,6 +42,11 @@ export const zh: Dictionary = {
       consumerSaas: "消费级软件",
       hospitality: "酒店餐饮与小微企业",
     },
+    serviceLines: {
+      hrOutplacement: "人力资源与再就业服务",
+      procurement: "私营采购与投标",
+      leadGen: "潜在客户开发",
+    },
     stats: [
       { value: "1,800+", label: "自动化测试" },
       { value: "5", label: "公开代码仓库" },
@@ -72,27 +77,6 @@ export const zh: Dictionary = {
           "LLM 只负责为你的代码已经算出的数字撰写文字——绝不自行生成数字本身。每一条生成的结论在发布前，都会与一份冻结事实集重新核对。",
       },
     ],
-    linesTitle: "业务线",
-    lines: {
-      hrOutplacement: {
-        title: "人力资源与再就业服务",
-        description:
-          "面向招聘与职业转换的软件：求职申请自动化与候选人—职位匹配，以及薪资与养老金缴费流程——正是 turbotrabajo 和 previred 背后的技术栈。",
-        cta: "咨询人力资源业务",
-      },
-      procurement: {
-        title: "私营采购与投标",
-        description:
-          "面向私营招标与采购请求的自动应答系统，让商机得到回应，而不是在收件箱里过期。目前已在 Sainz Intec 运行，正在为其带来新业务。",
-        cta: "咨询投标业务",
-      },
-      leadGen: {
-        title: "潜在客户开发",
-        description:
-          "潜在客户调研、名单构建与外联自动化，秉持与我们其他自动化工作相同的严谨标准：每一个联系人都可追溯其来源。",
-        cta: "咨询潜在客户开发",
-      },
-    },
   },
   testimonials: {
     eyebrow: "客户评价",

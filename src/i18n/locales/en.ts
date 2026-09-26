@@ -42,6 +42,11 @@ export const en: Dictionary = {
       consumerSaas: "Consumer Software",
       hospitality: "Hospitality & Small Business",
     },
+    serviceLines: {
+      hrOutplacement: "Human Resources & Outplacement",
+      procurement: "Private Procurement & Bidding",
+      leadGen: "Lead Generation",
+    },
     stats: [
       { value: "1,800+", label: "automated tests" },
       { value: "5", label: "public repos" },
@@ -72,27 +77,6 @@ export const en: Dictionary = {
           "LLMs write prose about numbers your code already computed — never the numbers themselves. Every generated claim is checked back against a frozen fact set before it ships.",
       },
     ],
-    linesTitle: "Business lines",
-    lines: {
-      hrOutplacement: {
-        title: "Human Resources & Outplacement",
-        description:
-          "Software for hiring and career transitions: job-application automation and candidate–role matching, plus payroll and pension-contribution workflows — the stack behind turbotrabajo and previred.",
-        cta: "Talk to us about HR",
-      },
-      procurement: {
-        title: "Private Procurement & Bidding",
-        description:
-          "An automated responder for private bids and procurement requests, so opportunities get answered instead of expiring in an inbox. Running today at Sainz Intec, where it is bringing in new business.",
-        cta: "Talk to us about bidding",
-      },
-      leadGen: {
-        title: "Lead Generation",
-        description:
-          "Prospect research, list building and outreach automation, built with the same discipline as the rest of our automation work: every contact traceable to where it came from.",
-        cta: "Talk to us about leads",
-      },
-    },
   },
   testimonials: {
     eyebrow: "Client testimonials",

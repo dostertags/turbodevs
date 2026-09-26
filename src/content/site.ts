@@ -81,18 +81,10 @@ export const SECTOR_WORK_MAP: Record<SectorKey, WorkSlug[]> = {
   hospitality: [],
 }
 
-/**
- * Business lines the owner runs today, each with an anchor in the Services
- * section. Capability claims — see research/VERIFIED_FACTS.md for what backs
- * each one, and note that none is a linkable WORK item.
- */
+/** Business lines the owner runs today, shown as labels under the hero's sector chips. */
 export type ServiceLineKey = "hrOutplacement" | "procurement" | "leadGen"
 
-export const SERVICE_LINES: { key: ServiceLineKey; anchor: string }[] = [
-  { key: "hrOutplacement", anchor: "service-hr-outplacement" },
-  { key: "procurement", anchor: "service-procurement" },
-  { key: "leadGen", anchor: "service-lead-generation" },
-]
+export const SERVICE_LINES: ServiceLineKey[] = ["hrOutplacement", "procurement", "leadGen"]
 
 /**
  * Client statements, supplied by the owner (ledger rows 22–24). Company names

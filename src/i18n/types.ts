@@ -51,15 +51,13 @@ export type Dictionary = {
     /** Same toggle's label in its "currently paused, click to resume" state. */
     resumeRotation: string
     sectors: Record<SectorKey, string>
+    serviceLines: Record<ServiceLineKey, string>
     stats: StatCopy[]
   }
   services: {
     eyebrow: string
     title: string
     items: { title: string; description: string }[]
-    /** Heading over the three business-line cards. */
-    linesTitle: string
-    lines: Record<ServiceLineKey, { title: string; description: string; cta: string }>
   }
   testimonials: {
     eyebrow: string

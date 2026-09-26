@@ -42,6 +42,11 @@ export const de: Dictionary = {
       consumerSaas: "Consumer-Software",
       hospitality: "Gastgewerbe & Kleinunternehmen",
     },
+    serviceLines: {
+      hrOutplacement: "Personalwesen & Outplacement",
+      procurement: "Private Beschaffung & Ausschreibungen",
+      leadGen: "Lead-Generierung",
+    },
     stats: [
       { value: "1.800+", label: "automatisierte Tests" },
       { value: "5", label: "öffentliche Repositories" },
@@ -72,27 +77,6 @@ export const de: Dictionary = {
           "LLMs verfassen Fließtext über Zahlen, die Ihr Code bereits berechnet hat — niemals die Zahlen selbst. Jede generierte Aussage wird vor der Veröffentlichung gegen einen eingefrorenen Faktensatz geprüft.",
       },
     ],
-    linesTitle: "Geschäftsbereiche",
-    lines: {
-      hrOutplacement: {
-        title: "Personalwesen & Outplacement",
-        description:
-          "Software für Personalgewinnung und berufliche Neuorientierung: Automatisierung von Bewerbungen und Matching von Kandidaten und Stellen, dazu Workflows für Lohnabrechnung und Rentenbeiträge — der Stack hinter turbotrabajo und previred.",
-        cta: "Über HR sprechen",
-      },
-      procurement: {
-        title: "Private Beschaffung & Ausschreibungen",
-        description:
-          "Ein automatisierter Responder für private Ausschreibungen und Beschaffungsanfragen, damit Chancen beantwortet werden, statt im Posteingang zu verfallen. Heute bei Sainz Intec im Einsatz, wo er neue Aufträge einbringt.",
-        cta: "Über Ausschreibungen sprechen",
-      },
-      leadGen: {
-        title: "Lead-Generierung",
-        description:
-          "Recherche von Interessenten, Aufbau von Kontaktlisten und Outreach-Automatisierung — entwickelt mit derselben Disziplin wie unsere übrige Automatisierungsarbeit: Jeder Kontakt ist bis zu seiner Herkunft nachvollziehbar.",
-        cta: "Über Leads sprechen",
-      },
-    },
   },
   testimonials: {
     eyebrow: "Kundenstimmen",
