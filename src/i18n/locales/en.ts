@@ -42,7 +42,6 @@ export const en: Dictionary = {
       consumerSaas: "Consumer Software",
       hospitality: "Hospitality & Small Business",
     },
-    serviceLinesLabel: "Also running",
     stats: [
       { value: "1,800+", label: "automated tests" },
       { value: "5", label: "public repos" },

@@ -42,7 +42,6 @@ export const pt: Dictionary = {
       consumerSaas: "Software para Consumidor",
       hospitality: "Hotelaria, Restauração & Pequenos Negócios",
     },
-    serviceLinesLabel: "Também operamos",
     stats: [
       { value: "1.800+", label: "testes automatizados" },
       { value: "5", label: "repositórios públicos" },

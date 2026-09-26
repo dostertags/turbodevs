@@ -47,11 +47,6 @@ describe("ProofStrip", () => {
     })
   })
 
-  it("groups the business-line links under a visible label", () => {
-    renderWithProvider()
-    expect(screen.getByRole("group", { name: en.hero.serviceLinesLabel })).toBeInTheDocument()
-  })
-
   it("is decorative-safe: the strip itself doesn't hijack heading structure", () => {
     renderWithProvider()
     // A proof strip is a supporting element, not a new section headline —

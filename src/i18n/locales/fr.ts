@@ -42,7 +42,6 @@ export const fr: Dictionary = {
       consumerSaas: "Logiciels grand public",
       hospitality: "Hôtellerie-restauration et petites entreprises",
     },
-    serviceLinesLabel: "Nous gérons aussi",
     stats: [
       { value: "1 800+", label: "tests automatisés" },
       { value: "5", label: "dépôts publics" },

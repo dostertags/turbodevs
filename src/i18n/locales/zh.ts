@@ -42,7 +42,6 @@ export const zh: Dictionary = {
       consumerSaas: "消费级软件",
       hospitality: "酒店餐饮与小微企业",
     },
-    serviceLinesLabel: "其他业务",
     stats: [
       { value: "1,800+", label: "自动化测试" },
       { value: "5", label: "公开代码仓库" },

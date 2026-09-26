@@ -42,7 +42,6 @@ export const it: Dictionary = {
       consumerSaas: "Software per Consumatori",
       hospitality: "Hospitality & Piccole Imprese",
     },
-    serviceLinesLabel: "Gestiamo anche",
     stats: [
       { value: "1.800+", label: "test automatizzati" },
       { value: "5", label: "repository pubblici" },

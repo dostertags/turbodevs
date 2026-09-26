@@ -51,8 +51,6 @@ export type Dictionary = {
     /** Same toggle's label in its "currently paused, click to resume" state. */
     resumeRotation: string
     sectors: Record<SectorKey, string>
-    /** Short label naming the row of business-line buttons under the sector chips. */
-    serviceLinesLabel: string
     stats: StatCopy[]
   }
   services: {
