@@ -29,7 +29,7 @@ export const de: Dictionary = {
       ],
     },
     paragraph:
-      "Full-Stack-Systeme, Automatisierungs-Pipelines und Web3-Integrationen — entwickelt für Teams, die maßgeschneiderte Lösungen brauchen, die rund um die Uhr zuverlässig laufen. Polyglotte Entwicklung — TypeScript und Python — bewährt in Steuer-Compliance, Web3-Zahlungen und Produktions-SaaS im 24/7-Betrieb.",
+      "Für geschäftskritische Software, bei der Ausfallzeiten keine Option sind. Wir entwickeln resiliente, produktionsreife Systeme — von Steuer-Compliance-Engines bis zu Web3-Zahlungen — mit zuverlässigem 24/7-Betrieb.",
     ctaPrimary: "Projekte ansehen",
     ctaSecondary: "Sprechen Sie mit uns",
     scrollHint: "Zu den Projekten scrollen",

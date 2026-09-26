@@ -29,7 +29,7 @@ export const en: Dictionary = {
       ],
     },
     paragraph:
-      "Full-stack systems, automation pipelines, and Web3 integrations, engineered for teams who need tailor-made solutions that stay reliable around the clock. Polyglot engineering — TypeScript and Python — proven across tax compliance, Web3 payments, and production SaaS running 24/7.",
+      "Built for High-Stakes Software Where Downtime Isn't an Option. We engineer resilient, production-ready systems — from tax compliance engines to Web3 payments — backed by 24/7 operational reliability.",
     ctaPrimary: "See the work",
     ctaSecondary: "Talk to us",
     scrollHint: "Scroll to work",

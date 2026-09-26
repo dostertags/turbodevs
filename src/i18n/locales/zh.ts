@@ -29,7 +29,7 @@ export const zh: Dictionary = {
       ],
     },
     paragraph:
-      "全栈系统、自动化流水线与 Web3 集成，专为需要全天候稳定运行的定制解决方案的团队打造。多语言工程能力——TypeScript 与 Python——已在税务合规、Web3 支付和 24/7 运行的生产级 SaaS 中得到验证。",
+      "为不容停机的高要求软件而打造。我们构建具备韧性、可直接投入生产的系统——从税务合规引擎到 Web3 支付——以 24/7 的运行可靠性作为保障。",
     ctaPrimary: "查看作品",
     ctaSecondary: "联系我们",
     scrollHint: "向下滚动查看作品",

@@ -29,7 +29,7 @@ export const it: Dictionary = {
       ],
     },
     paragraph:
-      "Sistemi full-stack, pipeline di automazione e integrazioni Web3, progettati per team che hanno bisogno di soluzioni su misura affidabili 24 ore su 24. Ingegneria poliglotta — TypeScript e Python — collaudata in ambito di compliance fiscale, pagamenti Web3 e SaaS in produzione attivi 24/7.",
+      "Pensato per software critici, dove un fermo non è un'opzione. Progettiamo sistemi resilienti e pronti per la produzione — dai motori di compliance fiscale ai pagamenti Web3 — supportati da un'affidabilità operativa 24/7.",
     ctaPrimary: "Guarda i lavori",
     ctaSecondary: "Parla con noi",
     scrollHint: "Scorri per i lavori",
