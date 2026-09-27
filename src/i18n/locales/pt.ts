@@ -84,17 +84,17 @@ export const pt: Dictionary = {
     items: {
       quorelia: {
         quote:
-          "A TurboDevs desenvolveu para nós uma estação solar com bateria 24/7 que funciona de dia e de noite.",
+          "A TurboDevs desenvolveu para nós uma estação solar com baterias 24/7 que funciona dia e noite. Ela continua operando mesmo quando ninguém está olhando, então o sistema faz seu trabalho à noite tão bem quanto de dia. Eles dedicaram tempo para entender como nossa operação de energia realmente funciona e construíram algo em que confiamos todos os dias.",
         project: "Estação solar + bateria",
       },
       sainzIntec: {
         quote:
-          "A TurboDevs construiu para nós um respondedor de licitações privadas que funciona sozinho — e está trazendo novos negócios reais para a empresa.",
+          "A TurboDevs construiu para nós um sistema que responde licitações privadas sozinho — e está trazendo novos negócios reais para a empresa. Oportunidades que antes passavam despercebidas agora são respondidas sem que ninguém da equipe precise correr atrás delas. Já faz parte de como conquistamos trabalho, e continua funcionando enquanto nos concentramos em entregá-lo.",
         project: "Respondedor automático de licitações",
       },
       vertigo: {
         quote:
-          "Entregaram nosso site rápido e seguem conosco desde então — sempre atentos ao que precisamos.",
+          "Eles entregaram nosso site rápido e continuam com a gente desde então — sempre atentos ao que precisamos. Quando algo precisa mudar, avisamos e está feito, sem precisar ficar cobrando. Para um restaurante, isso é uma preocupação a menos e um parceiro com quem podemos contar enquanto o negócio cresce.",
         project: "Site de restaurante e suporte contínuo",
       },
     },

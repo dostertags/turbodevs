@@ -84,17 +84,17 @@ export const fr: Dictionary = {
     items: {
       quorelia: {
         quote:
-          "TurboDevs a développé pour nous une station solaire à batteries 24/7 qui fonctionne jour et nuit.",
+          "TurboDevs a développé pour nous une station solaire avec batteries, en service 24/7, qui fonctionne jour et nuit. Elle continue de tourner même quand personne ne la surveille, si bien que le système fait son travail la nuit comme le jour. Ils ont pris le temps de comprendre comment fonctionne réellement notre activité énergétique, et ont construit un outil sur lequel nous comptons chaque jour.",
         project: "Station solaire + batteries",
       },
       sainzIntec: {
         quote:
-          "TurboDevs nous a construit un répondeur aux appels d'offres privés qui fonctionne tout seul — et il apporte de vraies nouvelles affaires à l'entreprise.",
+          "TurboDevs nous a construit un système qui répond seul aux appels d'offres privés — et il apporte de vraies nouvelles affaires à l'entreprise. Des opportunités qui nous échappaient auparavant reçoivent désormais une réponse sans que personne dans l'équipe n'ait à courir après. C'est devenu une partie de notre façon de décrocher des contrats, et il continue de tourner pendant que nous nous concentrons sur leur exécution.",
         project: "Répondeur d'appels d'offres automatisé",
       },
       vertigo: {
         quote:
-          "Ils ont livré notre site web rapidement, et ils nous accompagnent depuis — toujours attentifs à ce dont nous avons besoin.",
+          "Ils ont livré notre site web rapidement et nous accompagnent depuis — toujours attentifs à nos besoins. Quand quelque chose doit changer, nous le leur disons et c'est fait, sans avoir à relancer. Pour un restaurant, c'est un souci de moins et un partenaire sur qui compter à mesure que l'activité grandit.",
         project: "Site de restaurant et suivi continu",
       },
     },

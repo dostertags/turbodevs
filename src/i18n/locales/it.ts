@@ -83,17 +83,17 @@ export const it: Dictionary = {
     title: "Cosa dicono i nostri clienti.",
     items: {
       quorelia: {
-        quote: "TurboDevs ha sviluppato per noi una stazione solare con batterie 24/7 che funziona giorno e notte.",
+        quote: "TurboDevs ha sviluppato per noi una stazione solare con batterie 24/7 che funziona giorno e notte. Continua a funzionare anche quando nessuno la controlla, così il sistema fa il suo lavoro di notte come di giorno. Si sono presi il tempo di capire come funziona davvero la nostra attività energetica e hanno costruito qualcosa su cui contiamo ogni giorno.",
         project: "Stazione solare + batterie",
       },
       sainzIntec: {
         quote:
-          "TurboDevs ci ha realizzato un sistema di risposta alle gare private che funziona da solo — e sta portando nuovi affari concreti all'azienda.",
+          "TurboDevs ci ha costruito un sistema che risponde da solo alle gare private — e sta portando nuovo lavoro reale all'azienda. Opportunità che prima ci sfuggivano ora ricevono una risposta senza che nessuno del team debba rincorrerle. È diventato parte del modo in cui acquisiamo lavoro, e continua a funzionare mentre noi ci concentriamo sul portarlo a termine.",
         project: "Risposta automatica alle gare",
       },
       vertigo: {
         quote:
-          "Hanno realizzato il nostro sito web in fretta, e da allora sono rimasti al nostro fianco — sempre attenti a ciò di cui abbiamo bisogno.",
+          "Hanno realizzato il nostro sito web in fretta e da allora sono rimasti al nostro fianco — sempre attenti a ciò di cui abbiamo bisogno. Quando qualcosa va cambiato, glielo diciamo ed è fatto, senza dover sollecitare. Per un ristorante significa un pensiero in meno e un partner su cui contare mentre l'attività cresce.",
         project: "Sito del ristorante e supporto continuo",
       },
     },
