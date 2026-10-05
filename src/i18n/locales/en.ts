@@ -2,196 +2,139 @@ import type { Dictionary } from "@/i18n/types"
 
 export const en: Dictionary = {
   meta: {
-    title: "TurboDevs — Tailor-Made Software, Built to Run 24/7",
+    title: "TurboDevs — Software for operations that can't stop",
     description:
-      "TurboDevs is a software engineering studio building tailor-made systems across web, automation, and Web3 — engineered to keep working around the clock, not just on launch day.",
+      "TurboDevs is a software engineering studio. We find the process that costs your team hours or opportunities, replace it with software, and keep it running 24/7.",
   },
   nav: {
+    services: "Services",
     work: "Work",
-    grantfox: "Grantfox",
-    approach: "Approach",
     notes: "Notes",
     contact: "Contact",
-    startProject: "Start a project",
+    cta: "Talk to us",
     openMenu: "Open menu",
     closeMenu: "Close menu",
   },
   hero: {
     eyebrow: "Software engineering studio",
-    headline: {
-      lead: "Custom software that works day and night — built for ",
-      rotating: [
-        "government compliance",
-        "Web3 payments",
-        "energy infrastructure",
-        "production SaaS",
-        "hospitality operations",
-      ],
-    },
+    headline: "Software for operations that can't stop.",
     paragraph:
-      "Built for High-Stakes Software Where Downtime Isn't an Option. We engineer resilient, production-ready systems — from solar power plant monitoring and tax compliance engines to Web3 payments — backed by 24/7 operational reliability.",
-    ctaPrimary: "See the work",
-    ctaSecondary: "Talk to us",
-    scrollHint: "Scroll to work",
-    pauseRotation: "Pause rotating text",
-    resumeRotation: "Resume rotating text",
-    sectors: {
-      government: "Government & Compliance",
-      web3: "Web3 & Blockchain",
-      energy: "Energy & Industrial",
-      consumerSaas: "Consumer Software",
-      hospitality: "Hospitality & Small Business",
-    },
-    serviceLines: {
-      hrOutplacement: "Human Resources & Outplacement",
-      procurement: "Private Procurement & Bidding",
-      leadGen: "Lead Generation",
-    },
-    stats: [
-      { value: "1,800+", label: "automated tests" },
-      { value: "5", label: "public repos" },
-    ],
+      "Built for high-stakes software where downtime isn't an option. We engineer resilient, production-ready systems — from solar power plant monitoring and tax compliance engines to Web3 payments — backed by 24/7 operational reliability.",
+    ctaPrimary: "Talk to us",
+    ctaSecondary: "See the work",
+    clientsLabel: "In production with",
+  },
+  problem: {
+    eyebrow: "The problem",
+    title: "The work that keeps a business running is the work nobody has time to fix.",
+    body: "Filings with deadlines. Plants that report every day. Bids that expire in an inbox. These processes run on spreadsheets, portals and someone's memory — until the day they don't. We replace them with software that does the work, checks its own output, and keeps going at night.",
   },
   services: {
-    eyebrow: "What we build",
-    title: "Four disciplines, one engineering standard.",
-    items: [
+    eyebrow: "How we work",
+    title: "Four stages. Start at any one, or hand us the whole loop.",
+    stages: [
       {
-        title: "Full-stack product engineering",
-        description:
-          "React/Next.js frontends, TypeScript and Python services, and the CI/test discipline to keep them shipping — the same stack behind turbotrabajo's production job-matching SaaS.",
+        title: "Diagnose",
+        line: "Find the process that costs you most.",
+        body: "We sit with the people who do the work, map the process step by step, and write down which steps cost hours, errors or missed opportunities — and which to automate first.",
       },
       {
-        title: "Web3 & blockchain integration",
-        description:
-          "Wallet-native auth and on-chain payment verification on Stellar — built for stellarfit's Horizon-confirmed checkout and shipped inside Grantfox's live marketplace.",
+        title: "Build",
+        line: "Software that does the work.",
+        body: "Automations, integrations and AI agents built on your own files and systems. Numbers come from code; where a model writes, it writes about facts already computed, and every figure is checked before it goes out.",
+        proof: "In production: the private-bid responder at Sainz Intec.",
       },
       {
-        title: "Automation & compliance systems",
-        description:
-          "Headless-browser and API automation for processes regulators actually check — read-only by default, built to keep running correctly under uncertainty, the pattern behind sii and previred.",
+        title: "Deploy",
+        line: "Inside your operation.",
+        body: "We connect to the portals, files and data sources your team already uses, and work alongside the people who run them until the system is part of the routine.",
+        proof: "In practice: our SII and Previred automations, built on the portals Chilean teams use every month.",
       },
       {
-        title: "AI-integrated pipelines, grounded",
-        description:
-          "LLMs write prose about numbers your code already computed — never the numbers themselves. Every generated claim is checked back against a frozen fact set before it ships.",
+        title: "Run",
+        line: "24/7, watched.",
+        body: "We operate what we build: monitoring, daily reports and a check on every output, so it keeps working long after launch day.",
+        proof: "In production: Quorelia's solar battery station and a daily battery-storage report.",
       },
     ],
   },
-  testimonials: {
-    eyebrow: "Client testimonials",
-    title: "What our clients say.",
-    items: {
+  work: {
+    eyebrow: "Work",
+    title: "Systems running in production today.",
+    challengeLabel: "The challenge",
+    builtLabel: "What we built",
+    confidentialClient: "Confidential energy client",
+    visitLabel: "Visit",
+    cases: {
       quorelia: {
-        quote: "TurboDevs developed a 24/7 solar battery station for us that works day and night. It keeps running whether or not anyone is watching it, so the system does its job through the night just as it does during the day. They took the time to understand how our energy operation actually works, and built something we rely on every day.",
-        project: "Solar + battery station",
+        sector: "Energy",
+        challenge: "A solar battery station that has to operate day and night, with nobody standing next to it.",
+        built: "The software that runs the station around the clock.",
+        quote:
+          "TurboDevs developed a 24/7 solar battery station for us that works day and night. It keeps running whether or not anyone is watching it, so the system does its job through the night just as it does during the day. They took the time to understand how our energy operation actually works, and built something we rely on every day.",
       },
       sainzIntec: {
+        sector: "Industrial procurement",
+        challenge: "Private bids and procurement requests expiring in an inbox before anyone answered them.",
+        built: "An automated responder that answers private bids on its own.",
         quote:
           "TurboDevs built us a private-bid responder that works on its own — and it's bringing real new business to the company. Opportunities that used to slip past us now get answered without anyone on our team having to chase them. It has become part of how we win work, and it keeps going while we focus on delivering it.",
-        project: "Automated bid responder",
+      },
+      batteryStorage: {
+        sector: "Energy",
+        challenge:
+          "A daily performance report for a grid-scale battery storage system, where a wrong number means a wrong operating decision.",
+        built:
+          "A deterministic KPI engine with a written narrative on top. Every number in the text is checked against the computed facts before the report goes out, backed by 648 automated tests.",
+      },
+      grantfox: {
+        sector: "Web3 marketplace",
+        challenge: "A live, wallet-native marketplace for AI prompts and agents, settled on Stellar.",
+        built:
+          "As outside contributors: deployment-safety checks, wallet-scoped authorization, and the purchase-and-delivery interface.",
       },
       vertigo: {
+        sector: "Hospitality",
+        challenge: "A restaurant that needed its website live quickly — and someone to keep it current.",
+        built: "The website, shipped fast, with ongoing support since.",
         quote:
           "They shipped our website fast, and they've stayed with us since — always on top of what we need. When something needs to change, we tell them and it gets done, without us having to follow up. For a restaurant, that means one less thing to worry about, and a partner we can count on as the business grows.",
-        project: "Restaurant website & ongoing support",
       },
     },
-  },
-  work: {
-    eyebrow: "Selected work",
-    title: "Public, verifiable, and still running.",
-    items: {
+    openSourceTitle: "Open source",
+    openSourceIntro: "Our own tools, public on GitHub — the engineering behind the client work.",
+    openSource: {
       sii: {
         kicker: "Tax-authority automation",
         description:
-          "A TypeScript core, CLI, and MCP server automating Chile's tax authority (SII), built around guardrails that keep it reliable rather than best-effort scripts.",
+          "A TypeScript core, CLI and MCP server automating Chile's tax authority (SII), with 1,178 hermetic tests.",
       },
       previred: {
         kicker: "Pension-portal automation",
         description:
-          "Read-only automation of Chile's pension-contributions portal, designed so payment programs are undispatchable by construction — not just discouraged by a code review.",
+          "Read-only automation of Chile's pension-contributions portal, designed so payments cannot be dispatched by construction.",
       },
       stellarfit: {
         kicker: "Web3 payments",
         description:
-          "Subscription checkout settled on the Stellar blockchain — access is granted only after Horizon confirms a memo-matched, single-use payment, no custodial trust required.",
+          "Subscription checkout settled on Stellar: access is granted only after the network confirms a single-use payment.",
       },
       glowcheck: {
         kicker: "Computer vision",
         description:
-          "Face and skin analysis combining DeepFace/TensorFlow demographic models with original ITA skin-tone, erythema, and facial-asymmetry metrics.",
+          "Face and skin analysis combining DeepFace/TensorFlow models with original skin-tone, erythema and asymmetry metrics.",
       },
       turbotrabajo: {
         kicker: "Production SaaS",
         description:
-          "A production job-application platform: Firebase auth, profile matching, a server-authoritative token wallet, and Flow.cl payments end to end.",
-      },
-      "battery-storage-reporting": {
-        kicker: "Energy · AI-grounded reporting",
-        description:
-          "Automated daily performance reporting for a grid-scale battery storage system: a deterministic KPI engine paired with an LLM narrative layer whose every generated number is checked back against the frozen facts before publication, keeping the report reliable day after day.",
+          "A job-application platform in production: Firebase auth, profile matching, a server-side token wallet and Flow.cl payments.",
       },
     },
-  },
-  grantfox: {
-    eyebrow: "Featured engagement",
-    title: "Contributing to Grantfox's live Stellar marketplace",
-    paragraph:
-      "Grantfox runs a wallet-native marketplace for AI prompts and agents, settled on Stellar. We work directly in its NestJS backend and Next.js frontend as outside contributors — the kind of work that only counts if a real reviewer, not us, decides it's correct.",
-    points: [
-      "Hardened deployment safety: non-development environments require an explicit JWT secret before they'll boot, and won't start with simulated-payment or database-seed flags left on.",
-      "Wallet-scoped authorization: balance, transaction history, and purchases are derived only from the authenticated principal — verified so one account can't read or touch another's.",
-      "Shipped marketplace UI: the dashboard, marketplace, asset-detail, and wallet pages implementing the platform's prompt purchase-and-delivery flow.",
-    ],
-    cta: "Visit Grantfox",
-  },
-  approach: {
-    eyebrow: "How we work",
-    title: "Built to keep working.",
-    paragraph:
-      "Every engagement above runs the same discipline: systems built to stay reliable under real conditions, and every published number traced back to a source you can check. The line between what an LLM writes and what it's allowed to claim is enforced in code — so what we say matches what's actually running.",
-    pillars: [
-      {
-        title: "Deterministic first",
-        body: "Numbers come from code, not from a model. Where we use an LLM at all, it writes prose about facts already computed — it never computes the fact itself.",
-      },
-      {
-        title: "Built for uptime",
-        body: "Missing configuration, an unrotated key, an unverifiable input — the system catches it before it ever reaches production, so what's live keeps running instead of degrading quietly.",
-      },
-      {
-        title: "Traceable claims",
-        body: "Every figure we publish, about our own work or a client's, is backed by a source we can point to. If we can't source it, we don't ship it.",
-      },
-    ],
-  },
-  demo: {
-    eyebrow: "See it work",
-    title: "Flip a switch. See what keeps it running.",
-    paragraph:
-      "This is the same deployment safeguard running in Grantfox's real backend, reduced to a toggle. Change the flags below and hit deploy to see the exact check that keeps a misconfigured build from ever reaching production — the logic runs entirely in your browser, no fake API standing in for a server.",
-    panelLabel: "deploy panel",
-    toggles: {
-      jwt: { label: "JWT_SECRET set", description: "Explicit secret for signing auth tokens." },
-      seed: { label: "DB_SEED_ON_STARTUP", description: "Seeds a demo wallet balance on boot." },
-      nodeEnv: { label: "NODE_ENV=production", description: "Locked for this demo." },
-    },
-    deployButton: "Deploy",
-    terminalPrompt: "$ NODE_ENV=production npm run start",
-    emptyState: "// press deploy to run the check",
-    reasons: {
-      jwtMissing: "JWT_SECRET not set — would fall back to the published dev secret, letting anyone forge a valid token",
-      seedOn: "DB_SEED_ON_STARTUP is on in production — boot would seed a fabricated 450-credit wallet",
-    },
-    refusedPrefix: "✗ Refused to start — ",
-    successLine: "✓ Boot sequence started — all guard checks passed.",
   },
   notes: {
-    eyebrow: "Field notes",
-    title: "Notes from the work.",
-    paragraph:
-      "Short write-ups on the actual engineering decisions behind the work above — not summaries, the reasoning.",
+    eyebrow: "Notes",
+    title: "How we build, written down.",
+    paragraph: "Short write-ups on the engineering decisions behind the work above.",
     readSuffix: "read",
     items: {
       "fail-closed-deployments": {
@@ -240,42 +183,42 @@ export const en: Dictionary = {
     },
   },
   contact: {
-    eyebrow: "Get in touch",
-    title: "Tell us what you're building.",
-    paragraph:
-      "Full-stack product work, a Web3 integration, or an automation pipeline that has to hold up under audit — send the shape of the problem and we'll tell you plainly whether it's a fit.",
+    eyebrow: "Contact",
+    title: "Tell us which process can't stop.",
+    paragraph: "We read every message ourselves and reply within a couple of days.",
     nameLabel: "Name",
-    emailLabel: "Email",
-    messageLabel: "What are you building?",
+    companyLabel: "Company",
+    roleLabel: "Role",
+    optionalLabel: "optional",
+    emailLabel: "Work email",
+    interestLabel: "What are you interested in?",
+    interestPlaceholder: "Choose one",
+    interests: {
+      diagnose: "Diagnosing a process",
+      build: "Building an automation or AI agent",
+      run: "Running and supporting an existing system",
+      other: "Something else",
+    },
+    messageLabel: "Tell us about the process",
     sendingLabel: "Sending…",
     sendButton: "Send",
     sentMessage: "Sent — we read every message ourselves and reply within a couple of days.",
     errorMessage: "Something went wrong sending that — try again, or email",
     errorCta: "directly.",
+    directLabel: "Or write to us directly",
   },
   footer: {
-    sourceLabel: "Source",
-  },
-  webVitals: {
-    eyebrow: "This page, measured live",
-    caption: "Real numbers from your visit, right now — the same claim-only-what's-verified rule applied to our own site.",
-    good: "good",
-    needsAttention: "needs attention",
-    waitingForPaint: "measuring…",
-    waitingForInteraction: "waiting for a click",
-    metrics: {
-      lcp: { label: "Load speed", description: "How long the main content took to appear." },
-      inp: { label: "Responsiveness", description: "How fast the page reacts once you click something." },
-      cls: { label: "Visual stability", description: "Whether content jumps around while the page loads." },
-    },
+    companyTitle: "Company",
+    writingTitle: "Writing",
+    contactTitle: "Contact",
+    openSourceLabel: "Open source",
+    sourceLabel: "This site's source",
   },
   whatsapp: {
     label: "WhatsApp",
     greeting: "Hi TurboDevs! I'd like to talk about a project.",
   },
   a11y: {
-    pauseMotion: "Pause animation",
-    resumeMotion: "Resume animation",
     skipToContent: "Skip to content",
     newTab: "opens in new tab",
     selectLanguage: "Select language",

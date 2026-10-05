@@ -1,8 +1,4 @@
-import type { SectorKey, ServiceLineKey, TestimonialKey } from "@/content/site"
-
-export type WorkCopy = { kicker: string; description: string }
-
-export type StatCopy = { value: string; label: string }
+import type { CaseKey, InterestKey, NoteSlug, OpenSourceSlug } from "@/content/site"
 
 export type NoteCopy = {
   title: string
@@ -11,138 +7,102 @@ export type NoteCopy = {
   body: string[]
 }
 
+export type StageCopy = {
+  title: string
+  /** One sentence, the promise of the stage. */
+  line: string
+  body: string
+  /** Where the stage has already been done for a client. Absent if nothing public backs it. */
+  proof?: string
+}
+
+export type CaseCopy = {
+  sector: string
+  challenge: string
+  built: string
+  /** The client's own words. Absent when the client has not given a statement. */
+  quote?: string
+}
+
 export type Dictionary = {
   meta: {
     title: string
     description: string
   }
   nav: {
+    services: string
     work: string
-    grantfox: string
-    approach: string
     notes: string
     contact: string
-    startProject: string
+    cta: string
     openMenu: string
     closeMenu: string
   }
   hero: {
     eyebrow: string
-    /**
-     * The static lead reads once; `rotating` is a set of self-contained
-     * phrases that crossfade in place after it, one at a time. Each entry
-     * must read naturally when appended directly after `lead` with nothing
-     * else in between — no shared template does the joining or inserts a
-     * separator, so `lead` itself must already end with whatever separates
-     * it from the rotating word in that language (a trailing space for a
-     * space-delimited script; nothing at all for a locale like Chinese that
-     * doesn't use inter-word spaces). A locale that needs different grammar
-     * (word order, case, a trailing particle) encodes that directly in its
-     * own `lead`/`rotating` strings too.
-     */
-    headline: { lead: string; rotating: string[] }
+    headline: string
     paragraph: string
     ctaPrimary: string
     ctaSecondary: string
-    scrollHint: string
-    /** Accessible label for the hero's rotating-headline pause toggle, in
-     * its "currently playing, click to pause" state (WCAG 2.2.2). */
-    pauseRotation: string
-    /** Same toggle's label in its "currently paused, click to resume" state. */
-    resumeRotation: string
-    sectors: Record<SectorKey, string>
-    serviceLines: Record<ServiceLineKey, string>
-    stats: StatCopy[]
+    /** Introduces the row of client names under the hero. */
+    clientsLabel: string
+  }
+  problem: {
+    eyebrow: string
+    title: string
+    body: string
   }
   services: {
     eyebrow: string
     title: string
-    items: { title: string; description: string }[]
-  }
-  testimonials: {
-    eyebrow: string
-    title: string
-    /** `project` names what was built — a label, never a metric. */
-    items: Record<TestimonialKey, { quote: string; project: string }>
+    /** Exactly four, in order: diagnose, build, deploy, run. */
+    stages: StageCopy[]
   }
   work: {
     eyebrow: string
     title: string
-    items: Record<
-      | "sii"
-      | "previred"
-      | "stellarfit"
-      | "glowcheck"
-      | "turbotrabajo"
-      | "battery-storage-reporting",
-      WorkCopy
-    >
-  }
-  grantfox: {
-    eyebrow: string
-    title: string
-    paragraph: string
-    points: string[]
-    cta: string
-  }
-  approach: {
-    eyebrow: string
-    title: string
-    paragraph: string
-    pillars: { title: string; body: string }[]
-  }
-  demo: {
-    eyebrow: string
-    title: string
-    paragraph: string
-    panelLabel: string
-    toggles: {
-      jwt: { label: string; description: string }
-      seed: { label: string; description: string }
-      nodeEnv: { label: string; description: string }
-    }
-    deployButton: string
-    terminalPrompt: string
-    emptyState: string
-    reasons: { jwtMissing: string; seedOn: string }
-    refusedPrefix: string
-    successLine: string
+    challengeLabel: string
+    builtLabel: string
+    confidentialClient: string
+    visitLabel: string
+    cases: Record<CaseKey, CaseCopy>
+    openSourceTitle: string
+    openSourceIntro: string
+    openSource: Record<OpenSourceSlug, { kicker: string; description: string }>
   }
   notes: {
     eyebrow: string
     title: string
     paragraph: string
     readSuffix: string
-    items: Record<"fail-closed-deployments" | "llm-grounding" | "verified-claims-ledger", NoteCopy>
+    items: Record<NoteSlug, NoteCopy>
   }
   contact: {
     eyebrow: string
     title: string
     paragraph: string
     nameLabel: string
+    companyLabel: string
+    roleLabel: string
+    optionalLabel: string
     emailLabel: string
+    interestLabel: string
+    interestPlaceholder: string
+    interests: Record<InterestKey, string>
     messageLabel: string
     sendingLabel: string
     sendButton: string
     sentMessage: string
     errorMessage: string
     errorCta: string
+    directLabel: string
   }
   footer: {
+    companyTitle: string
+    writingTitle: string
+    contactTitle: string
+    openSourceLabel: string
     sourceLabel: string
-  }
-  webVitals: {
-    eyebrow: string
-    caption: string
-    good: string
-    needsAttention: string
-    waitingForPaint: string
-    waitingForInteraction: string
-    metrics: {
-      lcp: { label: string; description: string }
-      inp: { label: string; description: string }
-      cls: { label: string; description: string }
-    }
   }
   whatsapp: {
     label: string
@@ -150,17 +110,13 @@ export type Dictionary = {
   }
   /**
    * Strings that only ever reach assistive technology. They used to be
-   * hard-coded English literals inside components ("(opens in new tab)",
-   * "Select language"), so a screen-reader user reading the site in any of the
-   * other six languages was handed English mid-sentence.
+   * hard-coded English literals inside components, so a screen-reader user
+   * reading the site in any of the other six languages was handed English
+   * mid-sentence.
    */
   a11y: {
     skipToContent: string
     newTab: string
     selectLanguage: string
-    /** Site-wide motion switch (WCAG 2.2.2), in its "currently playing" state. */
-    pauseMotion: string
-    /** The same switch, currently paused. */
-    resumeMotion: string
   }
 }

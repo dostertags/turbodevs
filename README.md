@@ -2,14 +2,14 @@
 
 [![CI](https://github.com/dostertags/turbodevs/actions/workflows/ci.yml/badge.svg)](https://github.com/dostertags/turbodevs/actions/workflows/ci.yml)
 
-Software engineering studio site — tailor-made web, automation, and Web3 work,
-engineered to keep running the same way it's sold: reliably. Live in 7 languages at
-**https://turbodevs.web.app**.
+Software engineering studio site — *software for operations that can't stop*.
+Live in 7 languages at **https://turbodevs.web.app**. Positioning and copy rules
+live in [research/POSITIONING.md](research/POSITIONING.md).
 
 ## Stack
 
-React 19 · Vite · TypeScript · Tailwind v4 · react-three-fiber/drei/postprocessing ·
-Motion · Lenis. No SSR — a plain client-rendered SPA is the right tradeoff here.
+React 19 · Vite · TypeScript · Tailwind v4 · Motion · Lenis. Newsreader (headlines)
+and Mona Sans (interface), self-hosted. No SSR — a plain client-rendered SPA is the right tradeoff here.
 
 ## Editorial rule
 
@@ -42,11 +42,10 @@ All of these run in CI on every push and PR to `master` (see
 The suites exist to catch specific classes of bug that have actually shipped here:
 
 - `src/i18n/i18n-completeness.test.ts` diffs every translated locale's key
-  shape against `en` — the exact class of bug that once shipped the Web
-  Vitals widget in English-only on every translated page now fails CI instead.
-- `src/content/site.test.ts` asserts every hero sector chip only references
-  `WORK` slugs that actually exist, so a claim can't quietly outlive the
-  project backing it.
+  shape against `en`, so a section can't ship in English on a translated page.
+- `src/components/sections/FeaturedWork.test.tsx` requires a ledger row for
+  every client named on the page, and fails if any client quote, in any
+  locale, carries a figure the client did not give.
 - `src/i18n/claims.test.ts` is the machine-checkable half of the editorial
   rule below: banned vocabulary (claims with no ledger row) and per-string
   length budgets, across all seven locales plus `index.html` and `llms.txt`.
@@ -81,11 +80,10 @@ firebase deploy --only hosting --project turbodevs
 
 ## Notable engineering choices
 
-- `src/three/Scene.tsx` is lazy-loaded (`React.lazy`) so the ~440KB WebGL/Three.js
-  chunk never blocks the first paint of real content.
-- `src/components/WebVitals.tsx` measures *this visitor's* real Core Web Vitals
-  (LCP/INP/CLS) live in the browser via the `web-vitals` package — no static or
-  claimed score.
+- The first screen is static markup: no rotating text, no WebGL, no entrance
+  animation, so it paints the same on a slow phone as on a fast laptop.
+- Visible is the resting state of every section; a short fade is added only to
+  content below the fold (`src/components/motion/Reveal.tsx`).
 - `public/llms.txt` and the JSON-LD block in `index.html` are there for AI
   crawlers/agents and search engines respectively.
 - `public/.well-known/security.txt` follows RFC 9116.

@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <style>
-  /* Self-hosted from node_modules — same package the live site imports via
-     @fontsource-variable/mona-sans, so this static image uses the exact
-     same typeface as the page it's a preview card for. Google Fonts doesn't
-     carry Mona Sans (it's GitHub's own font), hence the local file:// path
-     instead of the usual <link> tag. */
+  /* Self-hosted from node_modules — the same two faces the live site loads,
+     so the preview card matches the page it links to. */
+  @font-face {
+    font-family: 'Newsreader Variable';
+    src: url('../node_modules/@fontsource-variable/newsreader/files/newsreader-latin-opsz-normal.woff2') format('woff2-variations');
+    font-weight: 200 800;
+    font-style: normal;
+  }
   @font-face {
     font-family: 'Mona Sans Variable';
     src: url('../node_modules/@fontsource-variable/mona-sans/files/mona-sans-latin-wght-normal.woff2') format('woff2-variations');
@@ -18,118 +21,61 @@
   html, body {
     width: 1200px;
     height: 630px;
-    background: #0a0908;
+    background: #f6f4ef;
+    color: #17150f;
     overflow: hidden;
     font-family: 'Mona Sans Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
-  svg.graph {
-    position: absolute;
-    inset: 0;
-    width: 1200px;
-    height: 630px;
   }
   .stage {
     position: relative;
     width: 1200px;
     height: 630px;
-  }
-  .content {
-    position: absolute;
-    left: 90px;
-    top: 0;
-    height: 630px;
+    padding: 72px 84px 64px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 26px;
   }
-  .mark {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-  }
-  .mark svg { width: 46px; height: 46px; }
-  .wordmark {
-    font-weight: 800;
-    font-size: 40px;
-    letter-spacing: 0.01em;
-    color: #f2efe9;
-  }
-  .name {
-    font-weight: 800;
-    font-size: 74px;
-    letter-spacing: -0.02em;
-    color: #f2efe9;
-    line-height: 1;
-  }
-  .tagline {
+  .brand { display: flex; align-items: center; gap: 14px; font-family: 'Newsreader Variable', Georgia, serif; font-size: 34px; }
+  .brand svg { width: 40px; height: 40px; }
+  .headline {
+    margin-top: 64px;
+    font-family: 'Newsreader Variable', Georgia, serif;
     font-weight: 400;
-    font-size: 26px;
-    color: #9c9488;
-    max-width: 640px;
-    line-height: 1.4;
+    font-size: 84px;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    max-width: 900px;
   }
-  .accent { color: #e2a545; }
-  .vignette {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 900px 630px at 30% 50%, rgba(10,9,8,0) 0%, rgba(10,9,8,0.55) 65%, rgba(10,9,8,0.92) 100%);
-  }
+  .tagline { margin-top: 26px; font-size: 24px; color: #5b554b; max-width: 820px; line-height: 1.4; }
+  .strip { margin-top: auto; }
 </style>
 </head>
 <body>
   <div class="stage">
-    <svg class="graph" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
-      <g stroke="#3d4a45" stroke-width="1" opacity="0.55">
-        <line x1="640" y1="80" x2="820" y2="180" />
-        <line x1="820" y1="180" x2="760" y2="340" />
-        <line x1="760" y1="340" x2="960" y2="300" />
-        <line x1="960" y1="300" x2="1080" y2="140" />
-        <line x1="760" y1="340" x2="880" y2="480" />
-        <line x1="880" y1="480" x2="1060" y2="440" />
-        <line x1="640" y1="80" x2="560" y2="230" />
-        <line x1="560" y1="230" x2="700" y2="300" />
-        <line x1="700" y1="300" x2="760" y2="340" />
-        <line x1="560" y1="230" x2="480" y2="380" />
-        <line x1="480" y1="380" x2="620" y2="470" />
-        <line x1="620" y1="470" x2="880" y2="480" />
-        <line x1="1080" y1="140" x2="1150" y2="260" />
-        <line x1="960" y1="300" x2="1120" y2="360" />
-      </g>
-      <g fill="#e2a545">
-        <circle cx="640" cy="80" r="4.5" />
-        <circle cx="820" cy="180" r="3.5" />
-        <circle cx="960" cy="300" r="4" />
-        <circle cx="1080" cy="140" r="3.5" />
-        <circle cx="880" cy="480" r="4" />
-        <circle cx="1060" cy="440" r="3.5" />
-        <circle cx="560" cy="230" r="3.5" />
-        <circle cx="700" cy="300" r="3" />
-        <circle cx="480" cy="380" r="3.5" />
-        <circle cx="620" cy="470" r="3" />
-        <circle cx="1150" cy="260" r="3" />
-        <circle cx="1120" cy="360" r="3" />
-      </g>
-      <g fill="#f7f1e4">
-        <circle cx="760" cy="340" r="6" />
-      </g>
-    </svg>
-    <div class="vignette"></div>
-
-    <div class="content">
-      <div class="mark">
-        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-          <rect width="32" height="32" rx="7" fill="#141310" stroke="#2c2820" stroke-width="1" />
-          <path d="M8.6 22.4 L16.3 9.8 L24.1 20.6" fill="none" stroke="#e2a545" stroke-width="1.6" stroke-linecap="round" />
-          <circle cx="8.6" cy="22.4" r="2.1" fill="#e2a545" />
-          <circle cx="16.3" cy="9.8" r="2.4" fill="#f2efe9" />
-          <circle cx="24.1" cy="20.6" r="2.1" fill="#e2a545" />
-        </svg>
-        <span class="wordmark">TURBO<span class="accent">DEVS</span></span>
-      </div>
-      <div class="name">Custom software<br />that works —<br /><span class="accent">day and night</span>.</div>
-      <div class="tagline">Full-stack, automation, and Web3 systems engineered to stay reliable around the clock.</div>
+    <div class="brand">
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.6 22.4 L16.3 9.8 L24.1 20.6" fill="none" stroke="#17150f" stroke-width="1.8" stroke-linecap="round" />
+        <circle cx="8.6" cy="22.4" r="2.1" fill="#17150f" />
+        <circle cx="16.3" cy="9.8" r="2.6" fill="#8a5a14" />
+        <circle cx="24.1" cy="20.6" r="2.1" fill="#17150f" />
+      </svg>
+      TurboDevs
     </div>
+    <div class="headline">Software for operations that can't stop.</div>
+    <div class="tagline">Software engineering studio. We find the process that costs your team most, replace it with software, and keep it running 24/7.</div>
+    <svg class="strip" id="strip" viewBox="0 0 1032 64" width="1032" height="64"></svg>
   </div>
+  <script>
+    // Same motif as the site's hero: a day in 15-minute steps, a constant
+    // dark base (it never stops) under a lighter daylight band.
+    const svg = document.getElementById("strip")
+    const steps = 96, pitch = 1032 / steps, bar = pitch * 0.42
+    for (let i = 0; i < steps; i++) {
+      const hour = (i + 0.5) / 4
+      const sun = hour < 6.5 || hour > 19.5 ? 0 : Math.sin(((hour - 6.5) / 13) * Math.PI) ** 1.4 * 40
+      const x = i * pitch + (pitch - bar) / 2
+      if (sun > 0.5) svg.insertAdjacentHTML("beforeend", `<rect x="${x}" y="${64 - 14 - sun}" width="${bar}" height="${sun}" fill="#8a5a14" opacity="0.28"/>`)
+      svg.insertAdjacentHTML("beforeend", `<rect x="${x}" y="50" width="${bar}" height="14" fill="#17150f" opacity="0.86"/>`)
+    }
+  </script>
 </body>
 </html>

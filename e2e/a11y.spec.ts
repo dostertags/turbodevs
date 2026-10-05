@@ -8,12 +8,10 @@ import { expect, test } from "@playwright/test"
  */
 
 test("no serious or critical axe violations on the page", async ({ page }) => {
-  // Scan the page at rest. With animation running, an element caught halfway
-  // through a fade reports the contrast of its half-faded colour, which makes
-  // the whole scan non-deterministic — it passed alone and failed under load.
-  // Turning motion off through the site's own control is also the honest thing
-  // to scan: it is the state an assistive-tech user is most likely in.
-  await page.addInitScript(() => localStorage.setItem("turbodevs:motion", "off"))
+  // Scan the page at rest. With a fade running, an element caught halfway
+  // reports the contrast of its half-faded colour, which makes the scan
+  // non-deterministic. Reduced motion removes the fades entirely.
+  await page.emulateMedia({ reducedMotion: "reduce" })
   await page.goto("/")
 
   // Walk the page so every scroll-revealed section has rendered before the scan.
@@ -89,21 +87,20 @@ test("activating a nav link by keyboard moves focus, updates the hash, and scrol
 
 test("every control keeps a visible focus indicator", async ({ page }) => {
   await page.goto("/")
-  const deployButton = page.locator("#demo button.bg-accent").first()
-  await deployButton.focus()
+  const cta = page.locator('#top a[href="#contact"]').first()
+  await cta.focus()
 
-  const outline = await deployButton.evaluate((el) => {
+  const outline = await cta.evaluate((el) => {
     const cs = getComputedStyle(el)
     return { width: Number.parseFloat(cs.outlineWidth), style: cs.outlineStyle }
   })
-  // This button had `focus-visible:outline-none` with nothing replacing it.
   expect(outline.style).not.toBe("none")
   expect(outline.width).toBeGreaterThan(0)
 })
 
 test("no fixed element covers a focusable control", async ({ page }) => {
   await page.goto("/")
-  const sections = ["#top", "#work", "#demo", "#contact"]
+  const sections = ["#top", "#services", "#work", "#contact"]
 
   for (const section of sections) {
     await page.evaluate((s) => document.querySelector(s)!.scrollIntoView({ block: "center" }), section)

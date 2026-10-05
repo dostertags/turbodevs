@@ -1,65 +1,43 @@
 @import "tailwindcss";
 @import "@fontsource-variable/mona-sans";
-@import "@fontsource/ibm-plex-mono/500.css";
-@import "@fontsource/ibm-plex-mono/600.css";
-@import "@fontsource/ibm-plex-mono/700.css";
+@import "@fontsource-variable/newsreader/opsz.css";
 
 @theme inline {
-  /* Same typeface dribbble.com actually loads (verified: their computed
-     h1/body/nav font-family is "Mona Sans", weight range 200–900) — same
-     family name, same fallback stack. */
+  /* Two faces, two jobs. Newsreader (a text serif with an optical-size axis)
+     sets the headlines and the client names — the voice. Mona Sans sets
+     everything a visitor reads or operates — the interface. */
+  --font-serif: "Newsreader Variable", Georgia, "Times New Roman", serif;
   --font-sans: "Mona Sans Variable", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  /* True monospace, kept only for the fail-closed demo's terminal — the
-     one place on the site where a real character-width grid is a functional
-     requirement, not a stylistic one. Everything that used to borrow this
-     for "label" styling now uses --font-sans at a heavier weight instead,
-     matching how Dribbble builds its own hierarchy from one typeface. */
-  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  /* No downloaded mono face: the only monospace left on the page is a repo
+     name, and the system's own mono is the right voice for that. */
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
-  --color-bg: #0a0908;
-  --color-surface: #141310;
-  --color-surface-2: #1c1a15;
-  --color-border: #2c2820;
-  /* Interactive borders must carry meaning on their own (WCAG 1.4.11 wants
-     3:1 against what is behind them). --color-border is a 1.19:1 hairline —
-     right for decorative panel edges, but on a form field or an unchecked
-     switch it left the control effectively invisible. Enforced by
-     src/index.contrast.test.ts. */
-  --color-border-strong: #726b5f;
-  --color-ink: #f2efe9;
-  --color-muted: #9c9488;
-  --color-accent: #e2a545;
-  --color-accent-dim: #6e5127;
-  --color-wire: #3d4a45;
+  /* Warm paper, near-black ink, one bronze accent used sparingly. Every pair
+     a visitor has to read is checked in src/index.contrast.test.ts. */
+  --color-bg: #f6f4ef;
+  --color-surface: #efece5;
+  --color-surface-2: #e7e3d9;
+  --color-border: #dcd7cc;
+  /* WCAG 1.4.11: the visible edge of a form field needs 3:1 against what is
+     behind it. --color-border is a decorative hairline and does not. */
+  --color-border-strong: #847d71;
+  --color-ink: #17150f;
+  --color-ink-hover: #34312a;
+  --color-muted: #5b554b;
+  --color-accent: #8a5a14;
+  --color-accent-dim: #e8d7b5;
+  --color-danger: #a3391f;
 
-  /* Semantic state colours. Each of these existed before as a one-off
-     literal scattered through components: the accent hover was written out
-     three separate times, the "needs attention" and error colours were two
-     different near-identical oranges, and the terminal used Tailwind stock
-     emerald-400 / red-400 — the only two saturated screen colours on an
-     otherwise warm, desaturated page, which read as if they came from a
-     different site. Named here so the palette is one decision, and checked
-     in src/index.contrast.test.ts so none of them can drift below AA. */
-  --color-accent-hover: #f0b85c;
-  --color-ok: #8fae7a;
-  --color-warn: #e08a45;
-  --color-danger: #d9705a;
-
-  /* Type scale. One display size, two heading sizes and a lead size, each a
-     clamp() so the step from phone to desktop is continuous instead of
-     jumping at a breakpoint. Replaces the hand-written per-element sizes
-     that had drifted into six different heading sizes across eight
-     sections. */
-  --text-display: clamp(2.125rem, 1.2rem + 4.2vw, 4.5rem);
-  --text-h2: clamp(1.75rem, 1.3rem + 2.1vw, 3rem);
-  --text-h2-minor: clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem);
-  --text-lead: clamp(1rem, 0.95rem + 0.35vw, 1.25rem);
-  --tracking-display: -0.03em;
-  --tracking-h2: -0.02em;
+  /* Type scale: continuous clamp() steps instead of per-element pixel sizes. */
+  --text-display: clamp(2.4rem, 1.55rem + 3.4vw, 4.25rem);
+  --text-h2: clamp(1.75rem, 1.35rem + 1.6vw, 2.75rem);
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --tracking-display: -0.02em;
+  --tracking-h2: -0.015em;
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   /* Clearance under the fixed 64px header for anchored sections. Read back
      by use-smooth-scroll.ts so the smooth and native scroll paths agree. */
   --tg-anchor-offset: 5.5rem;
@@ -99,52 +77,10 @@ html.lenis body {
 }
 
 /* ==========================================================================
-   HAND-TAILORED GLASS
-   A frosted panel with a hairline border whose highlight travels around the
-   perimeter instead of sitting flat on one edge — reads as a cut, bevelled
-   surface rather than a flat stroke.
-   ========================================================================== */
-.tg-glass {
-  position: relative;
-  isolation: isolate;
-  background: rgba(242, 239, 233, 0.045);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
-  box-shadow:
-    inset 0 1px 0 0 rgba(242, 239, 233, 0.14),
-    inset 0 -1px 0 0 rgba(0, 0, 0, 0.3),
-    0 12px 40px rgba(0, 0, 0, 0.45);
-}
-/* A more opaque variant for panels that must stay legible over the busiest
-   part of the network graph — the mobile nav drawer, primarily. */
-.tg-glass-solid {
-  background: rgba(10, 9, 8, 0.92);
-}
-
-.tg-glass::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: conic-gradient(
-    from 200deg,
-    rgba(226, 165, 69, 0.55),
-    rgba(242, 239, 233, 0.12),
-    rgba(61, 74, 69, 0.4),
-    rgba(226, 165, 69, 0.3),
-    rgba(242, 239, 233, 0.12)
-  );
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-/* ==========================================================================
    MOTION
+   The only motion left is a short fade as sections arrive. Both the OS
+   setting and html[data-motion="off"] (set from it before first render)
+   remove even that.
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -157,9 +93,6 @@ html.lenis body {
   }
 }
 
-/* The same, driven by the in-page control rather than the OS setting. WCAG
-   2.2.2 asks for a mechanism inside the content, and the OS switch is not one:
-   a visitor on a borrowed machine cannot reach it. */
 html[data-motion="off"],
 html[data-motion="off"] *,
 html[data-motion="off"] *::before,
@@ -176,8 +109,8 @@ html[data-motion="off"] *::after {
 
 /* Focus ring — visible on keyboard nav, invisible on mouse click. */
 :focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
 }
 
 /* Visually hidden but available to assistive tech (e.g. extra link context). */
@@ -191,27 +124,6 @@ html[data-motion="off"] *::after {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-/* ==========================================================================
-   BACKGROUND CONSTELLATION
-   The seven ivory "verified" nodes breathe slowly, and nothing else moves.
-   Pure CSS, so both the prefers-reduced-motion rule and the site's own motion
-   switch already stop it — and so it costs nothing after first paint.
-   ========================================================================== */
-.tg-node-verified {
-  animation: tg-node-breathe 12s ease-in-out infinite alternate;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-@keyframes tg-node-breathe {
-  from {
-    opacity: 0.55;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 /* ==========================================================================
@@ -230,5 +142,5 @@ html[data-motion="off"] *::after {
 
 .tg-reveal-pending {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(12px);
 }

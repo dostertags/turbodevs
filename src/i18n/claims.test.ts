@@ -75,23 +75,19 @@ const BANNED: { pattern: RegExp; why: string }[] = [
 /**
  * Budgets are set just above what the longest current locale needs, so they
  * pass today and fail the moment a translation grows enough to break the
- * layout it belongs to. The number in brackets is today's longest.
+ * layout it belongs to.
  */
 const BUDGETS: { path: string; max: number; select: (d: Dictionary) => string[] }[] = [
-  { path: "nav.<item>", max: 14, select: (d) => [d.nav.work, d.nav.grantfox, d.nav.approach, d.nav.notes, d.nav.contact] }, // [12] fits the header row
-  { path: "nav.startProject", max: 20, select: (d) => [d.nav.startProject] }, // [19] the header pill
-  { path: "hero.eyebrow", max: 36, select: (d) => [d.hero.eyebrow] }, // [33]
-  { path: "hero.headline.lead", max: 72, select: (d) => [d.hero.headline.lead] }, // [69]
-  { path: "hero.headline.rotating", max: 30, select: (d) => d.hero.headline.rotating }, // [27] must not exceed the 350px phone column
-  { path: "hero.sectors", max: 48, select: (d) => Object.values(d.hero.sectors) }, // [46]
-  { path: "hero.stats[].label", max: 26, select: (d) => d.hero.stats.map((s) => s.label) }, // [24]
-  { path: "hero.cta", max: 24, select: (d) => [d.hero.ctaPrimary, d.hero.ctaSecondary] }, // [21]
-  { path: "services.items[].title", max: 52, select: (d) => d.services.items.map((i) => i.title) }, // [49]
-  // Search-result budgets (title <= 60, description <= 155) are deliberately not
-  // asserted yet: today's locales run to 68/212 and the per-locale <head> is
-  // only written once the site prerenders one page per language.
-  { path: "meta.title", max: 70, select: (d) => [d.meta.title] }, // [68]
-  { path: "meta.description", max: 215, select: (d) => [d.meta.description] }, // [212]
+  { path: "nav.<item>", max: 14, select: (d) => [d.nav.services, d.nav.work, d.nav.notes, d.nav.contact] }, // fits the header row
+  { path: "nav.cta", max: 20, select: (d) => [d.nav.cta] }, // the header pill
+  { path: "hero.headline", max: 64, select: (d) => [d.hero.headline] }, // two lines of display serif on a phone
+  { path: "hero.cta", max: 24, select: (d) => [d.hero.ctaPrimary, d.hero.ctaSecondary] },
+  { path: "services.stages[].title", max: 16, select: (d) => d.services.stages.map((s) => s.title) }, // one word in the four-column row
+  // Search-result budgets (title <= 60, description <= 155) are not asserted
+  // yet: the per-locale <head> is only written once the site prerenders one
+  // page per language.
+  { path: "meta.title", max: 70, select: (d) => [d.meta.title] },
+  { path: "meta.description", max: 215, select: (d) => [d.meta.description] },
 ]
 
 describe("no claim ships without a ledger row", () => {
@@ -111,20 +107,17 @@ describe("no claim ships without a ledger row", () => {
     }
   })
 
-  it("every hero stat is a ledger row, and no stat counts the site's own UI languages", () => {
-    for (const [lang, dict] of ENTRIES) {
-      expect(dict.hero.stats.length, `${lang}: stat count drifted from en`).toBe(en.hero.stats.length)
-      for (const stat of dict.hero.stats) {
-        // "7 languages" described this site's own locale count, not the work.
-        expect(
-          /language|lenguaje|linguagem|linguagen|langage|linguagg|sprache|语言/i.test(stat.label),
-          `${lang}: "${stat.value} ${stat.label}" counts the site's own UI languages, not the work`,
-        ).toBe(false)
+  it("every number in the case studies and service stages is a ledger figure", () => {
+    // English is the source the ledger records; translations are checked for
+    // invented figures in FeaturedWork.test.tsx.
+    const texts = [
+      ...Object.values(en.work.cases).flatMap((c) => [c.challenge, c.built]),
+      ...en.services.stages.flatMap((s) => [s.line, s.body, s.proof ?? ""]),
+    ]
+    for (const text of texts) {
+      for (const figure of text.match(/\d+(?:[.,]\d+)*/g) ?? []) {
+        expect(ledger, `"${figure}" in "${text}" has no ledger row`).toContain(figure)
       }
-    }
-    // The English values are the ones the ledger records verbatim.
-    for (const stat of en.hero.stats) {
-      expect(ledger, `no ledger row backs the hero stat "${stat.value} ${stat.label}"`).toContain(stat.value)
     }
   })
 })

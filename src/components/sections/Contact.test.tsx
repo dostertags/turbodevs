@@ -1,10 +1,11 @@
-import { render, screen, waitFor } from "@testing-library/react"
+import { render, screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest"
 
 import { LanguageProvider } from "@/i18n/LanguageContext"
 import { en } from "@/i18n/locales/en"
 import { Contact } from "@/components/sections/Contact"
+import { INTERESTS } from "@/content/site"
 
 /**
  * The form is the only conversion path the studio owns, and it used to decide
@@ -28,8 +29,10 @@ function reply(body: unknown, ok = true, status = 200) {
 
 async function fillAndSubmit() {
   const user = userEvent.setup()
-  await user.type(screen.getByLabelText(new RegExp(en.contact.nameLabel)), "Ada")
+  await user.type(screen.getByLabelText(new RegExp(`^${en.contact.nameLabel}`)), "Ada")
+  await user.type(screen.getByLabelText(new RegExp(en.contact.companyLabel)), "Analytical Engines")
   await user.type(screen.getByLabelText(new RegExp(en.contact.emailLabel)), "ada@example.com")
+  await user.selectOptions(screen.getByLabelText(en.contact.interestLabel, { exact: false }), "build")
   await user.type(screen.getByLabelText(new RegExp(en.contact.messageLabel)), "A payments integration.")
   await user.click(screen.getByRole("button", { name: new RegExp(en.contact.sendButton) }))
 }
@@ -90,9 +93,36 @@ describe("Contact form delivery", () => {
     expect(container.querySelector('input[name="_honey"]')).toBeInTheDocument()
   })
 
+  it("qualifies the enquiry: company, role, and what the visitor is interested in", async () => {
+    vi.mocked(fetch).mockReturnValue(reply({ success: "true" }))
+    renderContact()
+    const select = screen.getByLabelText(en.contact.interestLabel, { exact: false })
+    for (const key of INTERESTS) {
+      expect(within(select).getByRole("option", { name: en.contact.interests[key] })).toHaveValue(key)
+    }
+    // Role is the one optional field — asking for a title must not cost a lead.
+    expect(screen.getByLabelText(new RegExp(en.contact.roleLabel))).not.toBeRequired()
+
+    await fillAndSubmit()
+    const body = vi.mocked(fetch).mock.calls[0][1]!.body as FormData
+    expect(body.get("company")).toBe("Analytical Engines")
+    expect(body.get("interest")).toBe("build")
+  })
+
+  it("offers a direct email and WhatsApp alongside the form", () => {
+    renderContact()
+    expect(screen.getAllByRole("link", { name: /dostertags@fen\.uchile\.cl/ })[0]).toHaveAttribute(
+      "href",
+      "mailto:dostertags@fen.uchile.cl",
+    )
+    expect(screen.getByRole("link", { name: new RegExp(en.whatsapp.label) }).getAttribute("href")).toMatch(
+      /^https:\/\/wa\.me\/56976953752\?text=/,
+    )
+  })
+
   it("labels the fields for autofill and sizes them so iOS does not zoom", () => {
     renderContact()
-    const name = screen.getByLabelText(new RegExp(en.contact.nameLabel))
+    const name = screen.getByLabelText(new RegExp(`^${en.contact.nameLabel}`))
     const email = screen.getByLabelText(new RegExp(en.contact.emailLabel))
     expect(name).toHaveAttribute("autocomplete", "name")
     expect(email).toHaveAttribute("autocomplete", "email")

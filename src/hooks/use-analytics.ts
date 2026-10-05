@@ -11,7 +11,7 @@ import { track, trackScrollDepth } from "@/lib/track"
  * language, so "50%" means a different place in German than in English.
  * "Reached the work" is the question worth answering.
  */
-const DEPTH_SECTIONS = ["work", "grantfox", "approach", "demo", "notes", "contact"]
+const DEPTH_SECTIONS = ["services", "work", "notes", "contact"]
 
 export function useAnalytics() {
   useEffect(() => {

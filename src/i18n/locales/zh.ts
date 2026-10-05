@@ -2,196 +2,138 @@ import type { Dictionary } from "@/i18n/types"
 
 export const zh: Dictionary = {
   meta: {
-    title: "TurboDevs — 度身定制软件，专为 24/7 全天候运行打造",
+    title: "TurboDevs — 为不能停摆的运营打造软件",
     description:
-      "TurboDevs 是一家软件工程工作室，专注于为 Web、自动化和 Web3 领域打造度身定制的系统——工程设计以全天候持续运行为目标，而不仅仅是在上线当天表现良好。",
+      "TurboDevs 是一家软件工程工作室。我们找出让团队耗费时间或错失机会的流程，用软件取而代之，并让它 24/7 持续运行。",
   },
   nav: {
+    services: "服务",
     work: "作品",
-    grantfox: "Grantfox",
-    approach: "方法论",
     notes: "笔记",
     contact: "联系",
-    startProject: "启动项目",
+    cta: "联系我们",
     openMenu: "打开菜单",
     closeMenu: "关闭菜单",
   },
   hero: {
     eyebrow: "软件工程工作室",
-    headline: {
-      lead: "定制软件，昼夜运转——",
-      rotating: [
-        "为政务合规打造",
-        "为 Web3 支付打造",
-        "为能源基础设施打造",
-        "为生产级 SaaS 打造",
-        "为酒店餐饮运营打造",
-      ],
-    },
+    headline: "为不能停摆的运营打造软件。",
     paragraph:
       "为不容停机的高要求软件而打造。我们构建具备韧性、可直接投入生产的系统——从太阳能电站监控、税务合规引擎到 Web3 支付——以 24/7 的运行可靠性作为保障。",
-    ctaPrimary: "查看作品",
-    ctaSecondary: "联系我们",
-    scrollHint: "向下滚动查看作品",
-    pauseRotation: "暂停轮播文字",
-    resumeRotation: "继续轮播文字",
-    sectors: {
-      government: "政府与合规",
-      web3: "Web3 与区块链",
-      energy: "能源与工业",
-      consumerSaas: "消费级软件",
-      hospitality: "酒店餐饮与小微企业",
-    },
-    serviceLines: {
-      hrOutplacement: "人力资源与再就业服务",
-      procurement: "私营采购与投标",
-      leadGen: "潜在客户开发",
-    },
-    stats: [
-      { value: "1,800+", label: "自动化测试" },
-      { value: "5", label: "公开代码仓库" },
-    ],
+    ctaPrimary: "联系我们",
+    ctaSecondary: "查看作品",
+    clientsLabel: "已在以下客户的生产环境中运行",
+  },
+  problem: {
+    eyebrow: "问题所在",
+    title: "维持企业运转的工作，恰恰是没人有时间去修好的工作。",
+    body: "有截止日期的申报。每天都要汇报的电站。在收件箱里过期的投标。这些流程依靠电子表格、门户网站和某个人的记忆运转——直到某一天它们失灵。我们用软件取代它们：软件完成工作、核查自身的输出，并在夜间继续运行。",
   },
   services: {
-    eyebrow: "我们构建什么",
-    title: "四大专业领域，同一套工程标准。",
-    items: [
+    eyebrow: "我们的工作方式",
+    title: "四个阶段。可从任一阶段开始，也可将整个闭环交给我们。",
+    stages: [
       {
-        title: "全栈产品工程",
-        description:
-          "React/Next.js 前端、TypeScript 和 Python 服务，以及保障持续交付的 CI/测试规范——正是支撑 turbotrabajo 生产级职位匹配 SaaS 的技术栈。",
+        title: "诊断",
+        line: "找出代价最高的流程。",
+        body: "我们与实际执行工作的人坐在一起，逐步梳理流程，记录下哪些步骤耗费时间、造成错误或错失机会——以及应当优先自动化哪些步骤。",
       },
       {
-        title: "Web3 与区块链集成",
-        description:
-          "基于 Stellar 的钱包原生身份验证与链上支付校验——为 stellarfit 经 Horizon 确认的结账流程而构建，并已交付上线于 Grantfox 的线上市场。",
+        title: "构建",
+        line: "能完成工作的软件。",
+        body: "基于你自己的文件和系统构建的自动化、集成与 AI 智能体。数字来自代码；在由模型撰写文字的地方，它只描述已经计算好的事实，每一个数字在发出前都经过核查。",
+        proof: "已投入生产：Sainz Intec 的私人招标自动应答系统。",
       },
       {
-        title: "自动化与合规系统",
-        description:
-          "面向监管机构真正会核查的流程的无头浏览器与 API 自动化——默认只读，其构建目标是在不确定性下依然能正确持续运行，这正是 sii 和 previred 背后的设计模式。",
+        title: "部署",
+        line: "融入你的运营。",
+        body: "我们对接团队已在使用的门户、文件和数据源，并与负责运行它们的人并肩工作，直到系统成为日常工作的一部分。",
+        proof: "实践中：我们的 SII 和 Previred 自动化，构建于智利团队每月都在使用的门户之上。",
       },
       {
-        title: "有据可查的 AI 集成流水线",
-        description:
-          "LLM 只负责为你的代码已经算出的数字撰写文字——绝不自行生成数字本身。每一条生成的结论在发布前，都会与一份冻结事实集重新核对。",
+        title: "运行",
+        line: "24/7，全程监控。",
+        body: "我们运营自己构建的系统：监控、每日报告，以及对每一项输出的核查，让它在上线之后依然长久运转。",
+        proof: "已投入生产：Quorelia 的太阳能电池储能站，以及一份电池储能每日报告。",
       },
     ],
   },
-  testimonials: {
-    eyebrow: "客户评价",
-    title: "我们的客户怎么说。",
-    items: {
+  work: {
+    eyebrow: "作品",
+    title: "如今正在生产环境中运行的系统。",
+    challengeLabel: "挑战",
+    builtLabel: "我们构建了什么",
+    confidentialClient: "保密能源客户",
+    visitLabel: "访问",
+    cases: {
       quorelia: {
+        sector: "能源",
+        challenge: "一座必须日夜运行、且无人值守的太阳能电池储能站。",
+        built: "全天候运行这座储能站的软件。",
         quote: "TurboDevs 为我们开发了一座 24/7 运行的太阳能电池储能站，日夜不停地工作。即使无人值守，它也照常运行——夜间和白天一样可靠。他们花时间真正理解了我们能源业务的运作方式，打造出我们每天都依赖的系统。",
-        project: "太阳能 + 电池站",
       },
       sainzIntec: {
+        sector: "工业采购",
+        challenge: "私人招标和采购请求在有人回复之前就在收件箱中过期。",
+        built: "一个能自主回复私人招标的自动应答系统。",
         quote:
           "TurboDevs 为我们搭建了一个能自动回复私人招标的系统——它正在为公司带来真正的新业务。过去容易错过的机会，现在无需团队成员专门跟进就能得到回复。它已经成为我们赢得业务的一部分，在我们专注交付的同时持续运行。",
-        project: "自动投标应答系统",
+      },
+      batteryStorage: {
+        sector: "能源",
+        challenge:
+          "为电网级电池储能系统提供每日性能报告——一个错误的数字就意味着一个错误的运营决策。",
+        built:
+          "一个确定性 KPI 引擎，其上叠加一层文字叙述。报告发出前，文本中的每一个数字都会与计算得出的事实进行核对，并由 648 个自动化测试提供保障。",
+      },
+      grantfox: {
+        sector: "Web3 市场",
+        challenge: "一个实时运行、钱包原生的 AI 提示词与智能体市场，基于 Stellar 结算。",
+        built:
+          "作为外部贡献者：部署安全检查、钱包级授权，以及购买与交付界面。",
       },
       vertigo: {
+        sector: "餐饮",
+        challenge: "一家餐厅需要尽快让网站上线——并需要有人持续更新它。",
+        built: "快速交付的网站，以及此后的持续支持。",
         quote:
           "他们很快就交付了我们的网站，之后也一直陪伴着我们——始终关注我们的需求。需要调整时，我们只要说一声就会完成，不用反复催促。对一家餐厅来说，这意味着少一件操心的事，也多了一个在业务成长中可以依靠的伙伴。",
-        project: "餐厅网站与持续支持",
       },
     },
-  },
-  work: {
-    eyebrow: "精选作品",
-    title: "公开、可验证，且仍在运行。",
-    items: {
+    openSourceTitle: "开源",
+    openSourceIntro: "我们自己的工具，公开于 GitHub——客户项目背后的工程能力。",
+    openSource: {
       sii: {
         kicker: "税务机关自动化",
         description:
-          "一个 TypeScript 核心、CLI 和 MCP 服务器，用于自动化智利税务局（SII）的相关流程，其构建围绕着一套让系统保持可靠的防护机制，而非停留在尽力而为的脚本层面。",
+          "一个 TypeScript 核心、CLI 和 MCP 服务器，用于自动化智利税务局（SII）的相关流程，配有 1,178 个封闭式测试。",
       },
       previred: {
         kicker: "养老金门户自动化",
         description:
-          "对智利养老金缴费门户的只读自动化，其设计从架构上就使支付程序无法被触发——而非仅靠代码评审加以劝阻。",
+          "对智利养老金缴费门户的只读自动化，其设计从架构上就使支付无法被发出。",
       },
       stellarfit: {
         kicker: "Web3 支付",
         description:
-          "在 Stellar 区块链上结算的订阅结账流程——只有在 Horizon 确认一笔备注匹配、一次性使用的付款后才会授予访问权限，无需任何托管信任。",
+          "在 Stellar 上结算的订阅结账流程：只有在网络确认一笔一次性付款后才会授予访问权限。",
       },
       glowcheck: {
         kicker: "计算机视觉",
         description:
-          "结合 DeepFace/TensorFlow 人口统计学模型与原创 ITA 肤色、红斑及面部不对称度量指标的人脸与皮肤分析。",
+          "结合 DeepFace/TensorFlow 模型与原创肤色、红斑及不对称度量指标的人脸与皮肤分析。",
       },
       turbotrabajo: {
         kicker: "生产级 SaaS",
         description:
-          "一个生产级求职平台：Firebase 身份验证、简历匹配、服务器权威的代币钱包，以及端到端的 Flow.cl 支付。",
-      },
-      "battery-storage-reporting": {
-        kicker: "能源 · AI 支撑的报告生成",
-        description:
-          "为电网级电池储能系统提供的自动化每日性能报告：一个确定性 KPI 引擎搭配 LLM 叙述层，其生成的每一个数字在发布前都会与冻结事实重新核对，从而确保报告日复一日地保持可靠。",
+          "一个已投入生产的求职平台：Firebase 身份验证、档案匹配、服务器端代币钱包，以及 Flow.cl 支付。",
       },
     },
-  },
-  grantfox: {
-    eyebrow: "重点合作项目",
-    title: "参与 Grantfox 实时运行的 Stellar 市场建设",
-    paragraph:
-      "Grantfox 运营着一个基于 Stellar 结算的钱包原生 AI 提示词与智能体市场。我们作为外部贡献者，直接参与其 NestJS 后端和 Next.js 前端的开发——这类工作只有在真正的评审者（而非我们自己）判定其正确时才算数。",
-    points: [
-      "强化的部署安全机制：非开发环境必须显式设置 JWT 密钥才能启动，且在模拟支付或数据库填充标志未关闭时同样不会启动。",
-      "钱包级授权隔离：余额、交易记录和购买记录仅从已通过身份验证的主体中推导——并经过验证，确保一个账户无法读取或触碰另一个账户的数据。",
-      "已交付的市场界面：实现平台提示词购买与交付流程的仪表盘、市场、资产详情和钱包页面。",
-    ],
-    cta: "访问 Grantfox",
-  },
-  approach: {
-    eyebrow: "我们的工作方式",
-    title: "为持续运行而生。",
-    paragraph:
-      "以上每一项合作都遵循同一套准则：系统的构建要在真实环境下保持可靠，每一个公开的数字都可追溯到可核实的来源。LLM 撰写的内容与它被允许声称的内容之间的界限由代码强制执行——因此我们所说的与实际运行的完全一致。",
-    pillars: [
-      {
-        title: "确定性优先",
-        body: "数字来自代码，而非模型。即便在使用 LLM 的地方，它也只是为已经计算好的事实撰写文字——从不自行计算事实本身。",
-      },
-      {
-        title: "为持续可用而生",
-        body: "缺失的配置、未轮换的密钥、无法验证的输入——系统会在它们到达生产环境之前就将其拦截，让线上系统持续运行，而不是悄无声息地劣化。",
-      },
-      {
-        title: "可追溯的结论",
-        body: "我们发布的每一个数字，无论是关于自身工作还是客户项目，都有可指明的来源支撑。如果无法溯源，我们就不会发布。",
-      },
-    ],
-  },
-  demo: {
-    eyebrow: "亲眼见证",
-    title: "拨动开关，看看是什么让它持续运行。",
-    paragraph:
-      "这与 Grantfox 真实后端中运行的部署防护机制完全相同，只是简化成了一个开关。修改下面的标志并点击部署，即可看到阻止配置错误的构建进入生产环境的具体检查过程——整个逻辑完全在你的浏览器中运行，没有虚假 API 冒充服务器。",
-    panelLabel: "部署面板",
-    toggles: {
-      jwt: { label: "JWT_SECRET 已设置", description: "用于签署身份验证令牌的显式密钥。" },
-      seed: { label: "DB_SEED_ON_STARTUP", description: "启动时填充一个演示钱包余额。" },
-      nodeEnv: { label: "NODE_ENV=production", description: "本演示中已锁定。" },
-    },
-    deployButton: "部署",
-    terminalPrompt: "$ NODE_ENV=production npm run start",
-    emptyState: "// 按下部署以运行检查",
-    reasons: {
-      jwtMissing: "JWT_SECRET 未设置——将回退到已公开的开发密钥，使任何人都能伪造出有效令牌",
-      seedOn: "DB_SEED_ON_STARTUP 在生产环境中处于开启状态——启动将填充一个虚构的、余额为 450 积分的钱包",
-    },
-    refusedPrefix: "✗ 拒绝启动 — ",
-    successLine: "✓ 启动流程已开始 — 所有防护检查均已通过。",
   },
   notes: {
-    eyebrow: "现场笔记",
-    title: "来自实际工作的笔记。",
-    paragraph:
-      "关于上述工作背后真实工程决策的简短记录——不是摘要，而是背后的推理过程。",
+    eyebrow: "笔记",
+    title: "我们如何构建，都写在这里。",
+    paragraph: "关于上述工作背后工程决策的简短记录。",
     readSuffix: "阅读",
     items: {
       "fail-closed-deployments": {
@@ -240,42 +182,42 @@ export const zh: Dictionary = {
     },
   },
   contact: {
-    eyebrow: "取得联系",
-    title: "告诉我们你正在构建什么。",
-    paragraph:
-      "全栈产品开发、Web3 集成，或是一条必须经得起审计的自动化流水线——把问题的轮廓告诉我们，我们会坦率地告诉你这是否合适。",
+    eyebrow: "联系",
+    title: "告诉我们，哪个流程不能停。",
+    paragraph: "我们会亲自阅读每一条消息，并在几天内回复。",
     nameLabel: "姓名",
-    emailLabel: "邮箱",
-    messageLabel: "你在构建什么？",
+    companyLabel: "公司",
+    roleLabel: "职位",
+    optionalLabel: "选填",
+    emailLabel: "工作邮箱",
+    interestLabel: "你对哪方面感兴趣？",
+    interestPlaceholder: "请选择",
+    interests: {
+      diagnose: "诊断一个流程",
+      build: "构建自动化或 AI 智能体",
+      run: "运行和支持现有系统",
+      other: "其他",
+    },
+    messageLabel: "介绍一下这个流程",
     sendingLabel: "发送中…",
     sendButton: "发送",
     sentMessage: "已发送——我们会亲自阅读每一条消息，并在几天内回复。",
     errorMessage: "发送时出了点问题——请重试，或直接发邮件至",
     errorCta: "联系我们。",
+    directLabel: "或直接写信给我们",
   },
   footer: {
-    sourceLabel: "源码",
-  },
-  webVitals: {
-    eyebrow: "本页面，实时测量",
-    caption: "来自您本次访问的真实数据，此刻实时呈现——将「只陈述已验证信息」的规则应用于我们自己的网站。",
-    good: "良好",
-    needsAttention: "有待改善",
-    waitingForPaint: "测量中…",
-    waitingForInteraction: "等待点击",
-    metrics: {
-      lcp: { label: "加载速度", description: "主要内容出现所需的时间。" },
-      inp: { label: "响应速度", description: "点击后页面的反应速度。" },
-      cls: { label: "视觉稳定性", description: "页面加载过程中内容是否会发生跳动。" },
-    },
+    companyTitle: "公司",
+    writingTitle: "文章",
+    contactTitle: "联系",
+    openSourceLabel: "开源",
+    sourceLabel: "本站源码",
   },
   whatsapp: {
     label: "WhatsApp",
     greeting: "你好 TurboDevs！我想聊聊一个项目。",
   },
   a11y: {
-    pauseMotion: "暂停动画",
-    resumeMotion: "恢复动画",
     skipToContent: "跳转到主要内容",
     newTab: "在新标签页中打开",
     selectLanguage: "选择语言",

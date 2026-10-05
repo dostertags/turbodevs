@@ -8,8 +8,8 @@ import css from "@/index.css?raw"
  * this reads the tokens straight out of that file so a colour cannot be
  * adjusted "just a little" without the consequence showing up in CI.
  *
- * Thresholds come from WCAG 2.2: 4.5:1 for body text, 3:1 for large text and
- * for the boundary of a control a user has to find (1.4.11 Non-text Contrast).
+ * Thresholds come from WCAG 2.2: 4.5:1 for body text, 3:1 for the boundary of
+ * a control a user has to find (1.4.11 Non-text Contrast).
  */
 
 function token(name: string): string {
@@ -37,23 +37,20 @@ const round = (n: number) => Math.round(n * 100) / 100
 
 describe("palette contrast", () => {
   const cases: { name: string; fg: string; bg: string; min: number }[] = [
-    { name: "body text on the page background", fg: "ink", bg: "bg", min: 4.5 },
-    { name: "muted text on the page background", fg: "muted", bg: "bg", min: 4.5 },
-    { name: "muted text on a surface panel", fg: "muted", bg: "surface", min: 4.5 },
+    { name: "body text on the page", fg: "ink", bg: "bg", min: 4.5 },
+    { name: "muted text on the page", fg: "muted", bg: "bg", min: 4.5 },
+    { name: "muted text on a card", fg: "muted", bg: "surface", min: 4.5 },
     { name: "muted text on the deeper surface", fg: "muted", bg: "surface-2", min: 4.5 },
-    { name: "accent text on the page background", fg: "accent", bg: "bg", min: 4.5 },
-    // Semantic state colours. The terminal log lines sit on --color-bg; the
-    // Web Vitals rating and the form's error sit on a panel.
-    { name: "success text in the terminal", fg: "ok", bg: "bg", min: 4.5 },
-    { name: "failure text in the terminal", fg: "danger", bg: "bg", min: 4.5 },
-    { name: "error text on a panel", fg: "danger", bg: "surface", min: 4.5 },
-    { name: "warning text on the deeper surface", fg: "warn", bg: "surface-2", min: 4.5 },
-    // A hover state that drops below AA is a hover state that disappears.
-    { name: "button label on the accent hover fill", fg: "bg", bg: "accent-hover", min: 4.5 },
-    { name: "button label on the accent fill", fg: "bg", bg: "accent", min: 4.5 },
-    // 1.4.11: the visible boundary of a form field / an unchecked switch.
-    { name: "interactive border on the deeper surface", fg: "border-strong", bg: "surface-2", min: 3 },
-    { name: "interactive border on the page background", fg: "border-strong", bg: "bg", min: 3 },
+    { name: "accent labels on the page", fg: "accent", bg: "bg", min: 4.5 },
+    { name: "accent labels on a card", fg: "accent", bg: "surface", min: 4.5 },
+    { name: "the form's error text", fg: "danger", bg: "surface", min: 4.5 },
+    // The primary button is ink with a paper label, in both states.
+    { name: "button label on the primary fill", fg: "bg", bg: "ink", min: 4.5 },
+    { name: "button label on the primary hover fill", fg: "bg", bg: "ink-hover", min: 4.5 },
+    { name: "secondary button label", fg: "ink", bg: "surface-2", min: 4.5 },
+    // 1.4.11: the visible boundary of a form field.
+    { name: "form field border on a card", fg: "border-strong", bg: "surface", min: 3 },
+    { name: "form field border on the page", fg: "border-strong", bg: "bg", min: 3 },
   ]
 
   it.each(cases)("$name clears $min:1", ({ fg, bg, min }) => {
@@ -62,8 +59,6 @@ describe("palette contrast", () => {
   })
 
   it("the decorative hairline is deliberately NOT used as an interactive boundary", () => {
-    // --color-border is a 1.19:1 panel edge. It is fine for that, and this
-    // records why a second, stronger token has to exist at all.
-    expect(contrast(token("border"), token("surface-2"))).toBeLessThan(3)
+    expect(contrast(token("border"), token("surface"))).toBeLessThan(3)
   })
 })

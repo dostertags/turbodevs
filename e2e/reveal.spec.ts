@@ -35,10 +35,10 @@ const EFFECTIVE = (root: string, child: string) => {
 }
 
 const SECTIONS = [
-  { id: "#services", child: ":scope > div > div" },
-  { id: "#work", child: ":scope > div > div" },
-  { id: "#approach", child: ":scope > div > div" },
-  { id: "#notes", child: ":scope > div > div" },
+  { id: "#problem", child: ".tg-reveal" },
+  { id: "#services", child: ".tg-reveal" },
+  { id: "#work", child: ".tg-reveal" },
+  { id: "#notes", child: ".tg-reveal" },
 ]
 
 async function assertAllVisible(page: import("@playwright/test").Page, context: string) {
@@ -87,9 +87,9 @@ test("content is visible after a fast flick down the page", async ({ page }) => 
 })
 
 test("content is visible with JavaScript animation never running", async ({ page }) => {
-  // The strongest guarantee: with motion switched off, nothing is ever hidden
-  // in the first place.
-  await page.addInitScript(() => localStorage.setItem("turbodevs:motion", "off"))
+  // The strongest guarantee: with reduced motion, nothing is ever hidden in
+  // the first place.
+  await page.emulateMedia({ reducedMotion: "reduce" })
   await page.goto("/")
   await page.evaluate(() => window.scrollTo(0, 3000))
   await page.waitForTimeout(1200)

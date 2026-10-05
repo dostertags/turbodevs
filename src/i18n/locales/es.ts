@@ -2,198 +2,139 @@ import type { Dictionary } from "@/i18n/types"
 
 export const es: Dictionary = {
   meta: {
-    title: "TurboDevs — Software a Medida, Construido para Funcionar 24/7",
+    title: "TurboDevs — Software para operaciones que no pueden detenerse",
     description:
-      "TurboDevs es un estudio de ingeniería de software que construye sistemas a medida en web, automatización y Web3 — diseñados para seguir funcionando las 24 horas, no solo el día del lanzamiento.",
+      "TurboDevs es un estudio de ingeniería de software. Encontramos el proceso que le cuesta horas u oportunidades a tu equipo, lo reemplazamos con software y lo mantenemos funcionando 24/7.",
   },
   nav: {
+    services: "Servicios",
     work: "Trabajo",
-    grantfox: "Grantfox",
-    approach: "Enfoque",
     notes: "Notas",
     contact: "Contacto",
-    startProject: "Iniciar un proyecto",
+    cta: "Habla con nosotros",
     openMenu: "Abrir menú",
     closeMenu: "Cerrar menú",
   },
   hero: {
     eyebrow: "Estudio de ingeniería de software",
-    headline: {
-      lead: "Software a medida que funciona día y noche — creado para ",
-      rotating: [
-        "cumplimiento gubernamental",
-        "pagos Web3",
-        "infraestructura energética",
-        "SaaS en producción",
-        "operaciones de hospitalidad",
-      ],
-    },
+    headline: "Software para operaciones que no pueden detenerse.",
     paragraph:
       "Hecho para software de misión crítica, donde una caída no es una opción. Construimos sistemas resilientes y listos para producción — desde monitoreo de plantas solares y motores de cumplimiento tributario hasta pagos Web3 — respaldados por confiabilidad operativa 24/7.",
-    ctaPrimary: "Ver el trabajo",
-    ctaSecondary: "Habla con nosotros",
-    scrollHint: "Desplázate para ver el trabajo",
-    pauseRotation: "Pausar el texto rotativo",
-    resumeRotation: "Reanudar el texto rotativo",
-    sectors: {
-      government: "Gobierno y Cumplimiento Normativo",
-      web3: "Web3 y Blockchain",
-      energy: "Energía e Industria",
-      consumerSaas: "Software para Consumidores",
-      hospitality: "Hospitalidad y Pequeñas Empresas",
-    },
-    serviceLines: {
-      hrOutplacement: "Recursos Humanos y Outplacement",
-      procurement: "Compras y Licitaciones Privadas",
-      leadGen: "Generación de Leads",
-    },
-    stats: [
-      { value: "1.800+", label: "pruebas automatizadas" },
-      { value: "5", label: "repositorios públicos" },
-    ],
+    ctaPrimary: "Habla con nosotros",
+    ctaSecondary: "Ver el trabajo",
+    clientsLabel: "En producción con",
+  },
+  problem: {
+    eyebrow: "El problema",
+    title: "El trabajo que mantiene funcionando un negocio es el trabajo que nadie tiene tiempo de arreglar.",
+    body: "Declaraciones con plazos. Plantas que reportan todos los días. Licitaciones que vencen en una bandeja de entrada. Estos procesos funcionan con planillas, portales y la memoria de alguien — hasta el día en que dejan de funcionar. Los reemplazamos con software que hace el trabajo, revisa su propio resultado y sigue funcionando de noche.",
   },
   services: {
-    eyebrow: "Qué construimos",
-    title: "Cuatro disciplinas, un mismo estándar de ingeniería.",
-    items: [
+    eyebrow: "Cómo trabajamos",
+    title: "Cuatro etapas. Empieza en cualquiera, o déjanos el ciclo completo.",
+    stages: [
       {
-        title: "Ingeniería de producto full-stack",
-        description:
-          "Frontends en React/Next.js, servicios en TypeScript y Python, y la disciplina de CI/pruebas para seguir entregando — el mismo stack detrás del SaaS de matching de empleo en producción de turbotrabajo.",
+        title: "Diagnosticar",
+        line: "Encontrar el proceso que más te cuesta.",
+        body: "Nos sentamos con las personas que hacen el trabajo, mapeamos el proceso paso a paso y dejamos por escrito qué pasos cuestan horas, errores u oportunidades perdidas — y cuáles automatizar primero.",
       },
       {
-        title: "Integración Web3 y blockchain",
-        description:
-          "Autenticación nativa por wallet y verificación de pagos on-chain en Stellar — construidas para el checkout de stellarfit confirmado por Horizon y desplegados dentro del marketplace en producción de Grantfox.",
+        title: "Construir",
+        line: "Software que hace el trabajo.",
+        body: "Automatizaciones, integraciones y agentes de IA construidos sobre tus propios archivos y sistemas. Los números vienen del código; donde un modelo escribe, escribe sobre hechos ya calculados, y cada cifra se verifica antes de salir.",
+        proof: "En producción: el sistema de respuesta a licitaciones privadas de Sainz Intec.",
       },
       {
-        title: "Sistemas de automatización y cumplimiento",
-        description:
-          "Automatización con navegador headless y APIs para procesos que los reguladores realmente revisan — de solo lectura por defecto, construida para seguir funcionando correctamente bajo incertidumbre, el patrón detrás de sii y previred.",
+        title: "Desplegar",
+        line: "Dentro de tu operación.",
+        body: "Nos conectamos a los portales, archivos y fuentes de datos que tu equipo ya usa, y trabajamos junto a las personas que los operan hasta que el sistema es parte de la rutina.",
+        proof: "En la práctica: nuestras automatizaciones de SII y Previred, construidas sobre los portales que los equipos chilenos usan cada mes.",
       },
       {
-        title: "Pipelines con IA integrada, anclados a los hechos",
-        description:
-          "Los LLM redactan el texto sobre números que tu código ya calculó — nunca los números en sí. Cada afirmación generada se verifica contra un conjunto de hechos congelado antes de publicarse.",
+        title: "Operar",
+        line: "24/7, bajo vigilancia.",
+        body: "Operamos lo que construimos: monitoreo, reportes diarios y una verificación de cada resultado, para que siga funcionando mucho después del día del lanzamiento.",
+        proof: "En producción: la estación solar con baterías de Quorelia y un reporte diario de almacenamiento en baterías.",
       },
     ],
   },
-  testimonials: {
-    eyebrow: "Testimonios de clientes",
-    title: "Lo que dicen nuestros clientes.",
-    items: {
+  work: {
+    eyebrow: "Trabajo",
+    title: "Sistemas funcionando hoy en producción.",
+    challengeLabel: "El desafío",
+    builtLabel: "Lo que construimos",
+    confidentialClient: "Cliente energético confidencial",
+    visitLabel: "Visitar",
+    cases: {
       quorelia: {
-        quote: "TurboDevs nos desarrolló una estación solar con baterías 24/7 que funciona día y noche. Sigue operando aunque nadie la esté mirando, así que el sistema hace su trabajo de noche igual que de día. Se tomaron el tiempo de entender cómo funciona realmente nuestra operación energética y construyeron algo en lo que confiamos todos los días.",
-        project: "Estación solar + baterías",
+        sector: "Energía",
+        challenge: "Una estación solar con baterías que tiene que operar día y noche, sin nadie a su lado.",
+        built: "El software que opera la estación las 24 horas.",
+        quote:
+          "TurboDevs nos desarrolló una estación solar con baterías 24/7 que funciona día y noche. Sigue operando aunque nadie la esté mirando, así que el sistema hace su trabajo de noche igual que de día. Se tomaron el tiempo de entender cómo funciona realmente nuestra operación energética y construyeron algo en lo que confiamos todos los días.",
       },
       sainzIntec: {
+        sector: "Abastecimiento industrial",
+        challenge: "Licitaciones privadas y solicitudes de compra que vencían en una bandeja de entrada antes de que alguien las respondiera.",
+        built: "Un sistema automatizado que responde licitaciones privadas por sí solo.",
         quote:
           "TurboDevs nos construyó un sistema que responde licitaciones privadas por sí solo — y está trayendo nuevos negocios reales a la empresa. Oportunidades que antes se nos pasaban ahora se responden sin que nadie del equipo tenga que perseguirlas. Ya es parte de cómo ganamos trabajo, y sigue funcionando mientras nosotros nos enfocamos en cumplirlo.",
-        project: "Respuesta automática a licitaciones",
+      },
+      batteryStorage: {
+        sector: "Energía",
+        challenge:
+          "Un reporte diario de rendimiento para un sistema de almacenamiento en baterías a escala de red, donde un número equivocado significa una decisión operativa equivocada.",
+        built:
+          "Un motor determinista de KPI con una narrativa escrita encima. Cada número del texto se verifica contra los hechos calculados antes de que el reporte salga, respaldado por 648 pruebas automatizadas.",
+      },
+      grantfox: {
+        sector: "Marketplace Web3",
+        challenge: "Un marketplace en vivo, nativo por wallet, para prompts y agentes de IA, liquidado en Stellar.",
+        built:
+          "Como colaboradores externos: verificaciones de seguridad de despliegue, autorización acotada a la wallet y la interfaz de compra y entrega.",
       },
       vertigo: {
+        sector: "Hospitalidad",
+        challenge: "Un restaurante que necesitaba su sitio web en línea rápido — y a alguien que lo mantuviera al día.",
+        built: "El sitio web, entregado rápido, con soporte continuo desde entonces.",
         quote:
           "Entregaron nuestro sitio web rápido y han seguido con nosotros desde entonces — siempre atentos a lo que necesitamos. Cuando algo tiene que cambiar, se lo decimos y queda hecho, sin tener que andar insistiendo. Para un restaurante, eso es una preocupación menos y un socio con el que podemos contar a medida que el negocio crece.",
-        project: "Web de restaurante y soporte continuo",
       },
     },
-  },
-  work: {
-    eyebrow: "Trabajo seleccionado",
-    title: "Público, verificable y todavía en funcionamiento.",
-    items: {
+    openSourceTitle: "Código abierto",
+    openSourceIntro: "Nuestras propias herramientas, públicas en GitHub — la ingeniería detrás del trabajo con clientes.",
+    openSource: {
       sii: {
         kicker: "Automatización de la autoridad tributaria",
         description:
-          "Un núcleo en TypeScript, una CLI y un servidor MCP que automatizan el Servicio de Impuestos Internos de Chile (SII), construidos alrededor de barreras de seguridad que lo mantienen confiable en lugar de ser scripts de mejor esfuerzo.",
+          "Un núcleo en TypeScript, una CLI y un servidor MCP que automatizan la autoridad tributaria de Chile (SII), con 1.178 pruebas herméticas.",
       },
       previred: {
         kicker: "Automatización del portal de pensiones",
         description:
-          "Automatización de solo lectura del portal de cotizaciones previsionales de Chile, diseñada para que los programas de pago sean indespachables por construcción — no solo desalentados por una revisión de código.",
+          "Automatización de solo lectura del portal de cotizaciones previsionales de Chile, diseñada para que los pagos no puedan despacharse por construcción.",
       },
       stellarfit: {
         kicker: "Pagos Web3",
         description:
-          "Checkout de suscripción liquidado en la blockchain de Stellar — el acceso se otorga solo después de que Horizon confirma un pago de un solo uso con memo coincidente, sin requerir confianza custodial.",
+          "Checkout de suscripción liquidado en Stellar: el acceso se otorga solo después de que la red confirma un pago de un solo uso.",
       },
       glowcheck: {
         kicker: "Visión artificial",
         description:
-          "Análisis facial y de piel que combina modelos demográficos de DeepFace/TensorFlow con métricas originales de tono de piel (ITA), eritema y asimetría facial.",
+          "Análisis facial y de piel que combina modelos de DeepFace/TensorFlow con métricas originales de tono de piel, eritema y asimetría.",
       },
       turbotrabajo: {
         kicker: "SaaS en producción",
         description:
-          "Una plataforma de postulación laboral en producción: autenticación con Firebase, matching de perfiles, una wallet de tokens con autoridad del servidor y pagos con Flow.cl de principio a fin.",
-      },
-      "battery-storage-reporting": {
-        kicker: "Energía · Reportes de IA anclados a los hechos",
-        description:
-          "Reportes diarios automatizados de rendimiento para un sistema de almacenamiento de baterías a escala de red: un motor determinista de KPI combinado con una capa narrativa de LLM en la que cada número generado se verifica contra los hechos congelados antes de su publicación, manteniendo el reporte confiable día tras día.",
+          "Una plataforma de postulación laboral en producción: autenticación con Firebase, matching de perfiles, una wallet de tokens del lado del servidor y pagos con Flow.cl.",
       },
     },
-  },
-  grantfox: {
-    eyebrow: "Colaboración destacada",
-    title: "Contribuyendo al marketplace de Grantfox, en producción sobre Stellar",
-    paragraph:
-      "Grantfox opera un marketplace nativo por wallet para prompts y agentes de IA, liquidado en Stellar. Trabajamos directamente en su backend de NestJS y su frontend de Next.js como colaboradores externos — el tipo de trabajo que solo cuenta si un revisor real, no nosotros, decide que es correcto.",
-    points: [
-      "Seguridad de despliegue reforzada: los entornos que no son de desarrollo requieren un secreto JWT explícito antes de poder iniciar, y no arrancan si quedan activados los flags de pago simulado o de seed de base de datos.",
-      "Autorización acotada a la wallet: el saldo, el historial de transacciones y las compras se derivan únicamente del principal autenticado — verificado para que una cuenta no pueda leer ni tocar los datos de otra.",
-      "UI de marketplace entregada: las páginas de dashboard, marketplace, detalle de activo y wallet que implementan el flujo de compra y entrega de prompts de la plataforma.",
-    ],
-    cta: "Visitar Grantfox",
-  },
-  approach: {
-    eyebrow: "Cómo trabajamos",
-    title: "Construido para seguir funcionando.",
-    paragraph:
-      "Cada colaboración descrita arriba sigue la misma disciplina: sistemas construidos para mantenerse confiables en condiciones reales, y cada número publicado rastreable hasta una fuente que puedes verificar. La línea entre lo que un LLM escribe y lo que tiene permitido afirmar se aplica en el código — así lo que decimos coincide con lo que realmente está en funcionamiento.",
-    pillars: [
-      {
-        title: "Determinismo primero",
-        body: "Los números vienen del código, no de un modelo. Donde usamos un LLM, este redacta texto sobre hechos ya calculados — nunca calcula el hecho en sí.",
-      },
-      {
-        title: "Construido para el uptime",
-        body: "Una configuración faltante, una clave sin rotar, una entrada no verificable — el sistema lo detecta antes de que llegue a producción, de modo que lo que está en vivo sigue funcionando en lugar de degradarse silenciosamente.",
-      },
-      {
-        title: "Afirmaciones rastreables",
-        body: "Cada cifra que publicamos, sobre nuestro propio trabajo o el de un cliente, está respaldada por una fuente que podemos señalar. Si no podemos respaldarla con una fuente, no la publicamos.",
-      },
-    ],
-  },
-  demo: {
-    eyebrow: "Míralo en acción",
-    title: "Acciona un interruptor. Mira qué lo mantiene funcionando.",
-    paragraph:
-      "Esta es la misma protección de despliegue que corre en el backend real de Grantfox, reducida a un interruptor. Cambia los flags de abajo y presiona deploy para ver la verificación exacta que evita que una build mal configurada llegue a producción — la lógica corre completamente en tu navegador, sin una API falsa haciendo de servidor.",
-    panelLabel: "panel de despliegue",
-    toggles: {
-      jwt: { label: "JWT_SECRET configurado", description: "Secreto explícito para firmar tokens de autenticación." },
-      seed: { label: "DB_SEED_ON_STARTUP", description: "Genera un saldo de wallet de demostración al iniciar." },
-      nodeEnv: { label: "NODE_ENV=production", description: "Bloqueado para esta demo." },
-    },
-    deployButton: "Desplegar",
-    terminalPrompt: "$ NODE_ENV=production npm run start",
-    emptyState: "// presiona Desplegar para ejecutar la verificación",
-    reasons: {
-      jwtMissing:
-        "JWT_SECRET no está configurado — se recurriría al secreto de desarrollo publicado, permitiendo que cualquiera falsifique un token válido",
-      seedOn:
-        "DB_SEED_ON_STARTUP está activado en producción — el arranque generaría una wallet fabricada con 450 créditos",
-    },
-    refusedPrefix: "✗ Inicio rechazado — ",
-    successLine: "✓ Secuencia de arranque iniciada — todas las verificaciones de seguridad pasaron.",
   },
   notes: {
-    eyebrow: "Notas de campo",
-    title: "Notas desde el trabajo.",
-    paragraph:
-      "Textos breves sobre las decisiones de ingeniería reales detrás del trabajo anterior — no resúmenes, el razonamiento.",
+    eyebrow: "Notas",
+    title: "Cómo construimos, por escrito.",
+    paragraph: "Textos breves sobre las decisiones de ingeniería detrás del trabajo anterior.",
     readSuffix: "de lectura",
     items: {
       "fail-closed-deployments": {
@@ -242,46 +183,42 @@ export const es: Dictionary = {
     },
   },
   contact: {
-    eyebrow: "Ponte en contacto",
-    title: "Cuéntanos qué estás construyendo.",
-    paragraph:
-      "Trabajo de producto full-stack, una integración Web3, o un pipeline de automatización que tiene que resistir una auditoría — cuéntanos la forma del problema y te diremos con franqueza si somos un buen fit.",
+    eyebrow: "Contacto",
+    title: "Cuéntanos qué proceso no puede detenerse.",
+    paragraph: "Leemos cada mensaje nosotros mismos y respondemos en un par de días.",
     nameLabel: "Nombre",
-    emailLabel: "Correo electrónico",
-    messageLabel: "¿Qué estás construyendo?",
+    companyLabel: "Empresa",
+    roleLabel: "Cargo",
+    optionalLabel: "opcional",
+    emailLabel: "Correo de trabajo",
+    interestLabel: "¿Qué te interesa?",
+    interestPlaceholder: "Elige una opción",
+    interests: {
+      diagnose: "Diagnosticar un proceso",
+      build: "Construir una automatización o un agente de IA",
+      run: "Operar y dar soporte a un sistema existente",
+      other: "Otra cosa",
+    },
+    messageLabel: "Cuéntanos sobre el proceso",
     sendingLabel: "Enviando…",
     sendButton: "Enviar",
     sentMessage: "Enviado — leemos cada mensaje nosotros mismos y respondemos en un par de días.",
     errorMessage: "Algo salió mal al enviar esto — intenta de nuevo, o escribe a",
     errorCta: "directamente.",
+    directLabel: "O escríbenos directamente",
   },
   footer: {
-    sourceLabel: "Código fuente",
-  },
-  webVitals: {
-    eyebrow: "Esta página, medida en vivo",
-    caption:
-      "Cifras reales de tu visita, ahora mismo — la misma regla de afirmar solo lo verificado aplicada a nuestro propio sitio.",
-    good: "bien",
-    needsAttention: "necesita atención",
-    waitingForPaint: "midiendo…",
-    waitingForInteraction: "esperando un clic",
-    metrics: {
-      lcp: { label: "Velocidad de carga", description: "Cuánto tardó en aparecer el contenido principal." },
-      inp: {
-        label: "Capacidad de respuesta",
-        description: "Qué tan rápido reacciona la página cuando haces clic en algo.",
-      },
-      cls: { label: "Estabilidad visual", description: "Si el contenido salta mientras carga la página." },
-    },
+    companyTitle: "Empresa",
+    writingTitle: "Escritos",
+    contactTitle: "Contacto",
+    openSourceLabel: "Código abierto",
+    sourceLabel: "Código fuente de este sitio",
   },
   whatsapp: {
     label: "WhatsApp",
     greeting: "¡Hola TurboDevs! Me gustaría hablar sobre un proyecto.",
   },
   a11y: {
-    pauseMotion: "Pausar animación",
-    resumeMotion: "Reanudar animación",
     skipToContent: "Saltar al contenido",
     newTab: "se abre en una pestaña nueva",
     selectLanguage: "Seleccionar idioma",

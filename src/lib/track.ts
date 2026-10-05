@@ -16,16 +16,12 @@ export type TrackEvent =
   | "cta_click"
   | "nav_click"
   | "work_link"
-  | "grantfox_exit"
-  | "demo_deploy"
   | "form_submit"
   | "form_sent"
   | "form_error"
   | "whatsapp_click"
   | "lang_change"
-  | "motion_paused"
   | "scroll_depth"
-  | "web_vital"
 
 type Props = Record<string, string | number | boolean>
 
