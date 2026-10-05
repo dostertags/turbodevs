@@ -9,6 +9,7 @@ export const es: Dictionary = {
   nav: {
     services: "Servicios",
     work: "Trabajo",
+    products: "Productos",
     notes: "Notas",
     contact: "Contacto",
     cta: "Habla con nosotros",
@@ -23,6 +24,8 @@ export const es: Dictionary = {
     ctaPrimary: "Habla con nosotros",
     ctaSecondary: "Ver el trabajo",
     clientsLabel: "En producción con",
+    photoAlt: "Hileras de paneles solares en un desierto, con montañas al fondo.",
+    photoCredit: "Foto",
   },
   problem: {
     eyebrow: "El problema",
@@ -131,6 +134,34 @@ export const es: Dictionary = {
       },
     },
   },
+  products: {
+    eyebrow: "Productos",
+    title: "Problemas que ya hemos resuelto más de una vez.",
+    paragraph: "Sistemas listos, nacidos de nuestro trabajo con clientes y de nuestros proyectos de código abierto, que adaptamos a tu empresa en lugar de construirlos desde cero.",
+    requestLabel: "Solicitar acceso",
+    items: {
+      sii: {
+        name: "Automatización SII",
+        line: "Los trámites de tu empresa con el Servicio de Impuestos Internos, automatizados mediante una CLI y una API, en modo solo lectura por defecto.",
+        basis: "Basado en nuestro proyecto de código abierto sii, con 1.178 pruebas herméticas.",
+      },
+      previred: {
+        name: "Automatización Previred",
+        line: "Los procesos de cotizaciones previsionales en Previred, automatizados y en solo lectura, con los pagos imposibles por diseño.",
+        basis: "Basado en nuestro proyecto de código abierto previred.",
+      },
+      bids: {
+        name: "Respuesta a licitaciones",
+        line: "Responde automáticamente licitaciones privadas y solicitudes de compra, para que ninguna oportunidad se pierda en una bandeja de entrada.",
+        basis: "En producción en Sainz Intec.",
+      },
+      energy: {
+        name: "Reportes de energía",
+        line: "Reportes diarios de KPI para activos solares y de baterías, con cada número verificado antes de enviar el reporte.",
+        basis: "Nacido de nuestro trabajo de reportes para almacenamiento en baterías.",
+      },
+    },
+  },
   notes: {
     eyebrow: "Notas",
     title: "Cómo construimos, por escrito.",
@@ -196,6 +227,7 @@ export const es: Dictionary = {
     interests: {
       diagnose: "Diagnosticar un proceso",
       build: "Construir una automatización o un agente de IA",
+      products: "Uno de nuestros productos",
       run: "Operar y dar soporte a un sistema existente",
       other: "Otra cosa",
     },

@@ -9,6 +9,7 @@ export const zh: Dictionary = {
   nav: {
     services: "服务",
     work: "作品",
+    products: "产品",
     notes: "笔记",
     contact: "联系",
     cta: "联系我们",
@@ -23,6 +24,8 @@ export const zh: Dictionary = {
     ctaPrimary: "联系我们",
     ctaSecondary: "查看作品",
     clientsLabel: "已在以下客户的生产环境中运行",
+    photoAlt: "沙漠中一排排的太阳能电池板，远处是群山。",
+    photoCredit: "摄影",
   },
   problem: {
     eyebrow: "问题所在",
@@ -130,6 +133,34 @@ export const zh: Dictionary = {
       },
     },
   },
+  products: {
+    eyebrow: "产品",
+    title: "有些问题，我们已经解决过不止一次。",
+    paragraph: "基于我们的客户项目和开源项目打造的现成系统，为您的企业部署，而不必从零开始构建。",
+    requestLabel: "申请使用",
+    items: {
+      sii: {
+        name: "SII 自动化",
+        line: "通过 CLI 和 API 自动处理贵公司与智利税务机关之间的流程——默认只读。",
+        basis: "基于我们的开源项目 sii，拥有 1,178 个封闭式测试。",
+      },
+      previred: {
+        name: "Previred 自动化",
+        line: "在 Previred 上自动处理养老金缴费流程，只读运行，从设计上杜绝付款操作。",
+        basis: "基于我们的开源项目 previred。",
+      },
+      bids: {
+        name: "招标自动回复",
+        line: "自动回复私人招标和采购请求，让每个商机都不会埋没在收件箱里。",
+        basis: "已在 Sainz Intec 投入生产。",
+      },
+      energy: {
+        name: "能源报告",
+        line: "为太阳能和电池资产生成每日 KPI 报告，每个数字在发送前都经过核对。",
+        basis: "源自我们的电池储能报告项目。",
+      },
+    },
+  },
   notes: {
     eyebrow: "笔记",
     title: "我们如何构建，都写在这里。",
@@ -195,6 +226,7 @@ export const zh: Dictionary = {
     interests: {
       diagnose: "诊断一个流程",
       build: "构建自动化或 AI 智能体",
+      products: "我们的某款产品",
       run: "运行和支持现有系统",
       other: "其他",
     },

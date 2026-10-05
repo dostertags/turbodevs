@@ -192,6 +192,16 @@ export function Contact() {
           <span className="sr-only"> ({t.a11y.newTab})</span>
           <ArrowUpRight aria-hidden="true" className="size-3.5" />
         </a>
+        <a
+          href={CONTACT_INFO.linkedinHref}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1 text-ink underline decoration-border-strong underline-offset-4 hover:decoration-ink"
+        >
+          LinkedIn
+          <span className="sr-only"> ({t.a11y.newTab})</span>
+          <ArrowUpRight aria-hidden="true" className="size-3.5" />
+        </a>
       </div>
     </Section>
   )

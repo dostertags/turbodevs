@@ -9,6 +9,7 @@ export const de: Dictionary = {
   nav: {
     services: "Leistungen",
     work: "Projekte",
+    products: "Produkte",
     notes: "Notizen",
     contact: "Kontakt",
     cta: "Sprechen Sie uns an",
@@ -23,6 +24,8 @@ export const de: Dictionary = {
     ctaPrimary: "Sprechen Sie uns an",
     ctaSecondary: "Projekte ansehen",
     clientsLabel: "Im Einsatz bei",
+    photoAlt: "Reihen von Solarmodulen in einer Wüste, im Hintergrund Berge.",
+    photoCredit: "Foto",
   },
   problem: {
     eyebrow: "Das Problem",
@@ -131,6 +134,34 @@ export const de: Dictionary = {
       },
     },
   },
+  products: {
+    eyebrow: "Produkte",
+    title: "Probleme, die wir schon mehr als einmal gelöst haben.",
+    paragraph: "Fertige Systeme aus unserer Kundenarbeit und unseren Open-Source-Projekten, für Ihr Unternehmen eingerichtet statt von Grund auf neu gebaut.",
+    requestLabel: "Zugang anfragen",
+    items: {
+      sii: {
+        name: "SII-Automatisierung",
+        line: "Die Abläufe Ihres Unternehmens mit der chilenischen Steuerbehörde, automatisiert über CLI und API — standardmäßig nur lesend.",
+        basis: "Basiert auf unserem Open-Source-Projekt sii, mit 1.178 hermetischen Tests.",
+      },
+      previred: {
+        name: "Previred-Automatisierung",
+        line: "Rentenbeitragsprozesse bei Previred, automatisiert und nur lesend; Zahlungen sind konstruktionsbedingt ausgeschlossen.",
+        basis: "Basiert auf unserem Open-Source-Projekt previred.",
+      },
+      bids: {
+        name: "Ausschreibungs-Responder",
+        line: "Beantwortet private Ausschreibungen und Beschaffungsanfragen automatisch, damit keine Chance im Postfach verloren geht.",
+        basis: "Im Einsatz bei Sainz Intec.",
+      },
+      energy: {
+        name: "Energie-Reporting",
+        line: "Tägliche KPI-Berichte für Solar- und Batterieanlagen; jede Zahl wird vor dem Versand geprüft.",
+        basis: "Entstanden aus unserem Reporting-Projekt für Batteriespeicher.",
+      },
+    },
+  },
   notes: {
     eyebrow: "Notizen",
     title: "Wie wir bauen, schriftlich festgehalten.",
@@ -196,6 +227,7 @@ export const de: Dictionary = {
     interests: {
       diagnose: "Einen Prozess analysieren",
       build: "Eine Automatisierung oder einen KI-Agenten entwickeln",
+      products: "Eines unserer Produkte",
       run: "Ein bestehendes System betreiben und betreuen",
       other: "Etwas anderes",
     },

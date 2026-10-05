@@ -118,6 +118,10 @@ describe("Contact form delivery", () => {
     expect(screen.getByRole("link", { name: new RegExp(en.whatsapp.label) }).getAttribute("href")).toMatch(
       /^https:\/\/wa\.me\/56976953752\?text=/,
     )
+    expect(screen.getByRole("link", { name: /LinkedIn/ })).toHaveAttribute(
+      "href",
+      "https://www.linkedin.com/in/diego-ostertag-79ab1688/",
+    )
   })
 
   it("labels the fields for autofill and sizes them so iOS does not zoom", () => {

@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react"
+import { render, screen, within } from "@testing-library/react"
 import { describe, expect, it } from "vitest"
 
-import { CLIENT_NAMES } from "@/content/site"
+import { CLIENT_NAMES, HERO_PHOTO } from "@/content/site"
 import { LanguageProvider } from "@/i18n/LanguageContext"
 import { en } from "@/i18n/locales/en"
 import { Hero } from "@/components/sections/Hero"
@@ -28,9 +28,17 @@ describe("Hero", () => {
     expect(screen.getByRole("link", { name: en.hero.ctaSecondary })).toHaveAttribute("href", "#work")
   })
 
+  it("shows the hero photograph with a description and the photographer's credit", () => {
+    renderHero()
+    expect(screen.getByRole("img", { name: en.hero.photoAlt })).toBeInTheDocument()
+    expect(screen.getByRole("link", { name: new RegExp(HERO_PHOTO.credit) })).toHaveAttribute("href", HERO_PHOTO.creditHref)
+  })
+
   it("names only the clients that appear as case studies", () => {
     renderHero()
-    const names = screen.getAllByRole("listitem").map((li) => li.textContent)
+    const names = within(screen.getByTestId("client-names"))
+      .getAllByRole("listitem")
+      .map((li) => li.textContent)
     expect(names).toEqual(CLIENT_NAMES)
   })
 

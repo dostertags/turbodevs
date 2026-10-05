@@ -13,6 +13,7 @@ export function Footer() {
       links: [
         { label: t.nav.services, href: "#services" },
         { label: t.nav.work, href: "#work" },
+        { label: t.nav.products, href: "#products" },
         { label: t.nav.contact, href: "#contact" },
       ],
     },
@@ -28,6 +29,7 @@ export function Footer() {
       links: [
         { label: CONTACT_INFO.formEmail, href: `mailto:${CONTACT_INFO.formEmail}` },
         { label: t.whatsapp.label, href: whatsappHref, external: true },
+        { label: "LinkedIn", href: CONTACT_INFO.linkedinHref, external: true },
         { label: "GitHub", href: CONTACT_INFO.githubHref, external: true },
       ],
     },

@@ -17,6 +17,13 @@
 - Grantfox (Web3 marketplace on Stellar) — outside contributors: deployment-safety checks, wallet-scoped authorization, and the purchase-and-delivery interface.
 - Vertigo Restaurant (hospitality) — website shipped fast, with ongoing support.
 
+## Products
+
+- SII automation — a company's workflows with Chile's tax authority, automated through a CLI and API, read-only by default. Built on the open-source sii project.
+- Previred automation — pension-contribution workflows on Previred, automated and read-only, with payments impossible by design.
+- Bid responder — answers private bids and procurement requests automatically. In production at Sainz Intec.
+- Energy reporting — daily KPI reports for solar and battery assets, every number checked before the report goes out.
+
 ## Open source
 
 - [sii](https://github.com/dostertags/sii) — Automation for Chile's tax authority (Servicio de Impuestos Internos), with 1,178 hermetic tests.
@@ -28,5 +35,6 @@
 ## Contact
 
 - Email: dostertags@fen.uchile.cl
+- LinkedIn: [Diego Ostertag](https://www.linkedin.com/in/diego-ostertag-79ab1688/)
 - GitHub: [github.com/dostertags](https://github.com/dostertags)
 - Site: [https://turbodevs.web.app/](https://turbodevs.web.app/)

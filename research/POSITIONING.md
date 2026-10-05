@@ -1,9 +1,10 @@
 # TurboDevs positioning and homepage copy (draft v1, 2026-10-05)
 
-**Status 2026-10-05:** the one idea was approved and the page is built and live,
-except three things: the **Products** section (waiting on decision 3), the **hero photograph**
-(decision 4; a day-strip illustration holds its place), and the fail-closed terminal demo,
-which was removed rather than moved into a Note.
+**Status 2026-10-05:** fully built and live. Products ship (owner will sell all four);
+the hero carries a credited stock photograph (Manny Becerra / Unsplash, a Nevada solar farm,
+never presented as client work); clients approved their quotes; contact uses the owner's
+email and LinkedIn. The fail-closed terminal demo was removed rather than moved into a Note.
+Still open: Grantfox's agreement to be listed under "In production with".
 
 Step 1 of the redesign: what TurboDevs says, before how it looks. Built from
 the AfterQuery study: one idea, services as numbered stages, proof as named

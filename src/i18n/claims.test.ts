@@ -107,12 +107,13 @@ describe("no claim ships without a ledger row", () => {
     }
   })
 
-  it("every number in the case studies and service stages is a ledger figure", () => {
+  it("every number in the case studies, service stages and products is a ledger figure", () => {
     // English is the source the ledger records; translations are checked for
     // invented figures in FeaturedWork.test.tsx.
     const texts = [
       ...Object.values(en.work.cases).flatMap((c) => [c.challenge, c.built]),
       ...en.services.stages.flatMap((s) => [s.line, s.body, s.proof ?? ""]),
+      ...Object.values(en.products.items).flatMap((p) => [p.line, p.basis]),
     ]
     for (const text of texts) {
       for (const figure of text.match(/\d+(?:[.,]\d+)*/g) ?? []) {

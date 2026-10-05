@@ -63,14 +63,28 @@ export const NOTES: { slug: NoteSlug; published: string }[] = [
   { slug: "fail-closed-deployments", published: "2026-09-01" },
 ]
 
-/** What a visitor can ask for in the contact form; the value is sent with the message. */
-export type InterestKey = "diagnose" | "build" | "run" | "other"
+/** Repeatable systems we sell, each grown out of real client or open-source work. */
+export type ProductKey = "sii" | "previred" | "bids" | "energy"
 
-export const INTERESTS: InterestKey[] = ["diagnose", "build", "run", "other"]
+export const PRODUCTS: ProductKey[] = ["sii", "previred", "bids", "energy"]
+
+/** What a visitor can ask for in the contact form; the value is sent with the message. */
+export type InterestKey = "diagnose" | "build" | "products" | "run" | "other"
+
+export const INTERESTS: InterestKey[] = ["diagnose", "build", "products", "run", "other"]
+
+/** The hero photograph: a stock image, credited, never presented as client work. */
+export const HERO_PHOTO = {
+  src1600: "/hero-solar-1600.webp",
+  src1000: "/hero-solar-1000.webp",
+  credit: "Manny Becerra",
+  creditHref: "https://unsplash.com/photos/a-large-array-of-solar-panels-in-a-desert-Ss73u_UKr3U",
+} as const
 
 export const CONTACT_INFO = {
   formEmail: "dostertags@fen.uchile.cl",
   githubHref: "https://github.com/dostertags",
+  linkedinHref: "https://www.linkedin.com/in/diego-ostertag-79ab1688/",
   whatsappNumber: "56976953752",
 } as const
 
@@ -81,11 +95,12 @@ export const FOOTER_INFO = {
 /**
  * The page's sections in order, and the single source of both navigations.
  */
-export type SectionId = "services" | "work" | "notes" | "contact"
+export type SectionId = "services" | "work" | "products" | "notes" | "contact"
 
 export const NAV_SECTIONS: { id: SectionId }[] = [
   { id: "services" },
   { id: "work" },
+  { id: "products" },
   { id: "notes" },
   { id: "contact" },
 ]

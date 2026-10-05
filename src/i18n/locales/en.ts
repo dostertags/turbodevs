@@ -9,6 +9,7 @@ export const en: Dictionary = {
   nav: {
     services: "Services",
     work: "Work",
+    products: "Products",
     notes: "Notes",
     contact: "Contact",
     cta: "Talk to us",
@@ -23,6 +24,8 @@ export const en: Dictionary = {
     ctaPrimary: "Talk to us",
     ctaSecondary: "See the work",
     clientsLabel: "In production with",
+    photoAlt: "Rows of solar panels across a desert, with mountains behind.",
+    photoCredit: "Photo",
   },
   problem: {
     eyebrow: "The problem",
@@ -131,6 +134,34 @@ export const en: Dictionary = {
       },
     },
   },
+  products: {
+    eyebrow: "Products",
+    title: "Some problems we have solved more than once.",
+    paragraph: "Ready-made systems grown out of our client and open-source work, set up for your company instead of built from scratch.",
+    requestLabel: "Request access",
+    items: {
+      sii: {
+        name: "SII automation",
+        line: "Your company's workflows with Chile's tax authority, automated through a CLI and API — read-only by default.",
+        basis: "Built on our open-source sii project, with 1,178 hermetic tests.",
+      },
+      previred: {
+        name: "Previred automation",
+        line: "Pension-contribution workflows on Previred, automated and read-only, with payments impossible by design.",
+        basis: "Built on our open-source previred project.",
+      },
+      bids: {
+        name: "Bid responder",
+        line: "Answers private bids and procurement requests automatically, so opportunities are not lost in an inbox.",
+        basis: "In production at Sainz Intec.",
+      },
+      energy: {
+        name: "Energy reporting",
+        line: "Daily KPI reports for solar and battery assets, with every number checked before the report goes out.",
+        basis: "Built from our battery-storage reporting engagement.",
+      },
+    },
+  },
   notes: {
     eyebrow: "Notes",
     title: "How we build, written down.",
@@ -196,6 +227,7 @@ export const en: Dictionary = {
     interests: {
       diagnose: "Diagnosing a process",
       build: "Building an automation or AI agent",
+      products: "One of our products",
       run: "Running and supporting an existing system",
       other: "Something else",
     },

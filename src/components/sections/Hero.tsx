@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/Button"
-import { DayStrip } from "@/components/DayStrip"
-import { CLIENT_NAMES } from "@/content/site"
+import { CLIENT_NAMES, HERO_PHOTO } from "@/content/site"
 import { useI18n } from "@/i18n/LanguageContext"
 import { track } from "@/lib/track"
 
@@ -33,9 +32,31 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="mt-16 sm:mt-20">
-        <DayStrip />
-      </div>
+      {/*
+        A credited stock photograph, not a client's site: it sets the scene
+        (utility-scale solar) without claiming to be our work. The light warm
+        grade pulls the sky toward the page's paper-and-bronze palette.
+      */}
+      <figure className="mt-14 sm:mt-16">
+        <picture>
+          <source media="(min-width: 700px)" srcSet={HERO_PHOTO.src1600} width={1600} height={690} />
+          <img
+            src={HERO_PHOTO.src1000}
+            width={1000}
+            height={560}
+            alt={t.hero.photoAlt}
+            decoding="async"
+            className="aspect-[16/9] w-full rounded-2xl bg-surface-2 object-cover [filter:grayscale(0.35)_sepia(0.18)_contrast(1.02)] sm:aspect-[21/9]"
+          />
+        </picture>
+        <figcaption className="mt-2 text-[12px] text-muted">
+          {t.hero.photoCredit}:{" "}
+          <a href={HERO_PHOTO.creditHref} target="_blank" rel="noreferrer" className="underline-offset-2 hover:underline">
+            {HERO_PHOTO.credit} / Unsplash
+            <span className="sr-only"> ({t.a11y.newTab})</span>
+          </a>
+        </figcaption>
+      </figure>
 
       <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-baseline sm:gap-8">
         <p className="shrink-0 text-[13px] font-medium text-muted">{t.hero.clientsLabel}</p>

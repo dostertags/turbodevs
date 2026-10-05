@@ -1,4 +1,4 @@
-import type { CaseKey, InterestKey, NoteSlug, OpenSourceSlug } from "@/content/site"
+import type { CaseKey, InterestKey, NoteSlug, OpenSourceSlug, ProductKey } from "@/content/site"
 
 export type NoteCopy = {
   title: string
@@ -32,6 +32,7 @@ export type Dictionary = {
   nav: {
     services: string
     work: string
+    products: string
     notes: string
     contact: string
     cta: string
@@ -46,6 +47,10 @@ export type Dictionary = {
     ctaSecondary: string
     /** Introduces the row of client names under the hero. */
     clientsLabel: string
+    /** Describes the stock photograph; it must not claim to show a client's site. */
+    photoAlt: string
+    /** Prefix for the photographer credit, e.g. "Photo". */
+    photoCredit: string
   }
   problem: {
     eyebrow: string
@@ -69,6 +74,14 @@ export type Dictionary = {
     openSourceTitle: string
     openSourceIntro: string
     openSource: Record<OpenSourceSlug, { kicker: string; description: string }>
+  }
+  products: {
+    eyebrow: string
+    title: string
+    paragraph: string
+    requestLabel: string
+    /** `basis` says which real work the product grew out of. */
+    items: Record<ProductKey, { name: string; line: string; basis: string }>
   }
   notes: {
     eyebrow: string

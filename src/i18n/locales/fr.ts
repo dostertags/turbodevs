@@ -9,6 +9,7 @@ export const fr: Dictionary = {
   nav: {
     services: "Services",
     work: "Réalisations",
+    products: "Produits",
     notes: "Notes",
     contact: "Contact",
     cta: "Parlez-nous",
@@ -23,6 +24,8 @@ export const fr: Dictionary = {
     ctaPrimary: "Parlez-nous",
     ctaSecondary: "Voir les réalisations",
     clientsLabel: "En production chez",
+    photoAlt: "Rangées de panneaux solaires dans un désert, avec des montagnes en arrière-plan.",
+    photoCredit: "Photo",
   },
   problem: {
     eyebrow: "Le problème",
@@ -132,6 +135,34 @@ export const fr: Dictionary = {
       },
     },
   },
+  products: {
+    eyebrow: "Produits",
+    title: "Des problèmes que nous avons déjà résolus plus d'une fois.",
+    paragraph: "Des systèmes prêts à l'emploi, issus de notre travail pour des clients et de nos projets open source, adaptés à votre entreprise plutôt que construits de zéro.",
+    requestLabel: "Demander l'accès",
+    items: {
+      sii: {
+        name: "Automatisation SII",
+        line: "Les démarches de votre entreprise auprès de l'administration fiscale chilienne, automatisées via une CLI et une API — en lecture seule par défaut.",
+        basis: "Fondé sur notre projet open source sii, avec 1 178 tests hermétiques.",
+      },
+      previred: {
+        name: "Automatisation Previred",
+        line: "Les cotisations de retraite sur Previred, automatisées et en lecture seule, avec des paiements impossibles par construction.",
+        basis: "Fondé sur notre projet open source previred.",
+      },
+      bids: {
+        name: "Réponse aux appels d'offres",
+        line: "Répond automatiquement aux appels d'offres privés et aux demandes d'achat, pour qu'aucune opportunité ne se perde dans une boîte de réception.",
+        basis: "En production chez Sainz Intec.",
+      },
+      energy: {
+        name: "Reporting énergétique",
+        line: "Des rapports quotidiens de KPI pour les actifs solaires et de batteries, chaque chiffre vérifié avant l'envoi.",
+        basis: "Issu de notre mission de reporting pour le stockage par batteries.",
+      },
+    },
+  },
   notes: {
     eyebrow: "Notes",
     title: "Notre façon de construire, par écrit.",
@@ -197,6 +228,7 @@ export const fr: Dictionary = {
     interests: {
       diagnose: "Diagnostiquer un processus",
       build: "Construire une automatisation ou un agent IA",
+      products: "L'un de nos produits",
       run: "Exploiter et maintenir un système existant",
       other: "Autre chose",
     },
