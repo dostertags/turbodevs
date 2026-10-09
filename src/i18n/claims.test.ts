@@ -8,6 +8,7 @@ import llmsTxt from "../../public/llms.txt?raw"
 
 import type { Dictionary } from "@/i18n/types"
 import { LANGUAGES } from "@/i18n/languages"
+import { STATS } from "@/content/site"
 import { en } from "@/i18n/locales/en"
 import { es } from "@/i18n/locales/es"
 import { pt } from "@/i18n/locales/pt"
@@ -114,10 +115,27 @@ describe("no claim ships without a ledger row", () => {
       ...Object.values(en.work.cases).flatMap((c) => [c.challenge, c.built]),
       ...en.services.stages.flatMap((s) => [s.line, s.body, s.proof ?? ""]),
       ...Object.values(en.products.items).flatMap((p) => [p.line, p.basis]),
+      ...Object.values(en.capabilities.items).flatMap((c) => [c.title, c.body]),
+      ...Object.values(en.industries.items).flatMap((i) => [i.name, i.body]),
+      ...Object.values(en.engagement.items).flatMap((e) => [e.name, e.body]),
     ]
     for (const text of texts) {
       for (const figure of text.match(/\d+(?:[.,]\d+)*/g) ?? []) {
         expect(ledger, `"${figure}" in "${text}" has no ledger row`).toContain(figure)
+      }
+    }
+  })
+})
+
+describe("the figures band", () => {
+  it("every stat value is a ledger row", () => {
+    for (const { value } of STATS) expect(ledger, `no ledger row backs the stat "${value}"`).toContain(value)
+  })
+
+  it("no stat label counts the site's own UI languages", () => {
+    for (const [lang, dict] of ENTRIES) {
+      for (const label of Object.values(dict.stats.items)) {
+        expect(/language|lenguaje|linguagem|langage|lingua|sprache|语言/i.test(label), `${lang}: "${label}"`).toBe(false)
       }
     }
   })

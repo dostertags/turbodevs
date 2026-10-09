@@ -1,28 +1,32 @@
-import { CONTACT_INFO, FOOTER_INFO } from "@/content/site"
+import { CAPABILITIES, CONTACT_INFO, FOOTER_INFO, INDUSTRIES, MEDIA_CREDITS } from "@/content/site"
 import { Mark } from "@/components/sections/Nav"
 import { useI18n } from "@/i18n/LanguageContext"
 
+type FooterLink = { label: string; href: string; external?: boolean }
+
+/** A wide footer that doubles as a map of what the studio does, after palantir.com. */
 export function Footer() {
   const { t } = useI18n()
   const whatsappHref = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent(t.whatsapp.greeting)}`
-  const link = "text-[14px] text-ink/75 transition-colors hover:text-ink"
 
-  const columns = [
+  const columns: { title: string; links: FooterLink[] }[] = [
     {
       title: t.footer.companyTitle,
       links: [
         { label: t.nav.services, href: "#services" },
         { label: t.nav.work, href: "#work" },
         { label: t.nav.products, href: "#products" },
-        { label: t.nav.contact, href: "#contact" },
-      ],
-    },
-    {
-      title: t.footer.writingTitle,
-      links: [
         { label: t.nav.notes, href: "#notes" },
         { label: t.footer.openSourceLabel, href: "#open-source" },
       ],
+    },
+    {
+      title: t.footer.capabilitiesTitle,
+      links: CAPABILITIES.map((key) => ({ label: t.capabilities.items[key].title, href: "#capabilities" })),
+    },
+    {
+      title: t.footer.industriesTitle,
+      links: INDUSTRIES.map((key) => ({ label: t.industries.items[key].name, href: "#industries" })),
     },
     {
       title: t.footer.contactTitle,
@@ -37,7 +41,7 @@ export function Footer() {
 
   return (
     <footer className="mx-auto max-w-6xl px-5 sm:px-8">
-      <div className="grid gap-10 border-t border-border py-14 md:grid-cols-[minmax(0,1.2fr)_repeat(3,minmax(0,1fr))]">
+      <div className="grid gap-10 border-t border-border py-14 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.1fr)_repeat(4,minmax(0,1fr))]">
         <div>
           <a href="#top" className="flex items-center gap-2 font-serif text-[20px] text-ink">
             <Mark />
@@ -48,17 +52,17 @@ export function Footer() {
 
         {columns.map((column) => (
           <div key={column.title}>
-            <p className="text-[13px] font-medium text-muted">{column.title}</p>
-            <ul className="mt-3 space-y-2">
+            <p className="text-[12px] font-medium tracking-[0.06em] text-muted uppercase">{column.title}</p>
+            <ul className="mt-4 space-y-2.5">
               {column.links.map((item) => (
-                <li key={item.href}>
+                <li key={item.label}>
                   <a
                     href={item.href}
-                    className={`${link} break-all`}
-                    {...("external" in item && item.external ? { target: "_blank", rel: "noreferrer" } : {})}
+                    className="text-[14px] break-words text-ink/80 transition-colors hover:text-ink"
+                    {...(item.external ? { target: "_blank", rel: "noreferrer" } : {})}
                   >
                     {item.label}
-                    {"external" in item && item.external && <span className="sr-only"> ({t.a11y.newTab})</span>}
+                    {item.external && <span className="sr-only"> ({t.a11y.newTab})</span>}
                   </a>
                 </li>
               ))}
@@ -67,8 +71,12 @@ export function Footer() {
         ))}
       </div>
 
-      <div className="flex flex-col gap-2 border-t border-border py-6 text-[13px] text-muted sm:flex-row sm:justify-between">
+      <div className="flex flex-col gap-3 border-t border-border py-6 text-[12.5px] text-muted lg:flex-row lg:items-start lg:justify-between">
         <p>© {new Date().getFullYear()} TurboDevs</p>
+        <p data-testid="media-credits" className="max-w-[70ch] lg:text-right">
+          {t.footer.footageLabel}: {MEDIA_CREDITS.footage.join(", ")} / {MEDIA_CREDITS.footageSource}. {t.footer.photoLabel}:{" "}
+          {MEDIA_CREDITS.photo} / {MEDIA_CREDITS.photoSource}.
+        </p>
         <a href={FOOTER_INFO.repoHref} target="_blank" rel="noreferrer" className="hover:text-ink">
           {t.footer.sourceLabel}
           <span className="sr-only"> ({t.a11y.newTab})</span>

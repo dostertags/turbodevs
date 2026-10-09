@@ -3,7 +3,7 @@ import { forwardRef } from "react"
 import { cn } from "@/lib/utils"
 
 type ButtonProps = React.ComponentProps<"a"> & {
-  variant?: "primary" | "secondary"
+  variant?: "primary" | "secondary" | "inverse" | "outline-inverse"
   size?: "default" | "small"
 }
 
@@ -13,6 +13,9 @@ const base =
 const variants = {
   primary: "bg-ink text-bg hover:bg-ink-hover",
   secondary: "bg-surface-2 text-ink hover:bg-border",
+  // For use over dark footage and dark bands.
+  inverse: "bg-bg text-ink hover:bg-surface",
+  "outline-inverse": "border border-bg/45 text-bg hover:border-bg hover:bg-bg/10",
 }
 
 const sizes = {

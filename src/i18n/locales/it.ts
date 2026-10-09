@@ -24,8 +24,15 @@ export const it: Dictionary = {
     ctaPrimary: "Parla con noi",
     ctaSecondary: "Guarda i lavori",
     clientsLabel: "In produzione con",
-    photoAlt: "File di pannelli solari in un deserto, con montagne sullo sfondo.",
-    photoCredit: "Foto",
+  },
+  stats: {
+    eyebrow: "In numeri",
+    items: {
+      tests: "test automatizzati alla base dei nostri sistemi per l'autorità fiscale e per la reportistica energetica",
+      systems: "sistemi di clienti in produzione che abbiamo costruito o a cui contribuiamo",
+      portals: "portali governativi cileni automatizzati: SII e Previred",
+      uptime: "di operatività per i sistemi che gestiamo",
+    },
   },
   problem: {
     eyebrow: "Il problema",
@@ -134,6 +141,99 @@ export const it: Dictionary = {
       },
     },
   },
+  capabilities: {
+    eyebrow: "Competenze",
+    title: "Cosa costruiamo, dall'inizio alla fine.",
+    paragraph: "Dalla prima mappatura di un flusso di lavoro al sistema in produzione: sviluppo software e consulenza IT dallo stesso team.",
+    items: {
+      automation: {
+        title: "Automazione dei processi",
+        body: "Il lavoro ripetitivo su portali, fogli di calcolo e caselle di posta, sostituito da software che funziona da solo e registra ogni passaggio.",
+      },
+      software: {
+        title: "Software su misura e piattaforme web",
+        body: "Applicazioni web, strumenti interni e piattaforme rivolte ai clienti, costruiti in TypeScript e Python e rilasciati con i test.",
+      },
+      ai: {
+        title: "Agenti AI, ancorati ai fatti",
+        body: "Agenti e assistenti che lavorano sui tuoi documenti e dati, con ogni cifra verificata rispetto alla fonte prima di uscire.",
+      },
+      data: {
+        title: "Pipeline di dati e reportistica",
+        body: "Pipeline che raccolgono, puliscono e calcolano i tuoi KPI, e i report generati a partire da essi ogni giorno.",
+      },
+      integration: {
+        title: "Integrazione di sistemi e API",
+        body: "Collegamenti tra i sistemi che usi già — portali, ERP, provider di pagamento, blockchain — tramite API stabili.",
+      },
+      cloud: {
+        title: "Deployment cloud e DevOps",
+        body: "Infrastruttura, pipeline CI e rilasci configurati in modo che ogni modifica sia testata prima di arrivare in produzione.",
+      },
+      monitoring: {
+        title: "Monitoraggio e alert",
+        body: "Controlli che si accorgono quando un job pianificato non è stato eseguito o un numero non torna, e avvisano il tuo team.",
+      },
+      security: {
+        title: "Rafforzamento della sicurezza",
+        body: "Controlli di configurazione, accessi limitati e impostazioni predefinite sicure, così un sistema non può avviarsi in uno stato non sicuro.",
+      },
+    },
+  },
+  industries: {
+    eyebrow: "Settori",
+    title: "Dove gira oggi il nostro software.",
+    items: {
+      energy: {
+        name: "Energia",
+        body: "Impianti solari e di accumulo a batteria: software per le stazioni e reportistica giornaliera delle prestazioni.",
+      },
+      government: {
+        name: "Pubblica amministrazione e compliance",
+        body: "Automazione dei portali fiscali e pensionistici cileni, SII e Previred, in sola lettura per impostazione predefinita.",
+      },
+      procurement: {
+        name: "Acquisti industriali",
+        body: "Gare private e richieste di acquisto, con risposta automatica.",
+      },
+      hospitality: {
+        name: "Ospitalità",
+        body: "Siti web per ristoranti, consegnati in fretta e mantenuti aggiornati.",
+      },
+      web3: {
+        name: "Web3 e pagamenti",
+        body: "Marketplace wallet-native e verifica dei pagamenti on-chain su Stellar.",
+      },
+      hr: {
+        name: "Risorse umane e recruiting",
+        body: "Piattaforme per candidature di lavoro con matching dei candidati e pagamenti.",
+      },
+    },
+    photoAlt: "File di pannelli solari in un deserto, con montagne sullo sfondo.",
+  },
+  engagement: {
+    eyebrow: "Come collaborare con noi",
+    title: "Inizia da un processo, o affidaci l'intero sistema.",
+    items: {
+      diagnostic: {
+        name: "Diagnosi",
+        body: "Una valutazione breve e a perimetro fisso di un processo: quanto costa oggi, cosa automatizzare per primo e un piano scritto.",
+      },
+      project: {
+        name: "Progetto",
+        body: "Un sistema definito, costruito e consegnato secondo un perimetro concordato, con test e documentazione.",
+      },
+      team: {
+        name: "Team integrato",
+        body: "I nostri ingegneri al lavoro dentro la tua operatività, al fianco delle persone che la gestiscono.",
+      },
+      operation: {
+        name: "Gestione operativa",
+        body: "Gestiamo ciò che abbiamo costruito: monitoraggio, report e correzioni, con un unico referente.",
+      },
+    },
+    cta: "Parlaci del tuo processo",
+  },
   products: {
     eyebrow: "Prodotti",
     title: "Problemi che abbiamo già risolto più di una volta.",
@@ -240,6 +340,10 @@ export const it: Dictionary = {
     directLabel: "Oppure scrivici direttamente",
   },
   footer: {
+    industriesTitle: "Settori",
+    capabilitiesTitle: "Competenze",
+    footageLabel: "Filmato",
+    photoLabel: "Foto",
     companyTitle: "Azienda",
     writingTitle: "Articoli",
     contactTitle: "Contatti",
@@ -254,5 +358,7 @@ export const it: Dictionary = {
     skipToContent: "Vai al contenuto",
     newTab: "si apre in una nuova scheda",
     selectLanguage: "Seleziona lingua",
+    pauseVideo: "Metti in pausa il video di sfondo",
+    playVideo: "Riproduci il video di sfondo",
   },
 }

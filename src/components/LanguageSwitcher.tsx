@@ -37,15 +37,15 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-[12px] font-semibold tracking-[0.03em] text-ink transition-colors hover:border-border-strong"
+        className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-current/25 px-3 py-1.5 text-[12px] font-semibold tracking-[0.03em] transition-colors hover:border-current/60"
       >
-        <Globe aria-hidden="true" className="size-3.5 text-muted" />
+        <Globe aria-hidden="true" className="size-3.5 opacity-70" />
         {current?.label}
       </button>
 
       {open && (
         <div className="absolute top-full right-0 z-50 mt-2 max-h-[70vh] w-40 overflow-y-auto rounded-xl">
-          <ul role="listbox" aria-label={t.a11y.selectLanguage} className="rounded-xl border border-border bg-bg py-1.5 shadow-[0_12px_32px_rgba(23,21,15,0.12)]">
+          <ul role="listbox" aria-label={t.a11y.selectLanguage} className="rounded-xl border border-border bg-bg py-1.5 text-ink shadow-[0_12px_32px_rgba(23,21,15,0.12)]">
             {options.map((l) => (
               <li key={l.code}>
                 <button

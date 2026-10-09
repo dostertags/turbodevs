@@ -1,4 +1,14 @@
-import type { CaseKey, InterestKey, NoteSlug, OpenSourceSlug, ProductKey } from "@/content/site"
+import type {
+  CapabilityKey,
+  CaseKey,
+  EngagementKey,
+  IndustryKey,
+  InterestKey,
+  NoteSlug,
+  OpenSourceSlug,
+  ProductKey,
+  StatKey,
+} from "@/content/site"
 
 export type NoteCopy = {
   title: string
@@ -47,10 +57,11 @@ export type Dictionary = {
     ctaSecondary: string
     /** Introduces the row of client names under the hero. */
     clientsLabel: string
-    /** Describes the stock photograph; it must not claim to show a client's site. */
-    photoAlt: string
-    /** Prefix for the photographer credit, e.g. "Photo". */
-    photoCredit: string
+  }
+  /** The dark band of figures. Every value is a ledger row; labels say exactly what is counted. */
+  stats: {
+    eyebrow: string
+    items: Record<StatKey, string>
   }
   problem: {
     eyebrow: string
@@ -74,6 +85,25 @@ export type Dictionary = {
     openSourceTitle: string
     openSourceIntro: string
     openSource: Record<OpenSourceSlug, { kicker: string; description: string }>
+  }
+  capabilities: {
+    eyebrow: string
+    title: string
+    paragraph: string
+    items: Record<CapabilityKey, { title: string; body: string }>
+  }
+  industries: {
+    eyebrow: string
+    title: string
+    items: Record<IndustryKey, { name: string; body: string }>
+    /** Describes the stock photograph; it must not claim to show a client's site. */
+    photoAlt: string
+  }
+  engagement: {
+    eyebrow: string
+    title: string
+    items: Record<EngagementKey, { name: string; body: string }>
+    cta: string
   }
   products: {
     eyebrow: string
@@ -111,6 +141,10 @@ export type Dictionary = {
     directLabel: string
   }
   footer: {
+    industriesTitle: string
+    capabilitiesTitle: string
+    footageLabel: string
+    photoLabel: string
     companyTitle: string
     writingTitle: string
     contactTitle: string
@@ -131,5 +165,7 @@ export type Dictionary = {
     skipToContent: string
     newTab: string
     selectLanguage: string
+    pauseVideo: string
+    playVideo: string
   }
 }

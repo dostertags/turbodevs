@@ -73,13 +73,71 @@ export type InterestKey = "diagnose" | "build" | "products" | "run" | "other"
 
 export const INTERESTS: InterestKey[] = ["diagnose", "build", "products", "run", "other"]
 
-/** The hero photograph: a stock image, credited, never presented as client work. */
-export const HERO_PHOTO = {
+/**
+ * Stock media. None of it shows a client's site or our team; every file is
+ * credited in the footer and recorded in research/VERIFIED_FACTS.md.
+ */
+export const HERO_VIDEO = {
+  desktop: "/media/hero.mp4",
+  mobile: "/media/hero-mobile.mp4",
+  poster: "/media/hero-poster.webp",
+} as const
+
+/** One clip per service stage, in stage order: diagnose, build, deploy, run. */
+export const STAGE_MEDIA = ["diagnose", "build", "deploy", "run"].map((key) => ({
+  key,
+  video: `/media/${key}.mp4`,
+  poster: `/media/${key}-poster.webp`,
+}))
+
+/** The desert solar photograph, now the banner over the industries list. */
+export const INDUSTRY_PHOTO = {
   src1600: "/hero-solar-1600.webp",
   src1000: "/hero-solar-1000.webp",
   credit: "Manny Becerra",
   creditHref: "https://unsplash.com/photos/a-large-array-of-solar-panels-in-a-desert-Ss73u_UKr3U",
 } as const
+
+export const MEDIA_CREDITS = {
+  footage: ["Roman Odintsov", "Tima Miroshnichenko", "Usman Abdulrasheed Gambo", "MrColo", "Andrey Kirievskiy"],
+  footageSource: "Pexels",
+  photo: "Manny Becerra",
+  photoSource: "Unsplash",
+} as const
+
+export type StatKey = "tests" | "systems" | "portals" | "uptime"
+export const STATS: { key: StatKey; value: string }[] = [
+  { key: "tests", value: "1,800+" },
+  { key: "systems", value: "5" },
+  { key: "portals", value: "2" },
+  { key: "uptime", value: "24/7" },
+]
+
+export type CapabilityKey =
+  | "automation"
+  | "software"
+  | "ai"
+  | "data"
+  | "integration"
+  | "cloud"
+  | "monitoring"
+  | "security"
+export const CAPABILITIES: CapabilityKey[] = [
+  "automation",
+  "software",
+  "ai",
+  "data",
+  "integration",
+  "cloud",
+  "monitoring",
+  "security",
+]
+
+export type IndustryKey = "energy" | "government" | "procurement" | "hospitality" | "web3" | "hr"
+export const INDUSTRIES: IndustryKey[] = ["energy", "government", "procurement", "hospitality", "web3", "hr"]
+
+export type EngagementKey = "diagnostic" | "project" | "team" | "operation"
+export const ENGAGEMENTS: EngagementKey[] = ["diagnostic", "project", "team", "operation"]
 
 export const CONTACT_INFO = {
   formEmail: "dostertags@fen.uchile.cl",

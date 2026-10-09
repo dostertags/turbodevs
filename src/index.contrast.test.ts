@@ -48,6 +48,11 @@ describe("palette contrast", () => {
     { name: "button label on the primary fill", fg: "bg", bg: "ink", min: 4.5 },
     { name: "button label on the primary hover fill", fg: "bg", bg: "ink-hover", min: 4.5 },
     { name: "secondary button label", fg: "ink", bg: "surface-2", min: 4.5 },
+    // Dark bands and the video hero's darkest overlay stop.
+    { name: "paper text on an ink band", fg: "bg", bg: "ink", min: 4.5 },
+    { name: "light accent figures on an ink band", fg: "accent-light", bg: "ink", min: 4.5 },
+    // Inactive service-stage titles (large text, 3:1 minimum).
+    { name: "dimmed large stage titles on the page", fg: "border-strong", bg: "bg", min: 3 },
     // 1.4.11: the visible boundary of a form field.
     { name: "form field border on a card", fg: "border-strong", bg: "surface", min: 3 },
     { name: "form field border on the page", fg: "border-strong", bg: "bg", min: 3 },

@@ -24,8 +24,15 @@ export const en: Dictionary = {
     ctaPrimary: "Talk to us",
     ctaSecondary: "See the work",
     clientsLabel: "In production with",
-    photoAlt: "Rows of solar panels across a desert, with mountains behind.",
-    photoCredit: "Photo",
+  },
+  stats: {
+    eyebrow: "By the numbers",
+    items: {
+      tests: "automated tests behind our tax-authority and energy-reporting systems",
+      systems: "client systems in production that we built or contribute to",
+      portals: "Chilean government portals automated: SII and Previred",
+      uptime: "operation for the systems we run",
+    },
   },
   problem: {
     eyebrow: "The problem",
@@ -134,6 +141,99 @@ export const en: Dictionary = {
       },
     },
   },
+  capabilities: {
+    eyebrow: "Capabilities",
+    title: "What we build, end to end.",
+    paragraph: "From the first map of a workflow to the system running in production: software development and IT consulting by the same team.",
+    items: {
+      automation: {
+        title: "Process automation",
+        body: "Repetitive work on portals, spreadsheets and inboxes, replaced by software that runs on its own and records every step.",
+      },
+      software: {
+        title: "Custom software & web platforms",
+        body: "Web applications, internal tools and customer-facing platforms, built in TypeScript and Python and shipped with tests.",
+      },
+      ai: {
+        title: "AI agents, grounded",
+        body: "Agents and assistants that work on your own documents and data, with every figure checked against the source before it goes out.",
+      },
+      data: {
+        title: "Data pipelines & reporting",
+        body: "Pipelines that collect, clean and compute your KPIs, and the reports generated from them every day.",
+      },
+      integration: {
+        title: "Systems integration & APIs",
+        body: "Connections between the systems you already run — portals, ERPs, payment providers, blockchains — through stable APIs.",
+      },
+      cloud: {
+        title: "Cloud deployment & DevOps",
+        body: "Infrastructure, CI pipelines and releases set up so every change is tested before it reaches production.",
+      },
+      monitoring: {
+        title: "Monitoring & alerting",
+        body: "Checks that notice when a scheduled job did not run or a number does not add up, and alert your team.",
+      },
+      security: {
+        title: "Security hardening",
+        body: "Configuration checks, scoped access and safe defaults, so a system cannot start in an unsafe state.",
+      },
+    },
+  },
+  industries: {
+    eyebrow: "Industries",
+    title: "Where our software runs today.",
+    items: {
+      energy: {
+        name: "Energy",
+        body: "Solar and battery-storage operations: station software and daily performance reporting.",
+      },
+      government: {
+        name: "Government & compliance",
+        body: "Automation of Chile's tax and pension portals, SII and Previred, read-only by default.",
+      },
+      procurement: {
+        name: "Industrial procurement",
+        body: "Private bids and procurement requests, answered automatically.",
+      },
+      hospitality: {
+        name: "Hospitality",
+        body: "Restaurant websites shipped fast and kept current.",
+      },
+      web3: {
+        name: "Web3 & payments",
+        body: "Wallet-native marketplaces and on-chain payment verification on Stellar.",
+      },
+      hr: {
+        name: "HR & recruiting",
+        body: "Job-application platforms with candidate matching and payments.",
+      },
+    },
+    photoAlt: "Rows of solar panels across a desert, with mountains behind.",
+  },
+  engagement: {
+    eyebrow: "Ways to work with us",
+    title: "Start with one process, or hand us the whole system.",
+    items: {
+      diagnostic: {
+        name: "Diagnostic",
+        body: "A short, fixed-scope assessment of one process: what it costs today, what to automate first, and a written plan.",
+      },
+      project: {
+        name: "Project",
+        body: "A defined system, built and delivered against an agreed scope, with tests and documentation.",
+      },
+      team: {
+        name: "Embedded team",
+        body: "Our engineers working inside your operation, alongside the people who run it.",
+      },
+      operation: {
+        name: "Managed operation",
+        body: "We run what we built: monitoring, reports and fixes, with one point of contact.",
+      },
+    },
+    cta: "Talk to us about your process",
+  },
   products: {
     eyebrow: "Products",
     title: "Some problems we have solved more than once.",
@@ -240,6 +340,10 @@ export const en: Dictionary = {
     directLabel: "Or write to us directly",
   },
   footer: {
+    industriesTitle: "Industries",
+    capabilitiesTitle: "Capabilities",
+    footageLabel: "Footage",
+    photoLabel: "Photo",
     companyTitle: "Company",
     writingTitle: "Writing",
     contactTitle: "Contact",
@@ -254,5 +358,7 @@ export const en: Dictionary = {
     skipToContent: "Skip to content",
     newTab: "opens in new tab",
     selectLanguage: "Select language",
+    pauseVideo: "Pause background video",
+    playVideo: "Play background video",
   },
 }

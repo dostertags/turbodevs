@@ -24,8 +24,15 @@ export const de: Dictionary = {
     ctaPrimary: "Sprechen Sie uns an",
     ctaSecondary: "Projekte ansehen",
     clientsLabel: "Im Einsatz bei",
-    photoAlt: "Reihen von Solarmodulen in einer Wüste, im Hintergrund Berge.",
-    photoCredit: "Foto",
+  },
+  stats: {
+    eyebrow: "In Zahlen",
+    items: {
+      tests: "automatisierte Tests hinter unseren Systemen für Steuerbehörde und Energie-Reporting",
+      systems: "Kundensysteme in Produktion, die wir gebaut haben oder mitentwickeln",
+      portals: "automatisierte chilenische Behördenportale: SII und Previred",
+      uptime: "Betrieb der Systeme, die wir betreuen",
+    },
   },
   problem: {
     eyebrow: "Das Problem",
@@ -134,6 +141,99 @@ export const de: Dictionary = {
       },
     },
   },
+  capabilities: {
+    eyebrow: "Kompetenzen",
+    title: "Was wir bauen, von Anfang bis Ende.",
+    paragraph: "Von der ersten Analyse eines Ablaufs bis zum System in Produktion: Softwareentwicklung und IT-Beratung aus einem Team.",
+    items: {
+      automation: {
+        title: "Prozessautomatisierung",
+        body: "Wiederkehrende Arbeit in Portalen, Tabellen und Postfächern, ersetzt durch Software, die selbstständig läuft und jeden Schritt protokolliert.",
+      },
+      software: {
+        title: "Individualsoftware & Webplattformen",
+        body: "Webanwendungen, interne Tools und Plattformen für Ihre Kunden, gebaut in TypeScript und Python und mit Tests ausgeliefert.",
+      },
+      ai: {
+        title: "KI-Agenten mit Faktenbasis",
+        body: "Agenten und Assistenten, die mit Ihren eigenen Dokumenten und Daten arbeiten; jede Zahl wird vor dem Versand gegen die Quelle geprüft.",
+      },
+      data: {
+        title: "Datenpipelines & Reporting",
+        body: "Pipelines, die Ihre KPIs erfassen, bereinigen und berechnen, und die täglich daraus erzeugten Berichte.",
+      },
+      integration: {
+        title: "Systemintegration & APIs",
+        body: "Verbindungen zwischen Ihren bestehenden Systemen — Portale, ERPs, Zahlungsanbieter, Blockchains — über stabile APIs.",
+      },
+      cloud: {
+        title: "Cloud-Deployment & DevOps",
+        body: "Infrastruktur, CI-Pipelines und Releases, so eingerichtet, dass jede Änderung getestet ist, bevor sie in Produktion geht.",
+      },
+      monitoring: {
+        title: "Monitoring & Alarmierung",
+        body: "Prüfungen, die bemerken, wenn ein geplanter Job nicht lief oder eine Zahl nicht aufgeht, und Ihr Team alarmieren.",
+      },
+      security: {
+        title: "Sicherheitshärtung",
+        body: "Konfigurationsprüfungen, eingeschränkte Zugriffe und sichere Standardwerte, damit ein System nicht in einem unsicheren Zustand starten kann.",
+      },
+    },
+  },
+  industries: {
+    eyebrow: "Branchen",
+    title: "Wo unsere Software heute läuft.",
+    items: {
+      energy: {
+        name: "Energie",
+        body: "Solar- und Batteriespeicherbetrieb: Stationssoftware und tägliche Leistungsberichte.",
+      },
+      government: {
+        name: "Behörden & Compliance",
+        body: "Automatisierung der chilenischen Steuer- und Rentenportale SII und Previred, standardmäßig nur lesend.",
+      },
+      procurement: {
+        name: "Industrielle Beschaffung",
+        body: "Private Ausschreibungen und Beschaffungsanfragen, automatisch beantwortet.",
+      },
+      hospitality: {
+        name: "Gastgewerbe",
+        body: "Restaurant-Websites, schnell umgesetzt und aktuell gehalten.",
+      },
+      web3: {
+        name: "Web3 & Zahlungen",
+        body: "Wallet-native Marketplaces und On-Chain-Zahlungsprüfung auf Stellar.",
+      },
+      hr: {
+        name: "HR & Recruiting",
+        body: "Plattformen für Jobbewerbungen mit Kandidaten-Matching und Zahlungen.",
+      },
+    },
+    photoAlt: "Reihen von Solarmodulen in einer Wüste, im Hintergrund Berge.",
+  },
+  engagement: {
+    eyebrow: "Zusammenarbeit",
+    title: "Beginnen Sie mit einem Prozess oder übergeben Sie uns das ganze System.",
+    items: {
+      diagnostic: {
+        name: "Diagnose",
+        body: "Eine kurze Analyse eines Prozesses mit festem Umfang: was er heute kostet, was zuerst automatisiert werden sollte, und ein schriftlicher Plan.",
+      },
+      project: {
+        name: "Projekt",
+        body: "Ein klar definiertes System, gebaut und geliefert nach vereinbartem Umfang, mit Tests und Dokumentation.",
+      },
+      team: {
+        name: "Eingebettetes Team",
+        body: "Unsere Engineers arbeiten direkt in Ihrem Betrieb, gemeinsam mit den Menschen, die ihn führen.",
+      },
+      operation: {
+        name: "Betrieb als Service",
+        body: "Wir betreiben, was wir gebaut haben: Monitoring, Berichte und Fehlerbehebung, mit einem festen Ansprechpartner.",
+      },
+    },
+    cta: "Sprechen Sie mit uns über Ihren Prozess",
+  },
   products: {
     eyebrow: "Produkte",
     title: "Probleme, die wir schon mehr als einmal gelöst haben.",
@@ -240,6 +340,10 @@ export const de: Dictionary = {
     directLabel: "Oder schreiben Sie uns direkt",
   },
   footer: {
+    industriesTitle: "Branchen",
+    capabilitiesTitle: "Kompetenzen",
+    footageLabel: "Videomaterial",
+    photoLabel: "Foto",
     companyTitle: "Unternehmen",
     writingTitle: "Beiträge",
     contactTitle: "Kontakt",
@@ -254,5 +358,7 @@ export const de: Dictionary = {
     skipToContent: "Zum Inhalt springen",
     newTab: "wird in neuem Tab geöffnet",
     selectLanguage: "Sprache auswählen",
+    pauseVideo: "Hintergrundvideo pausieren",
+    playVideo: "Hintergrundvideo abspielen",
   },
 }

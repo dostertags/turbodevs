@@ -24,8 +24,15 @@ export const zh: Dictionary = {
     ctaPrimary: "联系我们",
     ctaSecondary: "查看作品",
     clientsLabel: "已在以下客户的生产环境中运行",
-    photoAlt: "沙漠中一排排的太阳能电池板，远处是群山。",
-    photoCredit: "摄影",
+  },
+  stats: {
+    eyebrow: "数据一览",
+    items: {
+      tests: "支撑我们税务机关与能源报告系统的自动化测试",
+      systems: "由我们构建或参与贡献、已投入生产的客户系统",
+      portals: "已实现自动化的智利政府门户：SII 和 Previred",
+      uptime: "我们所运营系统的持续运行",
+    },
   },
   problem: {
     eyebrow: "问题所在",
@@ -133,6 +140,99 @@ export const zh: Dictionary = {
       },
     },
   },
+  capabilities: {
+    eyebrow: "能力",
+    title: "我们构建的，端到端全覆盖。",
+    paragraph: "从第一次梳理工作流程，到系统在生产环境中运行：软件开发与 IT 咨询，由同一支团队完成。",
+    items: {
+      automation: {
+        title: "流程自动化",
+        body: "门户网站、电子表格和收件箱中的重复性工作，由能够自主运行并记录每一步的软件取而代之。",
+      },
+      software: {
+        title: "定制软件与 Web 平台",
+        body: "Web 应用、内部工具和面向客户的平台，使用 TypeScript 和 Python 构建，交付时附带测试。",
+      },
+      ai: {
+        title: "有据可依的 AI 智能体",
+        body: "基于你自己的文档和数据工作的智能体与助手，每一个数字在发出前都会与来源进行核对。",
+      },
+      data: {
+        title: "数据流水线与报告",
+        body: "采集、清洗并计算你的 KPI 的数据流水线，以及每天据此生成的报告。",
+      },
+      integration: {
+        title: "系统集成与 API",
+        body: "通过稳定的 API，连接你已在运行的各个系统——门户网站、ERP、支付服务商、区块链。",
+      },
+      cloud: {
+        title: "云部署与 DevOps",
+        body: "基础设施、CI 流水线和发布流程的搭建，确保每一次变更在进入生产环境前都经过测试。",
+      },
+      monitoring: {
+        title: "监控与告警",
+        body: "当计划任务没有运行或某个数字对不上时及时察觉，并向你的团队发出告警的检查机制。",
+      },
+      security: {
+        title: "安全加固",
+        body: "配置检查、限定范围的访问权限和安全的默认设置，让系统无法在不安全的状态下启动。",
+      },
+    },
+  },
+  industries: {
+    eyebrow: "行业",
+    title: "我们的软件如今运行在这些领域。",
+    items: {
+      energy: {
+        name: "能源",
+        body: "太阳能与电池储能运营：储能站软件与每日性能报告。",
+      },
+      government: {
+        name: "政务与合规",
+        body: "智利税务与养老金门户（SII 和 Previred）的自动化，默认只读。",
+      },
+      procurement: {
+        name: "工业采购",
+        body: "私人招标和采购请求，自动得到回复。",
+      },
+      hospitality: {
+        name: "餐饮",
+        body: "快速上线并持续更新的餐厅网站。",
+      },
+      web3: {
+        name: "Web3 与支付",
+        body: "基于 Stellar 的钱包原生市场与链上支付验证。",
+      },
+      hr: {
+        name: "人力资源与招聘",
+        body: "具备候选人匹配与支付功能的求职平台。",
+      },
+    },
+    photoAlt: "沙漠中一排排的太阳能电池板，远处是群山。",
+  },
+  engagement: {
+    eyebrow: "合作方式",
+    title: "从一个流程开始，或将整个系统交给我们。",
+    items: {
+      diagnostic: {
+        name: "诊断",
+        body: "针对单一流程的简短、范围固定的评估：它目前的成本、应当优先自动化什么，以及一份书面计划。",
+      },
+      project: {
+        name: "项目",
+        body: "一个明确定义的系统，按照约定范围构建并交付，附带测试和文档。",
+      },
+      team: {
+        name: "嵌入式团队",
+        body: "我们的工程师在你的运营内部工作，与负责运营的人员并肩协作。",
+      },
+      operation: {
+        name: "托管运营",
+        body: "我们运营自己构建的系统：监控、报告和修复，由单一联系人对接。",
+      },
+    },
+    cta: "和我们聊聊你的流程",
+  },
   products: {
     eyebrow: "产品",
     title: "有些问题，我们已经解决过不止一次。",
@@ -239,6 +339,10 @@ export const zh: Dictionary = {
     directLabel: "或直接写信给我们",
   },
   footer: {
+    industriesTitle: "行业",
+    capabilitiesTitle: "能力",
+    footageLabel: "视频素材",
+    photoLabel: "摄影",
     companyTitle: "公司",
     writingTitle: "文章",
     contactTitle: "联系",
@@ -253,5 +357,7 @@ export const zh: Dictionary = {
     skipToContent: "跳转到主要内容",
     newTab: "在新标签页中打开",
     selectLanguage: "选择语言",
+    pauseVideo: "暂停背景视频",
+    playVideo: "播放背景视频",
   },
 }

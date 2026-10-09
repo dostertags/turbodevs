@@ -25,9 +25,10 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const solid = scrolled || open
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
+    const onScroll = () => setScrolled(window.scrollY > 40)
     onScroll()
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
@@ -50,14 +51,19 @@ export function Nav() {
   }, [open])
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-200",
-        scrolled || open ? "border-border bg-bg/92 backdrop-blur-md" : "border-transparent bg-bg/0",
-      )}
-    >
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-        <a href="#top" className="flex items-center gap-2 font-serif text-[20px] text-ink">
+    // Over the dark video hero the bar is transparent with paper text; once the
+    // page scrolls (or the drawer opens) it becomes a floating pill, as on
+    // palantir.com, with ink text on a paper surface.
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4">
+      <nav
+        className={cn(
+          "mx-auto flex h-14 max-w-6xl items-center justify-between rounded-2xl border px-4 transition-[background-color,border-color,color,box-shadow] duration-300 sm:px-5",
+          solid
+            ? "border-border bg-bg/92 text-ink shadow-[0_8px_30px_rgba(23,21,15,0.08)] backdrop-blur-md"
+            : "border-transparent bg-transparent text-bg",
+        )}
+      >
+        <a href="#top" className="flex items-center gap-2 font-serif text-[20px]">
           <Mark />
           TurboDevs
         </a>
@@ -68,7 +74,7 @@ export function Nav() {
               <a
                 href={"#" + item.id}
                 onClick={() => track("nav_click", { id: item.id })}
-                className="inline-block py-2 text-[14px] text-ink/75 transition-colors hover:text-ink"
+                className="inline-block py-2 text-[14px] opacity-75 transition-opacity hover:opacity-100"
               >
                 {t.nav[item.id]}
               </a>
@@ -78,7 +84,12 @@ export function Nav() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <LanguageSwitcher />
-          <Button href="#contact" size="small" onClick={() => track("cta_click", { id: "nav_cta" })}>
+          <Button
+            href="#contact"
+            size="small"
+            variant={solid ? "primary" : "inverse"}
+            onClick={() => track("cta_click", { id: "nav_cta" })}
+          >
             {t.nav.cta}
           </Button>
         </div>
@@ -91,7 +102,7 @@ export function Nav() {
             aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex size-10 items-center justify-center rounded-full text-ink"
+            className="inline-flex size-10 items-center justify-center rounded-full"
           >
             {open ? <X className="size-5" aria-hidden="true" /> : <Menu className="size-5" aria-hidden="true" />}
           </button>
@@ -105,7 +116,7 @@ export function Nav() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="overflow-hidden border-t border-border bg-bg lg:hidden"
+            className="mx-auto mt-2 max-w-6xl overflow-hidden rounded-2xl border border-border bg-bg text-ink shadow-[0_8px_30px_rgba(23,21,15,0.12)] lg:hidden"
           >
             <ul className="flex flex-col gap-1 px-5 py-4">
               {NAV_SECTIONS.map((item) => (

@@ -40,3 +40,9 @@ if (typeof globalThis.IntersectionObserver === "undefined") {
   globalThis.IntersectionObserver = NoopIntersectionObserver
   window.IntersectionObserver = NoopIntersectionObserver
 }
+
+// jsdom doesn't implement media playback: `play()` returns undefined instead
+// of a promise and logs "not implemented". The video hero and the service
+// clips call both, so they get the browser's shape here.
+Object.defineProperty(HTMLMediaElement.prototype, "play", { configurable: true, value: () => Promise.resolve() })
+Object.defineProperty(HTMLMediaElement.prototype, "pause", { configurable: true, value: () => {} })

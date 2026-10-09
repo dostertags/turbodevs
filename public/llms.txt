@@ -9,6 +9,14 @@
 3. Deploy — connect to the portals, files and data sources the team already uses, and work alongside the people who run them.
 4. Run — operate what we build: monitoring, daily reports and a check on every output.
 
+## Capabilities
+
+Process automation; custom software and web platforms; AI agents grounded in the client's own data; data pipelines and reporting; systems integration and APIs; cloud deployment and DevOps; monitoring and alerting; security hardening.
+
+## Industries
+
+Energy (solar and battery storage), government and compliance (Chile's SII and Previred), industrial procurement, hospitality, Web3 and payments, HR and recruiting.
+
 ## Client work
 
 - Quorelia (energy) — the software behind a solar battery station that operates day and night.
